@@ -1,14 +1,13 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import StyledHeroSection from "../components/HeroSection"
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
+    <StyledHeroSection />
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}></div>
   </Layout>
 )
