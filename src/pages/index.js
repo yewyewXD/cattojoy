@@ -1,15 +1,20 @@
 import React from "react"
 
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import SEO from "../components/seo"
-import StyledHeroSection from "../components/HeroSection"
+import HeroSection from "../components/Home/HeroSection"
+import FeatureSection from "../components/Home/FeatureSection"
+import CallToAction from "../components/CallToAction"
+import BlogSection from "../components/Home/BlogSection"
 
-const IndexPage = () => (
+const HomePage = () => (
   <Layout>
-    <SEO title="Home" />
-    <StyledHeroSection />
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}></div>
+    <SEO title="Homey" description="Welcome to Catto Joy" />
+    <HeroSection />
+    <FeatureSection />
+    <CallToAction />
+    <BlogSection />
   </Layout>
 )
 
-export default IndexPage
+export default HomePage

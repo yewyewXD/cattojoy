@@ -18,7 +18,15 @@ export default function HeroSection() {
 
   return (
     <BackgroundImage Tag="section" fluid={data.images.childImageSharp.fluid}>
-      <h2 style={{ height: "100vh" }}>gatsby-background-image</h2>
+      <div className="hero__caption text-center">
+        <div className="hero__caption__title heading text-capitalize mb-2">
+          welcome to catto joy
+        </div>
+        <div className="hero__caption__subtitle">
+          Bring the best joy to your kitty with our innovative cat toys
+        </div>
+        <button className="btn btn-primary btn-lg mt-4">Discover now</button>
+      </div>
     </BackgroundImage>
   )
 }
