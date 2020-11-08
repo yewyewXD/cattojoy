@@ -11,7 +11,7 @@ export default function FeatureSection() {
         edges {
           node {
             image: childImageSharp {
-              fixed(quality: 100, width: 70) {
+              fixed(quality: 100, width: 110) {
                 src
               }
             }
