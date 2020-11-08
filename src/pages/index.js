@@ -10,10 +10,12 @@ import BlogSection from "../components/Home/BlogSection"
 const HomePage = () => (
   <Layout>
     <SEO title="Home" description="Welcome to Catto Joy" />
-    <HeroSection />
-    <FeatureSection />
-    <CallToAction />
-    <BlogSection />
+    <main className="Homepage">
+      <HeroSection />
+      <FeatureSection />
+      <CallToAction />
+      <BlogSection />
+    </main>
   </Layout>
 )
 

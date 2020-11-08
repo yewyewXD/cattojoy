@@ -65,3 +65,21 @@ export default function BlogSection() {
     </section>
   )
 }
+
+// {
+//   coffeeItem: allContentfulCoffeeItem {
+//     edges {
+//       node {
+//         id
+//         title
+//         category
+//         image {
+//           description
+//           fixed(width: 50, height: 50) {
+//             src
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

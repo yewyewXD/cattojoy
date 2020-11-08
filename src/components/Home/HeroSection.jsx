@@ -18,15 +18,17 @@ export default function HeroSection() {
 
   return (
     <BackgroundImage Tag="section" fluid={data.images.childImageSharp.fluid}>
-      <div className="hero__caption text-center">
-        <div className="hero__caption__title heading text-capitalize mb-2">
-          welcome to catto joy
+      <section className="Hero">
+        <div className="Hero__caption text-center">
+          <div className="Hero__caption__title heading text-capitalize mb-2">
+            welcome to catto joy
+          </div>
+          <div className="Hero__caption__subtitle">
+            Bring the best joy to your kitty with our innovative cat toys
+          </div>
+          <button className="btn btn-primary btn-lg mt-4">Discover now</button>
         </div>
-        <div className="hero__caption__subtitle">
-          Bring the best joy to your kitty with our innovative cat toys
-        </div>
-        <button className="btn btn-primary btn-lg mt-4">Discover now</button>
-      </div>
+      </section>
     </BackgroundImage>
   )
 }
