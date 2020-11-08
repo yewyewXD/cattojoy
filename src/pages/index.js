@@ -9,7 +9,7 @@ import BlogSection from "../components/Home/BlogSection"
 
 const HomePage = () => (
   <Layout>
-    <SEO title="Homey" description="Welcome to Catto Joy" />
+    <SEO title="Home" description="Welcome to Catto Joy" />
     <HeroSection />
     <FeatureSection />
     <CallToAction />
