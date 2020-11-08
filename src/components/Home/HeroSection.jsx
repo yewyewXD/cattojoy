@@ -18,7 +18,7 @@ export default function HeroSection() {
 
   return (
     <BackgroundImage Tag="section" fluid={data.images.childImageSharp.fluid}>
-      <section className="Hero">
+      <section className="Hero all-center">
         <div className="Hero__caption text-center">
           <div className="Hero__caption__title heading text-capitalize mb-2">
             welcome to catto joy

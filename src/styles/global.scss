@@ -3,6 +3,8 @@
 body {
   // font-family: 'Roboto', sans-serif;
   font-family: "Amaranth", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-@import "./HomeStyles/home.scss";
+@import "./HomeStyles/homeStyles";
