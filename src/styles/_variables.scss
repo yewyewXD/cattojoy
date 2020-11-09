@@ -34,7 +34,14 @@ $ctaColor: #fff766;
   }
 }
 .btn-secondary {
-  background: none !important;
+  background: $themeColor !important;
+  color: white !important;
+  border: $themeColor !important;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+.btn-outline-secondary {
   border: $themeColor solid 1px !important;
   color: $themeColor !important;
   &:hover {

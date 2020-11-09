@@ -5,7 +5,7 @@ export default function BlogSection() {
   return (
     <section className="blog py-5 my-5">
       <div className="blog__headline">
-        <div className="blog__headline__heading heading text-center text-capitalize h1 mb-3">
+        <div className="blog__headline__heading Heading text-center text-capitalize h1 mb-3">
           from our blog
         </div>
         <div className="blog__headline__subheading text-center">
@@ -24,7 +24,7 @@ export default function BlogSection() {
                   How to Get Your Cat to Play By Itself
                 </div>
                 <div className="blog__row__item__subtitle mb-3">something</div>
-                <Link to="/" className="btn btn-secondary btn-md">
+                <Link to="/" className="btn btn-outline-secondary btn-md">
                   Read more
                 </Link>
               </div>
@@ -39,7 +39,7 @@ export default function BlogSection() {
                   How to Get Your Cat to Play By Itself
                 </div>
                 <div className="blog__row__item__subtitle mb-3">something</div>
-                <Link to="/" className="btn btn-secondary btn-md">
+                <Link to="/" className="btn btn-outline-secondary btn-md">
                   Read more
                 </Link>
               </div>
@@ -54,7 +54,7 @@ export default function BlogSection() {
                   How to Get Your Cat to Play By Itself
                 </div>
                 <div className="blog__row__item__subtitle mb-3">something</div>
-                <Link to="/" className="btn btn-secondary btn-md">
+                <Link to="/" className="btn btn-outline-secondary btn-md">
                   Read more
                 </Link>
               </div>

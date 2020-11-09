@@ -25,7 +25,7 @@ export default function Layout({ children, currentPage }) {
 
   return (
     <>
-      <header className="header">
+      <header className="Header">
         <nav className="navbar navbar-expand-md navbar-light my-4">
           <div className="container">
             <span
@@ -72,7 +72,7 @@ export default function Layout({ children, currentPage }) {
 
       {children}
 
-      <footer className="footer py-3 text-center">
+      <footer className="Footer py-3 text-center">
         <span className="heading">Catto Joy</span> © All Rights Reserved
       </footer>
     </>

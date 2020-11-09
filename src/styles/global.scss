@@ -6,4 +6,8 @@ body {
   padding: 0;
 }
 
+.Footer {
+  background: $lightThemeColor;
+}
+
 @import "./HomeStyles/homeStyles";

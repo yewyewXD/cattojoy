@@ -1,3 +1,17 @@
 .Hero {
   height: 100vh;
+
+  &__BgOverlay {
+    height: 100%;
+    width: 100%;
+    background: $darkThemeColor;
+  }
+
+  &__Caption {
+    color: white;
+  }
+}
+
+.CTA {
+  background: $lightThemeColor;
 }
