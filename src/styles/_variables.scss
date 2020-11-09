@@ -21,20 +21,30 @@ $ctaColor: #fff766;
 
 // buttons
 .btn {
-  border: none;
-  outline: none;
+  outline: none !important;
+  box-shadow: none !important;
+  transition: 0.2s;
 }
 .btn-primary {
-  background: $ctaColor;
-  color: black;
+  background: $ctaColor !important;
+  color: black !important;
+  border: $ctaColor !important;
+  &:hover {
+    opacity: 0.8;
+  }
 }
 .btn-secondary {
-  background: none;
-  border: $themeColor solid 1px;
-  color: $themeColor;
+  background: none !important;
+  border: $themeColor solid 1px !important;
+  color: $themeColor !important;
   &:hover {
-    border: $themeColor solid 1px;
-    background: $themeColor;
-    color: white;
+    background: $themeColor !important;
+    color: white !important;
   }
+}
+.btn-lg {
+  padding: 10px 30px !important;
+}
+.btn-md {
+  padding: 8px 16px !important;
 }
