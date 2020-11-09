@@ -3,12 +3,38 @@ $lightThemeColor: rgba(255, 102, 196, 0.2);
 $darkThemeColor: rgba(202, 85, 157, 0.7);
 $ctaColor: #fff766;
 
+// typography
+.heading {
+  font-family: "Amaranth", sans-serif;
+}
+
+// positioning
 .all-center,
 .all-center-column {
-  display: flex !important;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 .all-center-column {
   flex-direction: column;
+}
+
+// buttons
+.btn {
+  border: none;
+  outline: none;
+}
+.btn-primary {
+  background: $ctaColor;
+  color: black;
+}
+.btn-secondary {
+  background: none;
+  border: $themeColor solid 1px;
+  color: $themeColor;
+  &:hover {
+    border: $themeColor solid 1px;
+    background: $themeColor;
+    color: white;
+  }
 }
