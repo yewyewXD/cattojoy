@@ -8,9 +8,9 @@ import CallToAction from "../components/CallToAction"
 import BlogSection from "../components/Home/BlogSection"
 
 const HomePage = () => (
-  <Layout>
+  <Layout currentPage="home">
     <SEO title="Home" description="Welcome to Catto Joy" />
-    <main className="Homepage">
+    <main className="HomePage">
       <HeroSection />
       <FeatureSection />
       <CallToAction />

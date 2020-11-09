@@ -3,7 +3,7 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 import "bootstrap/dist/css/bootstrap.css"
 import "../styles/global.scss"
 
-export default function Layout({ children }) {
+export default function Layout({ children, currentPage }) {
   const data = useStaticQuery(graphql`
     query {
       file(relativePath: { eq: "favicon.png" }) {
@@ -15,6 +15,13 @@ export default function Layout({ children }) {
       }
     }
   `)
+
+  const navLinks = [
+    { name: "home", path: "/" },
+    { name: "blog", path: "/blog" },
+    { name: "shop", path: "/shop" },
+    { name: "contact", path: "/contact" },
+  ]
 
   return (
     <>
@@ -46,18 +53,17 @@ export default function Layout({ children }) {
             </button>
             <div className="collapse navbar-collapse" id="navbarID">
               <div className="navbar-nav ml-auto">
-                <Link className="nav-link mx-3" to="/">
-                  Home
-                </Link>
-                <Link className="nav-link mx-3" to="/blog">
-                  Blog
-                </Link>
-                <Link className="nav-link mx-3" to="/shop">
-                  Shop
-                </Link>
-                <Link className="nav-link mx-3" to="/contact">
-                  Contact
-                </Link>
+                {navLinks.map((navLink, index) => (
+                  <Link
+                    key={index}
+                    className={`nav-link text-capitalize mx-3 ${
+                      currentPage === navLink.name && "active"
+                    }`}
+                    to={navLink.path}
+                  >
+                    {navLink.name}
+                  </Link>
+                ))}
               </div>
             </div>
           </div>
