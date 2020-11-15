@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^14.1.2",
     "bootstrap": "^4.5.3",
     "gatsby": "^2.25.2",
     "gatsby-background-image": "^1.1.2",

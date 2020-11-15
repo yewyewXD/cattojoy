@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 import Layout from "../components/layout"
 import Img from "gatsby-image"
@@ -15,11 +16,23 @@ export const data = graphql`
           ...GatsbyContentfulFluid
         }
       }
+      article {
+        json
+      }
     }
   }
 `
 
 const BlogTemplate = props => {
+  const options = {
+    renderNode: {
+      "embedded-asset-block": node => {
+        const alt = node.data.target.fields.title["en-US"]
+        const url = node.data.target.fields.file["en-US"].url
+        return <img alt={alt} src={url} />
+      },
+    },
+  }
   return (
     <Layout>
       <SEO title={props.data.contentfulBlogs.title} />
@@ -37,6 +50,13 @@ const BlogTemplate = props => {
             alt={props.data.contentfulBlogs.title}
           />
         )}
+
+        <div className="container">
+          {documentToReactComponents(
+            props.data.contentfulBlogs.article.json,
+            options
+          )}
+        </div>
       </div>
     </Layout>
   )
