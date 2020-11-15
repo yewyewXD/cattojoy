@@ -56,7 +56,7 @@ export default function BlogSection() {
                     {blog.node.article.markdown.excerpt}
                   </div>
                   <Link
-                    to={blog.node.slug}
+                    to={`/blog/${blog.node.slug}`}
                     className="btn btn-outline-secondary btn-md"
                   >
                     Read more
