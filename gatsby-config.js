@@ -42,18 +42,9 @@ module.exports = {
     },
     `gatsby-plugin-sass`,
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [
-          {
-            family: `Amaranth`,
-            variants: [`400`, `700`],
-          },
-          {
-            family: `Roboto`,
-            variants: [`400`],
-          },
-        ],
+        fonts: [`Amaranth`, `400,700`, `Roboto`, `400`],
       },
     },
     `gatsby-transformer-remark`,
