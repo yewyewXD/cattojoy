@@ -1,7 +1,11 @@
 const { createProxyMiddleware } = require("http-proxy-middleware")
 
+// require("dotenv").config({
+//   path: `.env.${process.env.NODE_ENV}`,
+// })
+
 require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
+  path: `.env.development`,
 })
 
 module.exports = {

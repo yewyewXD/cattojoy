@@ -1,10 +1,12 @@
 const nodemailer = require("nodemailer")
 
+require("dotenv").config({
+  path: `.env.development`,
+})
+
 exports.handler = function (event, context, callback) {
   const user = process.env.MAIL_USER
-  const pass = process.env.MAIL_PASSWORD
-
-  console.log(user, pass)
+  const pass = process.env.MAIL_PW
 
   let transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",

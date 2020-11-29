@@ -41,7 +41,10 @@ export default function BlogSection() {
       <div className="container">
         <div className="Blog__row row mt-5">
           {data.blogs.edges.map(blog => (
-            <div className="Blog__row__item col-lg-4 all-center">
+            <div
+              className="Blog__row__item col-lg-4 all-center"
+              key={blog.node.id}
+            >
               <div className="card">
                 <img
                   className="card-img-top card__image"

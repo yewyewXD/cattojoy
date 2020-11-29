@@ -1,13 +1,25 @@
-import React from "react"
+import React, { useState } from "react"
 import axios from "axios"
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
 
 const ContactPage = () => {
-  async function fetchHello(data) {
+  const [email, setEmail] = useState("")
+  const [message, setMessage] = useState("")
+
+  async function handleSendMail(e) {
+    e.preventDefault()
+    const contactForm = document.getElementById("contactForm")
+
+    //validation
+
     try {
-      const res = await axios.post("/.netlify/functions/mailing", data)
-      console.log(res.data)
+      await axios.post("/.netlify/functions/mailing", {
+        email,
+        name: "testing",
+      })
+
+      contactForm.submit()
     } catch (err) {
       console.log(err)
     }
@@ -18,10 +30,12 @@ const ContactPage = () => {
       <SEO title="Contact Us" description="Welcome to Catto Joy" />
       <main className="ContactPage">
         <form
+          id="contactForm"
           name="Contact Form"
           method="POST"
           data-netlify="true"
           action="/success"
+          onSubmit={handleSendMail}
         >
           <input type="hidden" name="form-name" value="Contact Form" />
           <div className="form-group">
@@ -31,6 +45,10 @@ const ContactPage = () => {
               type="email"
               name="Email"
               className="form-controls"
+              value={email}
+              onChange={e => {
+                setEmail(e.target.value)
+              }}
             />
           </div>
           <div className="form-group">
@@ -39,19 +57,14 @@ const ContactPage = () => {
               id="contactMessage"
               name="Message"
               className="form-controls"
+              value={message}
+              onChange={e => {
+                setMessage(e.target.value)
+              }}
             />
           </div>
-          <button
-            className="btn btn-secondary btn-md"
-            type="button"
-            onClick={() =>
-              fetchHello({
-                email: "",
-                name: "yewyewxd",
-              })
-            }
-          >
-            Click me
+          <button className="btn btn-secondary btn-md" type="submit">
+            Submit
           </button>
         </form>
       </main>
