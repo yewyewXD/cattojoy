@@ -21,6 +21,7 @@ export default function Layout({ children, currentPage }) {
     { name: "blog", path: "/blog" },
     { name: "shop", path: "/shop" },
     { name: "contact", path: "/contact" },
+    { name: "tracking", path: "/tracking" },
   ]
 
   return (
