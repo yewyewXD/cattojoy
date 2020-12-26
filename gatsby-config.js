@@ -63,7 +63,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`Amaranth`, `400,700`, `Roboto`, `400`],
+        fonts: [`Amaranth`, `400,700`, `Titillium Web`, `400`],
       },
     },
     `gatsby-transformer-remark`,
