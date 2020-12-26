@@ -1,9 +1,16 @@
 @import "./variables";
+@import "./rewrites";
 
 body {
   font-family: "Titillium Web", sans-serif;
+  font-weight: 400 !important;
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
+}
+
+.heading {
+  font-family: "Amaranth", sans-serif;
 }
 
 .Footer {

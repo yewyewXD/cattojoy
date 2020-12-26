@@ -1,0 +1,47 @@
+// positioning
+.all-center,
+.all-center-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.all-center-column {
+  flex-direction: column;
+}
+
+// buttons
+.btn {
+  outline: none !important;
+  box-shadow: none !important;
+  transition: 0.2s;
+}
+.btn-primary {
+  background: $ctaColor !important;
+  color: black !important;
+  border: $ctaColor !important;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+.btn-secondary {
+  background: $themeColor !important;
+  color: white !important;
+  border: $themeColor !important;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+.btn-outline-secondary {
+  border: $themeColor solid 1px !important;
+  color: $themeColor !important;
+  &:hover {
+    background: $themeColor !important;
+    color: white !important;
+  }
+}
+.btn-lg {
+  padding: 10px 30px !important;
+}
+.btn-md {
+  padding: 8px 16px !important;
+}
