@@ -62,7 +62,7 @@ const Layout = ({ children, currentPage }) => {
 
             {/* navbar menu */}
             <div
-              className={`collapse navbar-collapse ${
+              className={`mt-md-0 mt-3 collapse navbar-collapse ${
                 isShowingNavbar && "show"
               }`}
               id="navbarID"
