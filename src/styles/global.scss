@@ -1,5 +1,5 @@
-@import "./variables";
-@import "./rewrites";
+@import "./01-variables";
+@import "./02-rewrites";
 
 body {
   font-family: "Titillium Web", sans-serif;
@@ -10,7 +10,7 @@ body {
 }
 
 .heading {
-  font-family: "Amaranth", sans-serif;
+  font-family: "Amaranth", sans-serif !important;
 }
 
 .Footer {
