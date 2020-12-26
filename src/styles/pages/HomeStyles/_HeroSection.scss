@@ -1,0 +1,25 @@
+.BgImage,
+.BgOverlay,
+.CaptionContainer {
+  height: 100%;
+  width: 100%;
+}
+
+.BgOverlay {
+  background: $darkThemeColor;
+}
+
+.Caption {
+  &__Title {
+    font-size: 60px;
+  }
+
+  @media (max-width: 768px) {
+    &__Title {
+      font-size: 45px;
+    }
+    &__Subtitle {
+      font-size: 25px;
+    }
+  }
+}

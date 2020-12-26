@@ -1,5 +1,12 @@
 // -- Page: src\pages\index.js --
 
 .HomePage {
-  @import "./Hero";
+  .HeroSection {
+    height: 100vh;
+    @import "./HeroSection";
+  }
+
+  .CTA {
+    background: $lightThemeColor;
+  }
 }
