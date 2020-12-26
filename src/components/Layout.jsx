@@ -25,6 +25,7 @@ export default function Layout({ children, currentPage }) {
 
   return (
     <>
+      {/* header */}
       <header className="Header">
         <nav className="navbar navbar-expand-md navbar-light my-4">
           <div className="container">
@@ -37,7 +38,7 @@ export default function Layout({ children, currentPage }) {
                 alt="Catto Joy"
                 className="mx-2"
               />
-              <span className="brand-text heading mx-2">Catto Joy</span>
+              <span className="HeaderBrand | heading mx-2">Catto Joy</span>
             </span>
 
             <button
@@ -70,9 +71,11 @@ export default function Layout({ children, currentPage }) {
         </nav>
       </header>
 
+      {/* main */}
       {children}
 
-      <footer className="Footer py-3 text-center">
+      {/* footer */}
+      <footer className="Footer | py-3 text-center">
         <span className="heading">Catto Joy</span> © All Rights Reserved
       </footer>
     </>

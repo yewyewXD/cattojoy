@@ -3,9 +3,11 @@
 @import "./01-variables";
 @import "./02-rewrites";
 
+// default
 body {
   font-family: "Titillium Web", sans-serif;
   font-weight: 400 !important;
+  font-size: 21px;
   overflow-x: hidden;
   margin: 0;
   padding: 0;
@@ -15,8 +17,14 @@ body {
   font-family: "Amaranth", sans-serif !important;
 }
 
+// Layout
+.HeaderBrand {
+  font-size: 30px;
+  color: $themeColor;
+}
 .Footer {
   background: $lightThemeColor;
+  font-size: 19px;
 }
 
-@import "./HomeStyles/homeStyles";
+@import "./pages/HomeStyles/homeStyles";
