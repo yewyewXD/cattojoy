@@ -1,9 +1,11 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import "bootstrap/dist/css/bootstrap.css"
 import "../styles/global.scss"
 
-export default function Layout({ children, currentPage }) {
+const Layout = ({ children, currentPage }) => {
+  const [isShowingNavbar, setIsShowingNavbar] = useState(false)
+
   const data = useStaticQuery(graphql`
     query {
       file(relativePath: { eq: "favicon.png" }) {
@@ -29,6 +31,7 @@ export default function Layout({ children, currentPage }) {
       <header className="Header">
         <nav className="navbar navbar-expand-md navbar-light my-4">
           <div className="container">
+            {/* brand */}
             <span
               className="navbar-brand d-flex align-items-center"
               role="button"
@@ -41,6 +44,7 @@ export default function Layout({ children, currentPage }) {
               <span className="HeaderBrand | heading mx-2">Catto Joy</span>
             </span>
 
+            {/* dropdown button */}
             <button
               className="navbar-toggler"
               type="button"
@@ -49,10 +53,20 @@ export default function Layout({ children, currentPage }) {
               aria-controls="navbarID"
               aria-expanded="false"
               aria-label="Toggle navigation"
+              onClick={() => {
+                setIsShowingNavbar(prevIsShowing => !prevIsShowing)
+              }}
             >
               <span className="navbar-toggler-icon"></span>
             </button>
-            <div className="collapse navbar-collapse" id="navbarID">
+
+            {/* navbar menu */}
+            <div
+              className={`collapse navbar-collapse ${
+                isShowingNavbar && "show"
+              }`}
+              id="navbarID"
+            >
               <div className="navbar-nav ml-auto">
                 {navLinks.map((navLink, index) => (
                   <Link
@@ -81,3 +95,5 @@ export default function Layout({ children, currentPage }) {
     </>
   )
 }
+
+export default Layout
