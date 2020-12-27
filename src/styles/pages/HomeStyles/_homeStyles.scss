@@ -4,7 +4,7 @@
   .HeroSection {
     height: 100vh;
 
-    @media (max-width: 768px) {
+    @media (max-width: $md) {
       .ActionButton {
         width: 90%;
       }
@@ -16,7 +16,7 @@
   .CallToAction {
     background: $lightThemeColor;
 
-    @media (max-width: 768px) {
+    @media (max-width: $md) {
       .ActionButton {
         width: 100%;
       }

@@ -12,7 +12,7 @@ body {
   margin: 0;
   padding: 0;
 
-  @media (max-width: 768px) {
+  @media (max-width: $md) {
     font-size: 18px;
   }
 }
@@ -22,9 +22,18 @@ body {
 }
 
 // Layout
+.HeaderLogo {
+  @media (max-width: $md) {
+    width: 50px;
+  }
+}
 .HeaderBrand {
-  font-size: 30px;
+  font-size: 34px;
   color: $themeColor;
+
+  @media (max-width: $sm) {
+    font-size: 30px;
+  }
 }
 .Footer {
   background: $lightThemeColor;

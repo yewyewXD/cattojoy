@@ -29,7 +29,7 @@ const Layout = ({ children, currentPage }) => {
     <>
       {/* header */}
       <header className="Header">
-        <nav className="navbar navbar-expand-md navbar-light my-4">
+        <nav className="navbar navbar-expand-md navbar-light my-sm-3 my-md-4">
           <div className="container">
             {/* brand */}
             <span
@@ -39,7 +39,7 @@ const Layout = ({ children, currentPage }) => {
               <img
                 src={data.file.image.fixed.src}
                 alt="Catto Joy"
-                className="mx-2"
+                className="HeaderLogo mr-md-3 mr-2"
               />
               <span className="HeaderBrand | heading mx-2">Catto Joy</span>
             </span>
@@ -62,7 +62,7 @@ const Layout = ({ children, currentPage }) => {
 
             {/* navbar menu */}
             <div
-              className={`mt-md-0 mt-3 collapse navbar-collapse ${
+              className={`mt-md-0 mt-sm-3 mt-2 collapse navbar-collapse ${
                 isShowingNavbar && "show"
               }`}
               id="navbarID"

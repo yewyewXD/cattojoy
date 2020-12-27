@@ -1,6 +1,13 @@
 // -- This file contains all the SCSS variables --
 
+// colors
 $themeColor: #ff66c4;
 $lightThemeColor: rgba(255, 102, 196, 0.2);
 $darkThemeColor: rgba(202, 85, 157, 0.7);
 $ctaColor: #fff766;
+
+// Bootstrap breakpoints
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
