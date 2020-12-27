@@ -27,12 +27,12 @@ export default function HeroSection() {
         <div className="CaptionContainer | container all-center">
           {/* caption */}
           <div className="Caption | text-center text-white">
-            <h1 className="Caption__Title | heading mb-2">
+            <h1 className="Caption__Title | heading mb-1">
               Welcome to Catto Joy
             </h1>
-            <h2 className="Caption__Subtitle">
+            <div className="Caption__Subtitle">
               Bring the best joy to your kitty with our innovative cat toys
-            </h2>
+            </div>
             <Link
               to="/shop"
               className="ActionButton | btn btn-primary btn-lg mt-4"

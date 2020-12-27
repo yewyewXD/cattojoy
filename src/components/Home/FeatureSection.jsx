@@ -49,8 +49,8 @@ const FeatureSection = () => {
   return (
     <section className="FeatureSection py-5 my-sm-5 my-3">
       <div className="container">
-        <h2 className="heading text-center text-capitalize h1 mb-3">
-          We provide high quality toy
+        <h2 className="heading text-center mb-3">
+          We Provide High Quality Toy
         </h2>
         <div className="text-center">
           Shipping good toys and ensuring your cat's health and happiness are
