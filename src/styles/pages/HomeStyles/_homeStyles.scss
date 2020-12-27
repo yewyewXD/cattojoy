@@ -3,12 +3,7 @@
 .HomePage {
   .HeroSection {
     height: 100vh;
-
-    @media (max-width: $md) {
-      .ActionButton {
-        width: 90%;
-      }
-    }
+    position: relative;
 
     @import "./HeroSection";
   }
@@ -17,10 +12,6 @@
     background: $lightThemeColor;
 
     @media (max-width: $md) {
-      .ActionButton {
-        width: 100%;
-      }
-
       &__Title {
         font-size: 25px;
       }

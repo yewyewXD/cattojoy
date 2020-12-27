@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 
-export default function FeatureSection() {
+const FeatureSection = () => {
   const data = useStaticQuery(graphql`
     query {
       allFile(
@@ -47,12 +47,12 @@ export default function FeatureSection() {
   ]
 
   return (
-    <section className="Feature py-5 my-5">
-      <div className="Feature__headline">
-        <div className="Feature__headline__heading heading text-center text-capitalize h1 mb-3">
+    <section className="FeatureSection py-5 my-sm-5 my-3">
+      <div className="container">
+        <h2 className="heading text-center text-capitalize h1 mb-3">
           We provide high quality toy
-        </div>
-        <div className="Feature__headline__subheading text-center">
+        </h2>
+        <div className="text-center">
           Shipping good toys and ensuring your cat's health and happiness are
           what we love and so passionate about.
         </div>
@@ -60,19 +60,16 @@ export default function FeatureSection() {
 
       <div className="Feature__row row mt-5">
         {featureCols.map((featureCol, index) => (
-          <div
-            className="Feature__row__item col-md-3 all-center-column"
-            key={index}
-          >
+          <div className="col-md-3 all-center-column" key={index}>
             <img
               src={edges[index].node.image.fixed.src}
               alt={featureCol.imgAlt}
-              className="Feature__row__item__image"
+              className=""
             />
-            <div className="Feature__row__item__title heading mt-4 mb-2 text-capitalize">
+            <div className="heading mt-4 mb-2 text-capitalize">
               {featureCol.title}
             </div>
-            <div className="Feature__row__item__subtitle text-center text-capitalize">
+            <div className="text-center text-capitalize">
               {featureCol.description}
             </div>
           </div>
@@ -81,3 +78,5 @@ export default function FeatureSection() {
     </section>
   )
 }
+
+export default FeatureSection

@@ -21,6 +21,21 @@ body {
   font-family: "Amaranth", sans-serif !important;
 }
 
+// typography
+h1 {
+  font-size: 60px;
+  @media (max-width: $md) {
+    font-size: 45px;
+  }
+}
+
+// Button
+@media (max-width: $md) {
+  .ActionButton {
+    width: 90%;
+  }
+}
+
 // Layout
 .HeaderLogo {
   @media (max-width: $md) {

@@ -6,18 +6,14 @@
 }
 
 .BgOverlay {
+  position: absolute;
   background: $darkThemeColor;
 }
 
 .Caption {
-  &__Title {
-    font-size: 60px;
-  }
+  z-index: 2;
 
   @media (max-width: $md) {
-    &__Title {
-      font-size: 45px;
-    }
     &__Subtitle {
       font-size: 25px;
     }
