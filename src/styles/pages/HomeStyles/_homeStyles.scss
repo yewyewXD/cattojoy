@@ -6,7 +6,13 @@
     @import "./HeroSection";
   }
 
-  .CTA {
+  .CallToAction {
     background: $lightThemeColor;
+
+    @media (max-width: 768px) {
+      &__Title {
+        font-size: 25px;
+      }
+    }
   }
 }
