@@ -51,7 +51,7 @@ const FeatureSection = () => {
     <section className="FeatureSection | py-5 my-md-5 my-3">
       <div className="container">
         <h2 className="heading text-center mb-3">Some Values We Provide</h2>
-        <div className="subheading text-center">
+        <div className="mediumSize text-center">
           We are on a mission to selling cat toys to cat owners at the cheapest
           price possible, aka. wholesale price!
         </div>
@@ -69,7 +69,7 @@ const FeatureSection = () => {
                 src={edges[index].node.image.fixed.src}
                 alt={featureCol.title}
               />
-              <div className="heading subheading mt-lg-4 mt-md-3 mt-2 mb-md-2 mb-sm-1">
+              <div className="heading mediumSize mt-lg-4 mt-md-3 mt-2 mb-md-2 mb-sm-1">
                 {featureCol.title}
               </div>
               <div className="text-center">{featureCol.description}</div>
