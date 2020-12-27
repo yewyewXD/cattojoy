@@ -33,7 +33,10 @@ export default function HeroSection() {
               <h2 className="Caption__Subtitle">
                 Bring the best joy to your kitty with our innovative cat toys
               </h2>
-              <Link to="/shop" className="btn btn-primary btn-lg mt-4">
+              <Link
+                to="/shop"
+                className="ActionButton | btn btn-primary btn-lg mt-4"
+              >
                 Discover now
               </Link>
             </div>

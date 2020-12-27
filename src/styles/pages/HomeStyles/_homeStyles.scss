@@ -3,6 +3,13 @@
 .HomePage {
   .HeroSection {
     height: 100vh;
+
+    @media (max-width: 768px) {
+      .ActionButton {
+        width: 90%;
+      }
+    }
+
     @import "./HeroSection";
   }
 
@@ -10,6 +17,10 @@
     background: $lightThemeColor;
 
     @media (max-width: 768px) {
+      .ActionButton {
+        width: 100%;
+      }
+
       &__Title {
         font-size: 25px;
       }

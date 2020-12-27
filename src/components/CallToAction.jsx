@@ -14,7 +14,10 @@ export default function CallToAction() {
             innovative toys to provide you with everything you need to keep your
             furry friends happy.
           </div>
-          <Link to="/shop" className="btn btn-secondary btn-lg text-capitalize">
+          <Link
+            to="/shop"
+            className="ActionButton | btn btn-secondary btn-lg text-capitalize"
+          >
             join now
           </Link>
         </div>
