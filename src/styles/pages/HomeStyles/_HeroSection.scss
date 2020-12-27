@@ -13,13 +13,11 @@
 .Caption {
   z-index: 2;
 
-  &__Subtitle{
+  &__Subtitle {
     font-size: 32px;
 
     @media (max-width: $md) {
       font-size: 25px;
+    }
   }
-  }
-
- 
 }

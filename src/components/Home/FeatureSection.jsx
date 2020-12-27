@@ -48,10 +48,10 @@ const FeatureSection = () => {
   ]
 
   return (
-    <section className="FeatureSection py-5 my-sm-5 my-3">
+    <section className="FeatureSection | py-5 my-md-5 my-3">
       <div className="container">
         <h2 className="heading text-center mb-3">Some Values We Provide</h2>
-        <div className="text-center">
+        <div className="subheading text-center">
           We are on a mission to selling cat toys to cat owners at the cheapest
           price possible, aka. wholesale price!
         </div>
@@ -65,10 +65,13 @@ const FeatureSection = () => {
               key={`homeFeature-${index}`}
             >
               <img
+                className="SectionImage"
                 src={edges[index].node.image.fixed.src}
                 alt={featureCol.title}
               />
-              <div className="heading mt-4 mb-2">{featureCol.title}</div>
+              <div className="heading subheading mt-lg-4 mt-md-3 mt-2 mb-md-2 mb-sm-1">
+                {featureCol.title}
+              </div>
               <div className="text-center">{featureCol.description}</div>
             </div>
           ))}

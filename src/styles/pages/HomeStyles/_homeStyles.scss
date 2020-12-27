@@ -8,6 +8,14 @@
     @import "./HeroSection";
   }
 
+  .FeatureSection {
+    @media (max-width: $md) {
+      .SectionImage {
+        width: 95px;
+      }
+    }
+  }
+
   .CallToAction {
     background: $lightThemeColor;
 
