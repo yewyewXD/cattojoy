@@ -31,7 +31,7 @@ export default function HeroSection() {
               Welcome to Catto Joy
             </h1>
             <div className="Caption__Subtitle">
-              Bring the best joy to your kitty with our innovative cat toys
+              Joy for your cats, joy for you!
             </div>
             <Link
               to="/shop"

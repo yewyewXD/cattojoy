@@ -25,55 +25,54 @@ const FeatureSection = () => {
 
   const featureCols = [
     {
-      title: "safe",
-      description: "designed to avoid hurting pets",
-      imgAlt: "safe cat toy",
+      title: "Affordable",
+      description:
+        "We sell every toy at the wholesale price. Cat toys shouldn't be expensive, let's fix that!",
+    },
+
+    {
+      title: "Transparent",
+      description:
+        "No extra fee is needed upon checkout. We will even walk you through how we monetize you!",
     },
     {
-      title: "non-chemical",
-      description: "made with chewable materials",
-      imgAlt: "non-toxic cat toy",
+      title: "Reliable",
+      description:
+        "Our private carriage ensure your order's safety. You would never see a broken package!",
     },
     {
-      title: "affordable",
-      description: "aligned with the best market prices",
-      imgAlt: "cheap cat toy",
-    },
-    {
-      title: "fast Delivery",
-      description: "reach your place on time",
-      imgAlt: "reliable cat toy delivery",
+      title: "Fast Delivery",
+      description:
+        "We ship out every weekend. So if you purchase on Friday, you will receive your order in only 2 days!",
     },
   ]
 
   return (
     <section className="FeatureSection py-5 my-sm-5 my-3">
       <div className="container">
-        <h2 className="heading text-center mb-3">
-          We Provide High Quality Toy
-        </h2>
+        <h2 className="heading text-center mb-3">Some Values We Provide</h2>
         <div className="text-center">
-          Shipping good toys and ensuring your cat's health and happiness are
-          what we love and so passionate about.
+          We are on a mission to selling cat toys to cat owners at the cheapest
+          price possible, aka. wholesale price!
         </div>
       </div>
 
-      <div className="Feature__row row mt-5">
-        {featureCols.map((featureCol, index) => (
-          <div className="col-md-3 all-center-column" key={index}>
-            <img
-              src={edges[index].node.image.fixed.src}
-              alt={featureCol.imgAlt}
-              className=""
-            />
-            <div className="heading mt-4 mb-2 text-capitalize">
-              {featureCol.title}
+      <div className="container">
+        <div className="row mt-lg-5">
+          {featureCols.map((featureCol, index) => (
+            <div
+              className="col-lg-3 mt-lg-0 mt-4 pt-3 all-center-column justify-content-start"
+              key={`homeFeature-${index}`}
+            >
+              <img
+                src={edges[index].node.image.fixed.src}
+                alt={featureCol.title}
+              />
+              <div className="heading mt-4 mb-2">{featureCol.title}</div>
+              <div className="text-center">{featureCol.description}</div>
             </div>
-            <div className="text-center text-capitalize">
-              {featureCol.description}
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   )
