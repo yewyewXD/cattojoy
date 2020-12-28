@@ -10,6 +10,7 @@ import BlogSection from "../components/Home/BlogSection"
 const HomePage = () => (
   <Layout currentPage="home">
     <SEO title="Home" description="Welcome to Catto Joy" />
+
     <main className="HomePage">
       <HeroSection />
       <FeatureSection />
