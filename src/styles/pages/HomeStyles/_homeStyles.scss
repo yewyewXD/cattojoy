@@ -16,6 +16,14 @@
     }
   }
 
+  .BlogSection {
+    @media (max-width: $md) {
+      .CardBody {
+        text-align: center;
+      }
+    }
+  }
+
   .CallToAction {
     background: $lightThemeColor;
 

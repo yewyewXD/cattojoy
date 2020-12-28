@@ -30,7 +30,7 @@ export default function BlogSection() {
     <section className="BlogSection | py-5 my-md-5 my-3">
       <div className="container">
         <h2 className="heading text-center mb-3">From Our Blog</h2>
-        <div className="text-center">
+        <div className="text-center mediumSize">
           Here are some extra tips to teach you how to build a healthy
           relationship with your cats.
         </div>
@@ -60,9 +60,9 @@ export default function BlogSection() {
                   src={blog.node.image.fluid.src}
                   alt="How to Get Your Cat to Play By Itself"
                 /> */}
-                  <div className="card-body p-4">
-                    <div className="mb-3 mediumSize">
-                      <b>{blog.node.title}</b>
+                  <div className="CardBody card-body p-4">
+                    <div className="mb-3 heading mediumSize">
+                      {blog.node.title}
                     </div>
                     <div className="mb-3">
                       {blog.node.article.markdown.excerpt.length > 150
@@ -74,7 +74,7 @@ export default function BlogSection() {
                     </div>
                     <Link
                       to={`/blogs/${blog.node.slug}`}
-                      className="btn btn-outline-secondary btn-md"
+                      className="ActionButton btn btn-outline-secondary btn-md"
                     >
                       Read more
                     </Link>

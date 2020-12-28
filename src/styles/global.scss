@@ -6,9 +6,9 @@
 // default
 body {
   font-family: "Titillium Web", sans-serif;
-  font-weight: 400 !important;
+  font-weight: 400;
   font-size: 21px;
-  overflow-x: hidden;
+  // overflow-x: hidden;
   margin: 0;
   padding: 0;
 
@@ -20,7 +20,8 @@ body {
 // typography
 
 .heading {
-  font-family: "Amaranth", sans-serif !important;
+  font-family: "Amaranth", sans-serif;
+  font-weight: 400;
 }
 
 .mediumSize {
@@ -47,7 +48,7 @@ h2 {
 // Button
 @media (max-width: $md) {
   .ActionButton {
-    width: 90%;
+    width: 100%;
   }
 }
 
