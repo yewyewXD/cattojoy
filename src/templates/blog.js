@@ -36,7 +36,7 @@ const BlogTemplate = props => {
   return (
     <Layout>
       <SEO title={props.data.contentfulBlogs.title} />
-      <Link to="/blog/">Visit the Blog Page</Link>
+      <Link to="/blogs">Visit the Blog Page</Link>
       <div className="content">
         <h1>{props.data.contentfulBlogs.title}</h1>
         <span className="meta">
