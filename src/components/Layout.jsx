@@ -20,7 +20,7 @@ const Layout = ({ children, currentPage }) => {
 
   const navLinks = [
     { name: "home", path: "/" },
-    { name: "blogs", path: "/blogs" },
+    { name: "blogs", path: "/" },
     { name: "shop", path: "/shop" },
     { name: "contact", path: "/contact" },
   ]
