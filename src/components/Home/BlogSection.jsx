@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 
-export default function BlogSection() {
+const BlogSection = () => {
   const data = useStaticQuery(graphql`
     {
       blogs: allContentfulBlogs(sort: { fields: date, order: DESC }) {
@@ -52,7 +52,7 @@ export default function BlogSection() {
                     }}
                   ></div>
 
-                  <div className="CardBody card-body p-4">
+                  <div className="CardBody | card-body p-4">
                     <div className="mb-3 heading mediumSize">
                       {blog.node.title}
                     </div>
@@ -66,7 +66,7 @@ export default function BlogSection() {
                     </div>
                     <Link
                       to={`/blogs/${blog.node.slug}`}
-                      className="ActionButton btn btn-outline-secondary btn-md"
+                      className="ActionButton | btn btn-outline-secondary btn-md"
                     >
                       Read more
                     </Link>
@@ -80,3 +80,5 @@ export default function BlogSection() {
     </section>
   )
 }
+
+export default BlogSection

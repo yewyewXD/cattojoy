@@ -3,7 +3,7 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 
 import BackgroundImage from "gatsby-background-image"
 
-export default function HeroSection() {
+const HeroSection = () => {
   const data = useStaticQuery(graphql`
     query {
       images: file(relativeDirectory: { eq: "HomeImages" }) {
@@ -23,7 +23,7 @@ export default function HeroSection() {
         className="BgImage"
         fluid={data.images.childImageSharp.fluid}
       >
-        <div className="BgOverlay"> </div>
+        <div className="BgOverlay"></div>
         <div className="CaptionContainer | container all-center">
           {/* caption */}
           <div className="Caption | text-center text-white">
@@ -45,3 +45,5 @@ export default function HeroSection() {
     </section>
   )
 }
+
+export default HeroSection

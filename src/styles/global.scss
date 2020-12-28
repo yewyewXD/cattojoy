@@ -69,6 +69,9 @@ h2 {
 .Footer {
   background: $lightThemeColor;
   font-size: 19px;
+  @media (max-width: $sm) {
+    font-size: 17px;
+  }
 }
 
 @import "./pages/HomeStyles/homeStyles";

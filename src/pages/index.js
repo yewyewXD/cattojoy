@@ -4,7 +4,7 @@ import Layout from "../components/Layout"
 import SEO from "../components/seo"
 import HeroSection from "../components/Home/HeroSection"
 import FeatureSection from "../components/Home/FeatureSection"
-import CallToAction from "../components/CallToAction"
+import CallToAction from "../components/Home/CallToAction"
 import BlogSection from "../components/Home/BlogSection"
 
 const HomePage = () => (

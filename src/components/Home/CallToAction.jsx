@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 
-export default function CallToAction() {
+const CallToAction = () => {
   return (
     <section className="CallToAction | py-5">
       <div className="container all-center">
@@ -22,3 +22,5 @@ export default function CallToAction() {
     </section>
   )
 }
+
+export default CallToAction
