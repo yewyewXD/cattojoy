@@ -41,7 +41,7 @@ export default function BlogSection() {
           {data.blogs.edges.map(blog => {
             return (
               <div
-                className="col-lg-4 all-center align-items-start"
+                className="col-lg-4 all-center align-items-start mb-lg-0 mb-5"
                 key={blog.node.id}
               >
                 <div className="card">
@@ -61,7 +61,9 @@ export default function BlogSection() {
                   alt="How to Get Your Cat to Play By Itself"
                 /> */}
                   <div className="card-body p-4">
-                    <div className="mb-3">{blog.node.title}</div>
+                    <div className="mb-3 mediumSize">
+                      <b>{blog.node.title}</b>
+                    </div>
                     <div className="mb-3">
                       {blog.node.article.markdown.excerpt.length > 150
                         ? blog.node.article.markdown.excerpt
