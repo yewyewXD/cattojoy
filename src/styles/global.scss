@@ -45,6 +45,13 @@ h2 {
   }
 }
 
+p {
+  font-size: 23px;
+  @media (max-width: $md) {
+    font-size: 20px;
+  }
+}
+
 // Button
 @media (max-width: $md) {
   .ActionButton {
