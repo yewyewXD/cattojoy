@@ -46,20 +46,12 @@ export default function BlogSection() {
               >
                 <div className="card">
                   <div
+                    className="CardImage"
                     style={{
-                      height: "200px",
-                      width: "100%",
-                      background: `url(${blog.node.image.fluid.src})`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                      backgroundRepeat: "none",
+                      background: `url(${blog.node.image.fluid.src}) center center / cover no-repeat`,
                     }}
                   ></div>
-                  {/* <img
-                  className="card-img-top"
-                  src={blog.node.image.fluid.src}
-                  alt="How to Get Your Cat to Play By Itself"
-                /> */}
+
                   <div className="CardBody card-body p-4">
                     <div className="mb-3 heading mediumSize">
                       {blog.node.title}

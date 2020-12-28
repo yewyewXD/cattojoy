@@ -12,7 +12,6 @@ const ContactPage = () => {
     const contactForm = document.getElementById("contactForm")
 
     //validation
-
     try {
       await axios.post("/.netlify/functions/mailing", {
         email,

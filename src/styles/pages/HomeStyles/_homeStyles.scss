@@ -17,6 +17,11 @@
   }
 
   .BlogSection {
+    .CardImage {
+      height: 200px;
+      width: 100%;
+    }
+
     @media (max-width: $md) {
       .CardBody {
         text-align: center;
