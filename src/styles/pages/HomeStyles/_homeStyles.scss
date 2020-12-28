@@ -18,6 +18,9 @@
 
   .BlogSection {
     .CardImage {
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
       height: 200px;
       width: 100%;
     }

@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 import Layout from "../components/Layout.jsx"
@@ -41,28 +41,51 @@ const BlogsSinglePage = props => {
       />
 
       <main className="BlogsSinglePage">
-        <Link to="/blogs">Visit the Blog Page</Link>
-        <div className="content">
-          <h1>{props.data.contentfulBlogs.title}</h1>
-          <span className="meta">
-            Posted on {props.data.contentfulBlogs.date}
-          </span>
-
-          {props.data.contentfulBlogs.image && (
-            <Img
-              className="featured"
-              fluid={props.data.contentfulBlogs.image.fluid}
-              alt={props.data.contentfulBlogs.title}
-            />
-          )}
-
+        {/* heading */}
+        <div className="Heading | py-5">
           <div className="container">
+            <h1>{props.data.contentfulBlogs.title}</h1>
+            <span className="meta">
+              Posted on {props.data.contentfulBlogs.date}
+            </span>
+          </div>
+        </div>
+
+        <div className="container my-5">
+          <Img
+            fluid={props.data.contentfulBlogs.image.fluid}
+            alt={props.data.contentfulBlogs.title}
+          />
+
+          <article className="mt-5">
             {documentToReactComponents(
               props.data.contentfulBlogs.article.json,
               options
             )}
-          </div>
+          </article>
         </div>
+
+        {/* <div className="py-5 mb-5 mx-auto" style={{ width: "80%" }}>
+          <div className="row justify-content-between">
+            <div className="col-xl-9 pr-5">
+              <Img
+                fluid={props.data.contentfulBlogs.image.fluid}
+                alt={props.data.contentfulBlogs.title}
+              />
+
+              <article className="bg-dark">
+                {documentToReactComponents(
+                  props.data.contentfulBlogs.article.json,
+                  options
+                )}
+              </article>
+            </div>
+
+            <div className="col-xl-3 p-0">
+              <div className="bg-dark w-100 h-100"></div>
+            </div>
+          </div>
+        </div> */}
       </main>
     </Layout>
   )
