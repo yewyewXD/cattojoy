@@ -27,23 +27,23 @@ const FeatureSection = () => {
     {
       title: "Affordable",
       description:
-        "We sell every toy at the wholesale price. Cat toys shouldn't be expensive, let's fix that!",
+        "We sell every toy at the lowest price possible. Cat toys shouldn't be expensive, so let's fix that!",
     },
 
     {
       title: "Transparent",
       description:
-        "No extra fee is needed upon checkout. We will even walk you through how we monetize you!",
+        "No extra fee is required upon checkout. We will even walk you through how we monetize you!",
     },
     {
       title: "Reliable",
       description:
-        "Our private carriage ensure your order's safety. You would never see a broken package!",
+        "Our private carriage ensure your order's safety. Breaking your package is equivalent to breaking our own heart!",
     },
     {
       title: "Fast Delivery",
       description:
-        "We ship out every weekend. So if you purchase on Friday, you will receive your order in only 2 days!",
+        "We ship out every single weekend. If you purchase on Friday, you will receive your order within 2 days!",
     },
   ]
 
