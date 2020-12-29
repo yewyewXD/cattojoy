@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import "bootstrap/dist/css/bootstrap.css"
-import "../styles/global.scss"
+import "../styles/final.scss"
 
 const Layout = ({ children, currentPage }) => {
   const [isShowingNavbar, setIsShowingNavbar] = useState(false)

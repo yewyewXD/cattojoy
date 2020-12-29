@@ -60,6 +60,15 @@ p {
 }
 
 // Layout
+.Banner {
+  background: $lightThemeColor;
+  &__Icon {
+    @media (max-width: $md) {
+      width: 70px;
+    }
+  }
+}
+
 .HeaderLogo {
   @media (max-width: $md) {
     width: 50px;
