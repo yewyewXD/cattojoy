@@ -33,10 +33,11 @@ const ContactForm = () => {
     if (name.isValid && email.isValid && message.isValid) {
       try {
         await axios.post("/.netlify/functions/mailing", {
-          email,
-          name,
+          email: email.content,
+          name: name.content,
         })
-        e.target.submit()
+
+        document.getElementById("contactForm").submit()
       } catch (err) {
         console.log(err)
       }
