@@ -1,5 +1,21 @@
 .ContactPage {
+  .SocialMedia {
+    &__Title {
+      @media (max-width: $lg) {
+        text-align: center;
+      }
+    }
+
+    &__Icon {
+      @media (max-width: $md) {
+        width: 50px;
+      }
+      @media (max-width: $sm) {
+        width: 40px;
+      }
+    }
+  }
   .ContactForm {
-    width: 80%;
+    width: 100%;
   }
 }

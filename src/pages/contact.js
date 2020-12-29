@@ -42,6 +42,10 @@ const ContactPage = () => {
       name: "Catto Joy Instagram",
       link: "https://www.instagram.com/catto_joy/",
     },
+    {
+      name: "Catto Joy LinkedIn",
+      link: "https://twitter.com/cattojoy",
+    },
 
     {
       name: "Catto Joy Twitter",
@@ -68,13 +72,15 @@ const ContactPage = () => {
         />
 
         {/* content */}
-        <div className="container my-lg-5 my-3 py-5">
+        <div className="container my-lg-5 my-sm-3 py-5">
           <div className="row">
             {/* social media */}
-            <div className="col-lg-4 mb-lg-0 mb-4">
-              <h1 className="mb-lg-5 mb-3">Reach us out in other ways</h1>
+            <div className="SocialMedia col-lg-5 mb-lg-0 mb-md-4 mb-5">
+              <h1 className="SocialMedia__Title mb-xl-5 mb-4">
+                Reach us out in other ways
+              </h1>
 
-              <div className="all-center justify-content-lg-start">
+              <div className="all-center justify-content-lg-start flex-wrap">
                 {socialMedias.map((socialMedia, index) => (
                   <a
                     href={socialMedia.link}
@@ -83,7 +89,7 @@ const ContactPage = () => {
                     key={`contactSocialMedia-${index}`}
                   >
                     <img
-                      className="Banner__Icon mr-lg-5 mr-4"
+                      className="SocialMedia__Icon mr-lg-5 mr-md-4 mb-md-4 mx-md-0 mx-sm-3 mx-2"
                       alt={socialMedia.name}
                       src={
                         data.socialMediaFile.edges[index].node.image.fixed.src
@@ -95,7 +101,7 @@ const ContactPage = () => {
             </div>
 
             {/* form fields */}
-            <div className="col-lg-8 all-center justify-content-lg-end">
+            <div className="col-lg-7 all-center justify-content-lg-end">
               <ContactForm />
             </div>
           </div>
