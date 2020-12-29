@@ -2,10 +2,10 @@ import React from "react"
 
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
-import HeroSection from "../components/Home/HeroSection"
-import FeatureSection from "../components/Home/FeatureSection"
-import CallToAction from "../components/Home/CallToAction"
-import BlogSection from "../components/Home/BlogSection"
+import HeroSection from "../components/HomeComponents/HeroSection"
+import FeatureSection from "../components/HomeComponents/FeatureSection"
+import CallToAction from "../components/HomeComponents/CallToAction"
+import BlogSection from "../components/HomeComponents/BlogSection"
 
 const HomePage = () => (
   <Layout currentPage="home">
