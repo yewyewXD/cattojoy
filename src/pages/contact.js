@@ -44,7 +44,7 @@ const ContactPage = () => {
     },
     {
       name: "Catto Joy LinkedIn",
-      link: "https://twitter.com/cattojoy",
+      link: "https://www.linkedin.com/company/cattojoy",
     },
 
     {

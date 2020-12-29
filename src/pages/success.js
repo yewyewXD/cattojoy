@@ -4,7 +4,7 @@ import Layout from "../components/Layout"
 import SEO from "../components/seo"
 
 const SuccessPage = () => (
-  <Layout currentPage="home">
+  <Layout currentPage="contact">
     <SEO title="Success Page" description="Welcome to Catto Joy" />
     <main className="SuccessPage">success page</main>
   </Layout>
