@@ -1,0 +1,33 @@
+// -- This file contain all the styles for reusable components --
+
+// -- Path: src\components\ReusableComponents\PageBanner.jsx --
+.PageBanner {
+  background: $lightThemeColor;
+  &__Icon {
+    @media (max-width: $md) {
+      width: 70px;
+    }
+  }
+}
+
+// -- Path: src\components\Layout.jsx --
+.HeaderLogo {
+  @media (max-width: $md) {
+    width: 50px;
+  }
+}
+.HeaderBrand {
+  font-size: 34px;
+  color: $themeColor;
+
+  @media (max-width: $sm) {
+    font-size: 30px;
+  }
+}
+.Footer {
+  background: $lightThemeColor;
+  font-size: 19px;
+  @media (max-width: $sm) {
+    font-size: 17px;
+  }
+}

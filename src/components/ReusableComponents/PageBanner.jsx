@@ -1,21 +1,18 @@
 import React from "react"
 
-import { useStaticQuery, graphql } from "gatsby"
+const PageBanner = ({ icon, title, description }) => {
+  return (
+    <div className="PageBanner | py-5">
+      <div className="container all-center-column">
+        <div className="all-center mb-md-0 mb-sm-1 mb-2">
+          <img className="PageBanner__Icon" alt={title} src={icon} />
+          <h1 className="heading m-0">{title}</h1>
+        </div>
 
-const Banner = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      file(relativePath: { eq: "cat.png" }) {
-        childImageSharp {
-          fixed(quality: 70, width: 90) {
-            src
-          }
-        }
-      }
-    }
-  `)
-
-  return <div className="PageBanner"></div>
+        <div className="mediumSize text-center">{description}</div>
+      </div>
+    </div>
+  )
 }
 
-export default Banner
+export default PageBanner
