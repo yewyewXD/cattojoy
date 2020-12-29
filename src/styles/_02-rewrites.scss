@@ -11,6 +11,30 @@
   flex-direction: column;
 }
 
+// form fields
+.form-group {
+  margin-bottom: 2rem !important;
+  @media (max-width: $md) {
+    margin-bottom: 1.5rem !important;
+  }
+}
+
+input,
+textarea {
+  outline: none !important;
+  box-shadow: none !important;
+  font-size: 20px !important;
+  border: solid 1px lightgrey !important;
+  &:focus {
+    border: solid 2px $themeColor !important;
+    border-bottom: solid 4px $themeColor !important;
+  }
+
+  @media (max-width: $md) {
+    font-size: 18px !important;
+  }
+}
+
 // buttons
 .btn {
   outline: none !important;

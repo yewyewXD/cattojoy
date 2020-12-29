@@ -2,23 +2,44 @@ import React, { useState } from "react"
 import axios from "axios"
 
 const ContactForm = () => {
-  const [email, setEmail] = useState("")
-  const [message, setMessage] = useState("")
+  const [name, setName] = useState({ content: "" })
+  const [email, setEmail] = useState({ content: "" })
+  const [message, setMessage] = useState({ content: "" })
+
+  const [isValidating, setIsValidating] = useState(false)
+
+  function handleTextChange(setField, target) {
+    setField({
+      content: target.value,
+      isValid: target.value.trim().length > 0,
+    })
+  }
+
+  function handleEmailChange(setField, target) {
+    const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
+    setField({
+      content: target.value,
+      isValid:
+        target.value.trim().length > 0 &&
+        regex.test(String(target.value).toLowerCase()),
+    })
+  }
 
   async function handleSendMail(e) {
     e.preventDefault()
-    console.log(e.target)
+    if (!isValidating) setIsValidating(true)
 
-    //validation
-    try {
-      await axios.post("/.netlify/functions/mailing", {
-        email,
-        name: "testing",
-      })
-
-      e.target.submit()
-    } catch (err) {
-      console.log(err)
+    if (name.isValid && email.isValid && message.isValid) {
+      try {
+        await axios.post("/.netlify/functions/mailing", {
+          email,
+          name,
+        })
+        e.target.submit()
+      } catch (err) {
+        console.log(err)
+      }
     }
   }
 
@@ -30,9 +51,30 @@ const ContactForm = () => {
       method="POST"
       data-netlify="true"
       action="/success"
+      noValidate={true}
       onSubmit={handleSendMail}
     >
       <input type="hidden" name="form-name" value="Contact Form" />
+
+      <div className="form-group">
+        <label className="d-block" htmlFor="contactName">
+          Your Name:
+        </label>
+        <input
+          id="contactName"
+          type="text"
+          name="Name"
+          className="form-control"
+          value={name.content}
+          onChange={e => {
+            handleTextChange(setName, e.target)
+          }}
+        />
+
+        {isValidating && !name.isValid && (
+          <small className="text-danger">Please enter your name</small>
+        )}
+      </div>
 
       <div className="form-group">
         <label className="d-block" htmlFor="contactEmail">
@@ -43,11 +85,15 @@ const ContactForm = () => {
           type="email"
           name="Email"
           className="form-control"
-          value={email}
+          value={email.content}
           onChange={e => {
-            setEmail(e.target.value)
+            handleEmailChange(setEmail, e.target)
           }}
         />
+
+        {isValidating && !email.isValid && (
+          <small className="text-danger">Please enter a valid email</small>
+        )}
       </div>
 
       <div className="form-group">
@@ -59,11 +105,15 @@ const ContactForm = () => {
           rows="5"
           name="Message"
           className="form-control"
-          value={message}
+          value={message.content}
           onChange={e => {
-            setMessage(e.target.value)
+            handleTextChange(setMessage, e.target)
           }}
         />
+
+        {isValidating && !message.isValid && (
+          <small className="text-danger">Please enter your message</small>
+        )}
       </div>
 
       <button
