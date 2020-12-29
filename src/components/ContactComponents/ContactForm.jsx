@@ -35,6 +35,7 @@ const ContactForm = () => {
         await axios.post("/.netlify/functions/mailing", {
           email: email.content,
           name: name.content,
+          type: "contact",
         })
 
         document.getElementById("contactForm").submit()

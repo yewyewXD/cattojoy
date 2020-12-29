@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer")
+const { ContactMail } = require("../templates/ContactMail")
 
 require("dotenv").config({
   path: `.env.development`,
@@ -8,29 +9,32 @@ exports.handler = function (event, context, callback) {
   const user = process.env.MAIL_USER
   const pass = process.env.MAIL_PW
 
-  let transporter = nodemailer.createTransport({
+  const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 587,
     secure: false,
     auth: { user, pass },
   })
 
-  // Parse data sent in form hook (email, name etc)
-  const { email, name } = JSON.parse(event.body)
-
-  // make sure we have data and email
-  if (!email || !name) {
+  // Parse data sent from frontend and validate
+  const { email, name, type } = JSON.parse(event.body)
+  if (!email || !name || !type) {
     return callback(null, {
       statusCode: 400,
-      body: `some error occurred`,
+      body: "No email, name, or email type is detected",
     })
   }
 
-  let mailOptions = {
-    from: `"from ${user}`,
-    to: email, // send to email from contact form
-    subject: "Subject",
-    html: "<b> Hello World </b>",
+  const mailOptions = {
+    from: `Catto Joy ${user}`,
+    to: name,
+    subject: "Welcome to Catto Joy Test",
+    html: ContactMail(),
+  }
+
+  if (type === "purchase") {
+    mailOptions.subject = "Thank you for choosing Catto Joy"
+    mailOptions.html = ContactMail()
   }
 
   transporter.sendMail(mailOptions, (error, info) => {
@@ -45,7 +49,7 @@ exports.handler = function (event, context, callback) {
     // success!
     callback(null, {
       statusCode: 200,
-      body: "mail sent",
+      body: "Successfully sent mail!",
     })
   })
 }
