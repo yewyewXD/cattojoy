@@ -7,8 +7,8 @@ const CallToAction = () => {
       <div className="container all-center">
         <div className="col-md-6 text-center">
           <h3 className="CallToAction__Title | heading mb-4">
-            <b>We</b> can save countless of cats and their owners from obesity
-            &amp; depression <b>together</b>.
+            We can save countless of cats and their owners from obesity &amp;
+            depression <b>together</b>.
           </h3>
           <div className="mb-4">
             <p>
@@ -20,7 +20,10 @@ const CallToAction = () => {
               manufacture it at the most favorable price possible!
             </p>
           </div>
-          <Link to="/shop" className="ActionButton | btn btn-secondary btn-lg">
+          <Link
+            to="/contact"
+            className="ActionButton | btn btn-secondary btn-lg"
+          >
             Submit idea now
           </Link>
         </div>
