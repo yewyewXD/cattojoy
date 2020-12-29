@@ -21,15 +21,12 @@ const FeatureSection = () => {
     }
   `)
 
-  const { edges } = data.allFile
-
   const featureCols = [
     {
       title: "Affordable",
       description:
         "We sell every toy at the lowest price possible. Cat toys shouldn't be expensive, so let's fix that!",
     },
-
     {
       title: "Transparent",
       description:
@@ -66,7 +63,7 @@ const FeatureSection = () => {
             >
               <img
                 className="SectionImage"
-                src={edges[index].node.image.fixed.src}
+                src={data.allFile.edges[index].node.image.fixed.src}
                 alt={featureCol.title}
               />
               <div className="heading mediumSize mt-lg-4 mt-md-3 mt-2 mb-md-2 mb-sm-1">

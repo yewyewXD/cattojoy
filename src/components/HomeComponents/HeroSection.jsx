@@ -6,8 +6,8 @@ import BackgroundImage from "gatsby-background-image"
 const HeroSection = () => {
   const data = useStaticQuery(graphql`
     query {
-      images: file(relativePath: { eq: "HomeImages/hero_bg.jpg" }) {
-        childImageSharp {
+      file(relativePath: { eq: "HomeImages/hero_bg.jpg" }) {
+        image: childImageSharp {
           fluid(quality: 70, maxWidth: 1920) {
             ...GatsbyImageSharpFluid_withWebp
           }
@@ -21,7 +21,7 @@ const HeroSection = () => {
       <BackgroundImage
         Tag="section"
         className="BgImage"
-        fluid={data.images.childImageSharp.fluid}
+        fluid={data.file.image.fluid}
       >
         <div className="BgOverlay"></div>
         <div className="CaptionContainer | container all-center">

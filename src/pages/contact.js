@@ -8,22 +8,58 @@ import PageBanner from "../components/ReusableComponents/PageBanner"
 const ContactPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      file(relativePath: { eq: "ContactImages/cat.png" }) {
-        childImageSharp {
+      iconFile: file(relativePath: { eq: "ContactImages/cat.png" }) {
+        image: childImageSharp {
           fixed(quality: 70, width: 90) {
             src
+          }
+        }
+      }
+
+      socialMediaFile: allFile(
+        filter: { relativeDirectory: { eq: "SocialMedia" } }
+        sort: { fields: name }
+      ) {
+        edges {
+          node {
+            image: childImageSharp {
+              fixed(quality: 50, width: 60) {
+                src
+              }
+            }
           }
         }
       }
     }
   `)
 
+  const socialMedias = [
+    {
+      name: "Catto Joy Facebook",
+      link: "https://www.facebook.com/cattojoy",
+    },
+    {
+      name: "Catto Joy Instagram",
+      link: "https://www.instagram.com/catto_joy/",
+    },
+
+    {
+      name: "Catto Joy Twitter",
+      link: "https://twitter.com/cattojoy",
+    },
+
+    {
+      name: "Catto Joy TikTok",
+      link: "https://www.tiktok.com/@cattojoy",
+    },
+  ]
+
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
 
   async function handleSendMail(e) {
     e.preventDefault()
-    const contactForm = document.getElementById("contactForm")
+    console.log(e.target)
 
     //validation
     try {
@@ -32,7 +68,7 @@ const ContactPage = () => {
         name: "testing",
       })
 
-      contactForm.submit()
+      e.target.submit()
     } catch (err) {
       console.log(err)
     }
@@ -44,7 +80,7 @@ const ContactPage = () => {
       <main className="ContactPage">
         {/* banner */}
         <PageBanner
-          icon={data.file.childImageSharp.fixed.src}
+          icon={data.iconFile.image.fixed.src}
           title="Contact Us"
           description="Feel free to let us know if you have any problems, questions, or
           suggestions. You can even submit ideas or examples about the cat toys
@@ -59,17 +95,22 @@ const ContactPage = () => {
               <h1 className="mb-lg-5 mb-3">Reach us out in other ways</h1>
 
               <div className="all-center justify-content-lg-start">
-                <img
-                  className="Banner__Icon mr-lg-5 mr-4"
-                  alt="Contact Us"
-                  src={data.file.childImageSharp.fixed.src}
-                />
-
-                <img
-                  className="Banner__Icon"
-                  alt="Contact Us"
-                  src={data.file.childImageSharp.fixed.src}
-                />
+                {socialMedias.map((socialMedia, index) => (
+                  <a
+                    href={socialMedia.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    key={`contactSocialMedia-${index}`}
+                  >
+                    <img
+                      className="Banner__Icon mr-lg-5 mr-4"
+                      alt={socialMedia.name}
+                      src={
+                        data.socialMediaFile.edges[index].node.image.fixed.src
+                      }
+                    />
+                  </a>
+                ))}
               </div>
             </div>
 
