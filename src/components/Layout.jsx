@@ -70,7 +70,7 @@ const Layout = ({ children, currentPage }) => {
               <div className="navbar-nav ml-auto">
                 {navLinks.map((navLink, index) => (
                   <Link
-                    key={index}
+                    key={`navLink-${index}`}
                     className={`nav-link text-capitalize mx-3 ${
                       currentPage === navLink.name && "active"
                     }`}
