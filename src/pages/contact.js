@@ -75,7 +75,7 @@ const ContactPage = () => {
         <div className="container my-lg-5 my-sm-3 py-5">
           <div className="row">
             {/* social media */}
-            <div className="SocialMedia col-lg-5 mb-lg-0 mb-md-4 mb-5">
+            <div className="SocialMedia | col-lg-5 mb-lg-0 mb-md-4 mb-5">
               <h1 className="SocialMedia__Title mb-xl-5 mb-4">
                 Reach us out in other ways
               </h1>
@@ -101,7 +101,7 @@ const ContactPage = () => {
             </div>
 
             {/* form fields */}
-            <div className="col-lg-7 all-center justify-content-lg-end">
+            <div className="col-lg-7">
               <ContactForm />
             </div>
           </div>
