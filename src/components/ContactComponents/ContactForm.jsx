@@ -32,11 +32,11 @@ const ContactForm = () => {
 
     if (name.isValid && email.isValid && message.isValid) {
       try {
-        // await axios.post("/.netlify/functions/mailing", {
-        //   email: email.content,
-        //   name: name.content,
-        //   type: "contact",
-        // })
+        await axios.post("/.netlify/functions/mailing", {
+          email: email.content,
+          name: name.content,
+          type: "contact",
+        })
 
         document.getElementById("contactForm").submit()
       } catch (err) {
@@ -53,9 +53,9 @@ const ContactForm = () => {
       method="post"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
-      // action="/success"
+      action="/success"
       noValidate={true}
-      // onSubmit={handleSendMail}
+      onSubmit={handleSendMail}
     >
       <input type="hidden" name="form-name" value="Contact Form" />
 
