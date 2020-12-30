@@ -27,8 +27,8 @@ exports.handler = function (event, context, callback) {
 
   const mailOptions = {
     from: `Catto Joy ${user}`,
-    to: name,
-    subject: "Welcome to Catto Joy Test",
+    to: email,
+    subject: "Welcome to Catto Joy",
     html: ContactMail(),
   }
 
