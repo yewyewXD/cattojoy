@@ -92,7 +92,11 @@ const Layout = ({ children, currentPage }) => {
       {children}
 
       {/* footer */}
-      <footer className="Footer | py-3 text-center">
+      <footer
+        className={`Footer ${
+          currentPage === "404" && "Footer--withBorder"
+        } | py-3 text-center `}
+      >
         <span className="heading">Catto Joy</span> © All Rights Reserved
       </footer>
     </>

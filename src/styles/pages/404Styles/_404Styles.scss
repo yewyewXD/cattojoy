@@ -1,0 +1,12 @@
+// -- Page: src\pages\404.js --
+
+.NotFoundPage {
+  height: 100vh;
+  background: $lightThemeColor;
+
+  @media (max-width: $md) {
+    &__Image {
+      width: 300px;
+    }
+  }
+}
