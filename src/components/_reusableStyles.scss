@@ -25,9 +25,9 @@
   }
 }
 .Footer {
-  border-top: solid 1px grey;
   background: $lightThemeColor;
   font-size: 19px;
+
   @media (max-width: $sm) {
     font-size: 17px;
   }
