@@ -32,17 +32,20 @@ const Layout = ({ children, currentPage }) => {
         <nav className="navbar navbar-expand-md navbar-light my-sm-3 my-md-4">
           <div className="container">
             {/* brand */}
-            <span
-              className="navbar-brand d-flex align-items-center"
-              role="button"
-            >
-              <img
-                src={data.file.image.fixed.src}
-                alt="Catto Joy"
-                className="HeaderLogo mr-md-3 mr-2"
-              />
-              <span className="HeaderBrand | heading mx-2">Catto Joy</span>
-            </span>
+            <Link className="text-decoration-none" to="/">
+              <span
+                className="navbar-brand d-flex align-items-center"
+                role="button"
+              >
+                <img
+                  src={data.file.image.fixed.src}
+                  alt="Catto Joy"
+                  className="HeaderLogo mr-md-3 mr-2"
+                />
+
+                <span className="HeaderBrand | heading mx-2">Catto Joy</span>
+              </span>
+            </Link>
 
             {/* dropdown button */}
             <button
