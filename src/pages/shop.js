@@ -22,7 +22,7 @@ const ShopPage = () => {
           {/* view switcher */}
           <div className="all-center justify-content-between mb-4">
             <div>view switcher</div>
-            <div>sorting </div>
+            <div>sorting v</div>
           </div>
 
           <ProductsSection />

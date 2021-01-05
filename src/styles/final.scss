@@ -59,7 +59,9 @@ p {
 }
 
 @import "../components/reusableStyles";
+
+@import "./pages/404Styles/404Styles";
 @import "./pages/HomeStyles/homeStyles";
 @import "./pages/BlogsStyles/blogsStyles";
 @import "./pages/ContactStyles/contactStyles";
-@import "./pages/404Styles/404Styles";
+@import "./pages/ShopStyles/shopStyles";
