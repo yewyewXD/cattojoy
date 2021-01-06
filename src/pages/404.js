@@ -20,7 +20,7 @@ const NotFoundPage = () => {
   return (
     <Layout currentPage="404">
       <SEO title="404 Page Not Found" />
-      <div className="NotFoundPage | all-center-column w-100">
+      <main className="NotFoundPage | all-center-column w-100">
         <h2 className="mb-4 text-center px-1">404 Page Not Found</h2>
         <img
           className="NotFoundPage__Image | mb-sm-5 mb-4"
@@ -33,7 +33,7 @@ const NotFoundPage = () => {
         <Link className="btn btn-secondary btn-lg mt-4" to="/">
           Back to Homepage
         </Link>
-      </div>
+      </main>
     </Layout>
   )
 }
