@@ -33,9 +33,9 @@ const ShopPage = () => {
 
         {/* content */}
         <div className="container mt-5">
-          {/* view switcher */}
-          <div className="all-center justify-content-between mb-4">
-            <div className="w-50">
+          <div className="all-center mb-4">
+            {/* view switcher  */}
+            <div className="w-50 d-md-block d-none">
               {viewTypes.map(viewType => (
                 <label className="ViewSwitcher | mr-3" key={viewType}>
                   <input
@@ -51,8 +51,9 @@ const ShopPage = () => {
               ))}
             </div>
 
+            {/* sort */}
             <select
-              className="form-control w-50"
+              className="form-control w-50 ml-auto"
               defaultValue="dateASC"
               onChange={handleTriggerFilter}
             >

@@ -132,20 +132,20 @@ const ProductsSection = ({ filterOption, viewType }) => {
     }
   `)
 
-  console.log(viewType)
-
   return (
     <section className="ProductsSection | row mb-3">
       {data[filterOption].edges.map(({ node }) => (
         <Link
-          className="col-lg-4 mb-5 text-decoration-none text-dark"
+          className={`col-lg-${
+            viewType === "grid" ? "6" : "12 d-flex flex-md-row flex-column"
+          } mb-5 text-decoration-none text-dark`}
           style={{ height: "400px" }}
           to={`/products/${node.slug}`}
           key={node.id}
         >
           {/* image */}
           <div
-            className="h-75 w-100 bg-dark"
+            className="h-75 w-50 bg-dark"
             style={{
               backgroundImage: `url(${node.previewImage.fluid.src})`,
               backgroundPosition: "center",
