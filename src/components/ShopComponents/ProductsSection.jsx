@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 
 const ProductsSection = () => {
   const data = useStaticQuery(graphql`
@@ -8,6 +8,7 @@ const ProductsSection = () => {
         edges {
           node {
             id
+            slug
             title
             price
             description {
@@ -37,9 +38,10 @@ const ProductsSection = () => {
   return (
     <section className="ProductsSection | row mb-3">
       {data.products.edges.map(({ node }) => (
-        <div
-          className="col-lg-4 mb-5"
+        <Link
+          className="col-lg-4 mb-5 text-decoration-none text-dark"
           style={{ height: "400px" }}
+          to={`/products/${node.slug}`}
           key={node.id}
         >
           {/* image */}
@@ -59,7 +61,7 @@ const ProductsSection = () => {
 
             <span>RM{node.price}</span>
           </div>
-        </div>
+        </Link>
       ))}
     </section>
   )
