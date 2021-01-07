@@ -1,1 +1,18 @@
 // -- Page: src\pages\shop.js --
+.ShopPage {
+  .ViewSwitcher {
+    cursor: pointer;
+
+    &__Text {
+      color: grey;
+      text-align: center;
+    }
+
+    &__Button {
+      display: none;
+      &:checked ~ span {
+        color: black;
+      }
+    }
+  }
+}

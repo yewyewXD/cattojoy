@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 
-const ProductsSection = ({ filterOption }) => {
+const ProductsSection = ({ filterOption, viewType }) => {
   const data = useStaticQuery(graphql`
     {
       alphaASC: allContentfulProducts(sort: { fields: title, order: ASC }) {
@@ -101,6 +101,8 @@ const ProductsSection = ({ filterOption }) => {
       }
     }
   `)
+
+  console.log(viewType)
 
   return (
     <section className="ProductsSection | row mb-3">

@@ -8,9 +8,14 @@ import ProductsSection from "../components/ShopComponents/ProductsSection"
 
 const ShopPage = () => {
   const [filterOption, setFilterOption] = useState("dateASC")
+  const [viewType, setViewType] = useState("grid")
 
   function handleTriggerFilter(e) {
     setFilterOption(e.target.value)
+  }
+
+  function handleSwitchView(e) {
+    setViewType(e.target.value)
   }
 
   return (
@@ -28,10 +33,34 @@ const ShopPage = () => {
         <div className="container mt-5">
           {/* view switcher */}
           <div className="all-center justify-content-between mb-4">
-            <div>view switcher</div>
-            <div>sorting v</div>
+            <div className="w-50">
+              <label className="ViewSwitcher | mr-3">
+                <input
+                  className="ViewSwitcher__Button"
+                  type="radio"
+                  name="viewSwitcher"
+                  value="grid"
+                  checked={viewType === "grid"}
+                  onChange={handleSwitchView}
+                />
+                <span className="ViewSwitcher__Text">Grid</span>
+              </label>
+
+              <label className="ViewSwitcher">
+                <input
+                  className="ViewSwitcher__Button"
+                  type="radio"
+                  name="viewSwitcher"
+                  value="list"
+                  checked={viewType === "list"}
+                  onChange={handleSwitchView}
+                />
+                <span className="ViewSwitcher__Text">List</span>
+              </label>
+            </div>
+
             <select
-              className="form-control"
+              className="form-control w-50"
               defaultValue="dateASC"
               onChange={handleTriggerFilter}
             >
@@ -45,7 +74,7 @@ const ShopPage = () => {
             </select>
           </div>
 
-          <ProductsSection filterOption={filterOption} />
+          <ProductsSection filterOption={filterOption} viewType={viewType} />
         </div>
       </main>
     </Layout>
