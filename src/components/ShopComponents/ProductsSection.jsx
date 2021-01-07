@@ -1,31 +1,98 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 
-const ProductsSection = () => {
+const ProductsSection = ({ filterOption }) => {
   const data = useStaticQuery(graphql`
     {
-      products: allContentfulProducts {
+      alphaASC: allContentfulProducts(sort: { fields: title, order: ASC }) {
         edges {
           node {
             id
             slug
             title
             price
-            description {
-              markdown: childMarkdownRemark {
-                excerpt
-              }
-            }
             previewImage {
               fluid(quality: 100) {
                 src
               }
             }
-            slideImages {
+          }
+        }
+      }
+
+      alphaDESC: allContentfulProducts(sort: { fields: title, order: DESC }) {
+        edges {
+          node {
+            id
+            slug
+            title
+            price
+            previewImage {
               fluid(quality: 100) {
                 src
               }
-              fixed(quality: 100, width: 200) {
+            }
+          }
+        }
+      }
+
+      priceASC: allContentfulProducts(sort: { fields: price, order: ASC }) {
+        edges {
+          node {
+            id
+            slug
+            title
+            price
+            previewImage {
+              fluid(quality: 100) {
+                src
+              }
+            }
+          }
+        }
+      }
+
+      priceDESC: allContentfulProducts(sort: { fields: price, order: DESC }) {
+        edges {
+          node {
+            id
+            slug
+            title
+            price
+            previewImage {
+              fluid(quality: 100) {
+                src
+              }
+            }
+          }
+        }
+      }
+
+      dateASC: allContentfulProducts(sort: { fields: slug, order: ASC }) {
+        edges {
+          node {
+            id
+            slug
+            title
+            price
+            previewImage {
+              fluid(quality: 100) {
+                src
+              }
+            }
+          }
+        }
+      }
+
+      dateDESC: allContentfulProducts(sort: { fields: slug, order: DESC }) {
+        edges {
+          node {
+            id
+            slug
+            title
+            price
+            previewImage {
+              fluid(quality: 100) {
                 src
               }
             }
@@ -37,7 +104,7 @@ const ProductsSection = () => {
 
   return (
     <section className="ProductsSection | row mb-3">
-      {data.products.edges.map(({ node }) => (
+      {data[filterOption].edges.map(({ node }) => (
         <Link
           className="col-lg-4 mb-5 text-decoration-none text-dark"
           style={{ height: "400px" }}
