@@ -8,15 +8,17 @@ import ProductsSection from "../components/ShopComponents/ProductsSection"
 
 const ShopPage = () => {
   const [filterOption, setFilterOption] = useState("dateASC")
-  const [viewType, setViewType] = useState("grid")
+  const [selectedViewType, setSelectedViewType] = useState("grid")
 
   function handleTriggerFilter(e) {
     setFilterOption(e.target.value)
   }
 
   function handleSwitchView(e) {
-    setViewType(e.target.value)
+    setSelectedViewType(e.target.value)
   }
+
+  const viewTypes = ["grid", "list"]
 
   return (
     <Layout currentPage="shop">
@@ -34,29 +36,19 @@ const ShopPage = () => {
           {/* view switcher */}
           <div className="all-center justify-content-between mb-4">
             <div className="w-50">
-              <label className="ViewSwitcher | mr-3">
-                <input
-                  className="ViewSwitcher__Button"
-                  type="radio"
-                  name="viewSwitcher"
-                  value="grid"
-                  checked={viewType === "grid"}
-                  onChange={handleSwitchView}
-                />
-                <span className="ViewSwitcher__Text">Grid</span>
-              </label>
-
-              <label className="ViewSwitcher">
-                <input
-                  className="ViewSwitcher__Button"
-                  type="radio"
-                  name="viewSwitcher"
-                  value="list"
-                  checked={viewType === "list"}
-                  onChange={handleSwitchView}
-                />
-                <span className="ViewSwitcher__Text">List</span>
-              </label>
+              {viewTypes.map(viewType => (
+                <label className="ViewSwitcher | mr-3" key={viewType}>
+                  <input
+                    className="ViewSwitcher__Button"
+                    type="radio"
+                    name="viewSwitcher"
+                    value={viewType}
+                    checked={selectedViewType === viewType}
+                    onChange={handleSwitchView}
+                  />
+                  <span className="ViewSwitcher__Text">{viewType}</span>
+                </label>
+              ))}
             </div>
 
             <select
@@ -74,7 +66,10 @@ const ShopPage = () => {
             </select>
           </div>
 
-          <ProductsSection filterOption={filterOption} viewType={viewType} />
+          <ProductsSection
+            filterOption={filterOption}
+            viewType={selectedViewType}
+          />
         </div>
       </main>
     </Layout>

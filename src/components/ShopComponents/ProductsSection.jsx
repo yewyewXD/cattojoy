@@ -11,6 +11,11 @@ const ProductsSection = ({ filterOption, viewType }) => {
             slug
             title
             price
+            description {
+              childMarkdownRemark {
+                excerpt
+              }
+            }
             previewImage {
               fluid(quality: 100) {
                 src
@@ -27,6 +32,11 @@ const ProductsSection = ({ filterOption, viewType }) => {
             slug
             title
             price
+            description {
+              childMarkdownRemark {
+                excerpt
+              }
+            }
             previewImage {
               fluid(quality: 100) {
                 src
@@ -43,6 +53,11 @@ const ProductsSection = ({ filterOption, viewType }) => {
             slug
             title
             price
+            description {
+              childMarkdownRemark {
+                excerpt
+              }
+            }
             previewImage {
               fluid(quality: 100) {
                 src
@@ -59,6 +74,11 @@ const ProductsSection = ({ filterOption, viewType }) => {
             slug
             title
             price
+            description {
+              childMarkdownRemark {
+                excerpt
+              }
+            }
             previewImage {
               fluid(quality: 100) {
                 src
@@ -75,6 +95,11 @@ const ProductsSection = ({ filterOption, viewType }) => {
             slug
             title
             price
+            description {
+              childMarkdownRemark {
+                excerpt
+              }
+            }
             previewImage {
               fluid(quality: 100) {
                 src
@@ -91,6 +116,11 @@ const ProductsSection = ({ filterOption, viewType }) => {
             slug
             title
             price
+            description {
+              childMarkdownRemark {
+                excerpt
+              }
+            }
             previewImage {
               fluid(quality: 100) {
                 src
