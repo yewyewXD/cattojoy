@@ -1,0 +1,16 @@
+.ProductContainer {
+  height: 300px;
+}
+
+.ProductImage {
+  height: 100%;
+  width: 100%;
+
+  &--list {
+    width: 45%;
+
+    @media (max-width: $md) {
+      width: 100%;
+    }
+  }
+}
