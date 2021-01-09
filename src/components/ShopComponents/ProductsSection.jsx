@@ -136,17 +136,17 @@ const ProductsSection = ({ filterOption, viewType }) => {
     <section className="ProductsSection | row mb-3">
       {data[filterOption].edges.map(({ node }) => (
         <Link
-          className={`ProductContainer | col-lg-${
+          className={`ProductContainer | ${
             viewType === "grid"
-              ? "4 col-md-6"
-              : "12 d-flex flex-md-row flex-column"
-          } mb-5 text-decoration-none text-dark`}
+              ? "col-xl-3 col-lg-4"
+              : "col-lg-12  d-flex flex-md-row flex-column"
+          } mb-5 text-decoration-none text-dark col-sm-6`}
           to={`/products/${node.slug}`}
           key={node.id}
         >
           {/* image */}
           <div
-            className={`ProductImage ProductImage--${viewType}`}
+            className={`ProductImage  ProductImage--${viewType}`}
             style={{
               backgroundImage: `url(${node.previewImage.fluid.src})`,
               backgroundPosition: "center",
