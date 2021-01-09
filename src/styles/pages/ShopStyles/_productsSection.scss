@@ -18,3 +18,19 @@
     }
   }
 }
+
+.ProductDetail {
+  align-items: flex-start;
+
+  &__Title {
+    margin-bottom: 8px;
+    color: grey;
+  }
+
+  &--list {
+    justify-content: flex-start;
+    @media (min-width: $md) {
+      padding: 0 2rem;
+    }
+  }
+}

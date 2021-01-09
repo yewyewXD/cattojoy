@@ -58,8 +58,8 @@ const ShopPage = () => {
               onChange={handleTriggerFilter}
             >
               <option value="dateASC">Default sorting</option>
-              <option value="alphaASC">A-Z</option>
-              <option value="alphaDESC">Z-A</option>
+              <option value="alphaASC">Alphabetically, A-Z</option>
+              <option value="alphaDESC">Alphabetically, Z-A</option>
               <option value="priceASC">Price, low to high</option>
               <option value="priceDESC">Price, high to low</option>
               <option value="dateASC">New to old</option>

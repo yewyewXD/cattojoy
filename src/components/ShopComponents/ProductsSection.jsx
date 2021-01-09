@@ -153,10 +153,24 @@ const ProductsSection = ({ filterOption, viewType }) => {
           ></div>
 
           {/* description */}
-          <div className="text-center all-center justify-content-between w-100 mt-2">
-            <span>{node.title}</span>
+          <div
+            className={`ProductDetail ${
+              viewType === "list" && "ProductDetail--list"
+            } | all-center-column w-100`}
+          >
+            <div className="ProductDetail__Title">{node.title}</div>
 
-            <span>RM{node.price}</span>
+            {viewType === "list" && (
+              <div className="">
+                {node.description.childMarkdownRemark.excerpt}
+              </div>
+            )}
+
+            <div className="my-3">RM{node.price}</div>
+
+            <button className="btn btn-outline-secondary btn-md">
+              Add to Cart
+            </button>
           </div>
         </Link>
       ))}
