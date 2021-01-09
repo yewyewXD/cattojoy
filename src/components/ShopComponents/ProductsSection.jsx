@@ -138,20 +138,17 @@ const ProductsSection = ({ filterOption, viewType }) => {
         <Link
           className={`ProductContainer | ${
             viewType === "grid"
-              ? "col-xl-3 col-lg-4"
-              : "col-lg-12  d-flex flex-md-row flex-column"
-          } mb-5 text-decoration-none text-dark col-sm-6`}
-          to={`/products/${node.slug}`}
+              ? "col-xl-3 col-lg-4 col-sm-6"
+              : "col-md-12 col-sm-6 d-flex flex-md-row flex-column"
+          } text-decoration-none text-dark`}
+          // to={`/products/${node.slug}`}
           key={node.id}
         >
           {/* image */}
           <div
-            className={`ProductImage  ProductImage--${viewType}`}
+            className={`ProductImage ProductImage--${viewType} border`}
             style={{
               backgroundImage: `url(${node.previewImage.fluid.src})`,
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
             }}
           ></div>
 
