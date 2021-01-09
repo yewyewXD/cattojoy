@@ -141,7 +141,7 @@ const ProductsSection = ({ filterOption, viewType }) => {
               ? "col-xl-3 col-lg-4 col-sm-6"
               : "col-md-12 col-sm-6 d-flex flex-md-row flex-column"
           } text-decoration-none text-dark`}
-          // to={`/products/${node.slug}`}
+          to={`/products/${node.slug}`}
           key={node.id}
         >
           {/* image */}
