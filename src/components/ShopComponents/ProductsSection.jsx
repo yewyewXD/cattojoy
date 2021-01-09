@@ -135,7 +135,7 @@ const ProductsSection = ({ filterOption, viewType }) => {
   return (
     <section className="ProductsSection | row mb-3">
       {data[filterOption].edges.map(({ node }) => (
-        <Link
+        <div
           className={`ProductContainer | ${
             viewType === "grid"
               ? "col-xl-3 col-lg-4 col-sm-6"
@@ -146,11 +146,16 @@ const ProductsSection = ({ filterOption, viewType }) => {
         >
           {/* image */}
           <div
-            className={`ProductImage ProductImage--${viewType} border`}
+            className={`ProductImage ProductImage--${viewType} | position-relative border`}
             style={{
               backgroundImage: `url(${node.previewImage.fluid.src})`,
             }}
-          ></div>
+          >
+            <Link
+              className="h-100 w-100 position-absolute"
+              to={`/products/${node.slug}`}
+            ></Link>
+          </div>
 
           {/* description */}
           <div
@@ -172,7 +177,7 @@ const ProductsSection = ({ filterOption, viewType }) => {
               Add to Cart
             </button>
           </div>
-        </Link>
+        </div>
       ))}
     </section>
   )
