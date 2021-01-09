@@ -4,14 +4,18 @@
     cursor: pointer;
 
     &__Text {
-      color: grey;
+      color: rgba($color: #000000, $alpha: 0.3);
       text-align: center;
+      font-size: 18px;
+      &:hover {
+        color: grey;
+      }
     }
 
     &__Button {
       display: none;
       &:checked ~ span {
-        color: black;
+        color: rgba($color: #000000, $alpha: 0.8);
       }
     }
   }

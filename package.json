@@ -6,7 +6,10 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.1.2",
-    "axios": "^0.21.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "axios": "^0.21.1",
     "bootstrap": "^4.5.3",
     "gatsby": "^2.25.2",
     "gatsby-background-image": "^1.1.2",

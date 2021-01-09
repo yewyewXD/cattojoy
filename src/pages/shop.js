@@ -1,4 +1,6 @@
 /* eslint-disable */
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTh, faList } from "@fortawesome/free-solid-svg-icons"
 import React, { useState } from "react"
 
 import Layout from "../components/Layout"
@@ -18,7 +20,10 @@ const ShopPage = () => {
     setSelectedViewType(e.target.value)
   }
 
-  const viewTypes = ["grid", "list"]
+  const viewTypes = [
+    { name: "grid", icon: faTh },
+    { name: "list", icon: faList },
+  ]
 
   return (
     <Layout currentPage="shop">
@@ -37,16 +42,18 @@ const ShopPage = () => {
             {/* view switcher  */}
             <div className="w-50 d-md-block d-none">
               {viewTypes.map(viewType => (
-                <label className="ViewSwitcher | mr-3" key={viewType}>
+                <label className="ViewSwitcher | mr-3" key={viewType.name}>
                   <input
                     className="ViewSwitcher__Button"
                     type="radio"
                     name="viewSwitcher"
-                    value={viewType}
-                    checked={selectedViewType === viewType}
+                    value={viewType.name}
+                    checked={selectedViewType === viewType.name}
                     onChange={handleSwitchView}
                   />
-                  <span className="ViewSwitcher__Text">{viewType}</span>
+                  <span className="ViewSwitcher__Text" title={viewType.name}>
+                    <FontAwesomeIcon icon={viewType.icon} />
+                  </span>
                 </label>
               ))}
             </div>
