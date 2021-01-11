@@ -40,7 +40,7 @@ const ShopPage = () => {
         <div className="container mt-5">
           <div className="all-center mb-4">
             {/* view switcher  */}
-            <div className="w-50 d-md-block ">
+            <div className="w-50 d-md-block d-none">
               {viewTypes.map(viewType => (
                 <label className="ViewSwitcher | mr-3" key={viewType.name}>
                   <input
