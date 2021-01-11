@@ -56,23 +56,21 @@ const CartPage = () => {
                   <div>{product.price}</div>
 
                   <div className="d-flex bg-light">
-                    <span
-                      role="button"
+                    <button
                       onClick={() => {
                         decreaseProductCount(product)
                       }}
                     >
                       -
-                    </span>
+                    </button>
                     <span className="mx-3">{product.count}</span>
-                    <span
-                      role="button"
+                    <button
                       onClick={() => {
                         increaseProductCount(product)
                       }}
                     >
                       +
-                    </span>
+                    </button>
                   </div>
                 </div>
                 <div className="col-2 d-sm-block d-none">
