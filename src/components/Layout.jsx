@@ -82,6 +82,15 @@ const Layout = ({ children, currentPage }) => {
                     {navLink.name}
                   </Link>
                 ))}
+
+                <Link
+                  className={`nav-link mx-3 ${
+                    currentPage === "cart" && "active"
+                  }`}
+                  to="/cart"
+                >
+                  Cart
+                </Link>
               </div>
             </div>
           </div>
