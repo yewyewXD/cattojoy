@@ -4,6 +4,7 @@ import CartReducer from "./CartReducer"
 // Initial state
 const initialState = {
   productCount: 0,
+  products: [],
 }
 
 export const CartContext = createContext(initialState)
@@ -11,11 +12,19 @@ export const CartContext = createContext(initialState)
 export const CartContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(CartReducer, initialState)
 
-  //Actions
-  function action() {
+  function increaseProductCount(product) {
+    console.log("Increment")
     dispatch({
-      type: "",
-      payload: "",
+      type: "INCREASE_PRODUCT_COUNT",
+      payload: { product },
+    })
+  }
+
+  function decreaseProductCount(product) {
+    console.log("Decrement")
+    dispatch({
+      type: "DECREASE_PRODUCT_COUNT",
+      payload: { product },
     })
   }
 
@@ -23,7 +32,9 @@ export const CartContextProvider = ({ children }) => {
     <CartContext.Provider
       value={{
         productCount: state.productCount,
-        action,
+        products: state.products,
+        increaseProductCount,
+        decreaseProductCount,
       }}
     >
       {children}

@@ -135,7 +135,7 @@ const ProductsSection = ({ filterOption, viewType }) => {
     }
   `)
 
-  const { increaseProductCount, productCount } = useContext(CartContext)
+  const { increaseProductCount } = useContext(CartContext)
 
   function handleAddProductToCart(product) {
     increaseProductCount(product)
