@@ -35,7 +35,7 @@ const HeroSection = () => {
             </div>
             <Link
               to="/shop"
-              className="actionButton | btn btn-primary btn-lg mt-4"
+              className="actionButton btn btn-primary btn-lg mt-4"
             >
               Discover now
             </Link>

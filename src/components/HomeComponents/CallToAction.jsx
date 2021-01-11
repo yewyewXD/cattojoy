@@ -20,10 +20,7 @@ const CallToAction = () => {
               manufacture it at the most favorable price possible!
             </p>
           </div>
-          <Link
-            to="/contact"
-            className="actionButton | btn btn-secondary btn-lg"
-          >
+          <Link to="/contact" className="actionButton btn btn-secondary btn-lg">
             Submit idea now
           </Link>
         </div>

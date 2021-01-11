@@ -1,5 +1,13 @@
 .ProductContainer {
-  margin-bottom: 5.5rem;
+  margin-bottom: 4rem;
+}
+
+.ProductOverlay {
+  @media (min-width: $lg) {
+    transition: 0.2s;
+    background: $darkThemeColor;
+    opacity: 0;
+  }
 }
 
 .ProductImage {
@@ -9,27 +17,78 @@
   background-size: cover;
   background-repeat: no-repeat;
 
-  &--list {
+  &.list {
     width: 45%;
 
     @media (max-width: $md) {
       width: 100%;
     }
   }
+
+  &:hover {
+    @media (min-width: $lg) {
+      .ProductOverlay {
+        opacity: 1;
+      }
+    }
+  }
 }
 
 .ProductDetail {
   align-items: flex-start;
+  justify-content: flex-start;
 
-  &__Title {
-    margin-bottom: 8px;
+  .Title {
     color: grey;
   }
 
-  &--list {
-    justify-content: flex-start;
+  // list view of product detail
+  &.list {
+    .Price {
+      margin: 12px 0;
+    }
+
+    .Description {
+      @media (max-width: $sm) {
+        display: block !important;
+      }
+    }
+
     @media (min-width: $md) {
       padding: 0 2rem;
+    }
+
+    @media (max-width: $md) {
+      .Description {
+        display: none;
+      }
+      .Title,
+      .Button {
+        margin-top: 8px;
+      }
+      .Price {
+        margin: 0;
+      }
+    }
+  }
+
+  // grid view of product detail
+  &.grid {
+    .Title,
+    .Button {
+      margin-top: 8px;
+    }
+
+    .Description {
+      @media (min-width: $sm) {
+        display: none;
+      }
+    }
+  }
+
+  @media (max-width: $sm) {
+    .Price {
+      margin: 8px 0 !important;
     }
   }
 }

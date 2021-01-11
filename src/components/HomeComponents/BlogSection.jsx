@@ -66,7 +66,7 @@ const BlogSection = () => {
                     </div>
                     <Link
                       to={`/blogs/${blog.node.slug}`}
-                      className="actionButton | btn btn-outline-secondary btn-md"
+                      className="actionButton btn btn-outline-secondary btn-md"
                     >
                       Read more
                     </Link>
