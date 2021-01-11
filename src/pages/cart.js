@@ -6,7 +6,9 @@ import SEO from "../components/seo"
 import PageBanner from "../components/ReusableComponents/PageBanner"
 
 const CartPage = () => {
-  const { products } = useContext(CartContext)
+  const { products, increaseProductCount, decreaseProductCount } = useContext(
+    CartContext
+  )
 
   console.log(products)
 
@@ -54,13 +56,27 @@ const CartPage = () => {
                   <div>{product.price}</div>
 
                   <div className="d-flex bg-light">
-                    <span> - </span>
+                    <span
+                      role="button"
+                      onClick={() => {
+                        decreaseProductCount(product)
+                      }}
+                    >
+                      -
+                    </span>
                     <span className="mx-3">{product.count}</span>
-                    <span> + </span>
+                    <span
+                      role="button"
+                      onClick={() => {
+                        increaseProductCount(product)
+                      }}
+                    >
+                      +
+                    </span>
                   </div>
                 </div>
                 <div className="col-2 d-sm-block d-none">
-                  RM {+product.count * +product.price}
+                  RM{+product.count * +product.price}
                 </div>
               </div>
             ))}
