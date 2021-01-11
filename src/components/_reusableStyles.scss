@@ -10,7 +10,7 @@
   }
 }
 
-// -- Path: src\components\Layout.jsx --
+// -- Path: src\components\ReusableComponents\Header.jsx --
 .HeaderLogo {
   @media (max-width: $md) {
     width: 50px;
@@ -24,6 +24,8 @@
     font-size: 30px;
   }
 }
+
+// -- Path: src\components\Layout.jsx --
 .Footer {
   background: $lightThemeColor;
   font-size: 19px;

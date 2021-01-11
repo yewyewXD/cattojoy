@@ -1,7 +1,8 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSearch } from "@fortawesome/free-solid-svg-icons"
+import { CartContext } from "../../context/CartContext/CartState"
 
 const ProductsSection = ({ filterOption, viewType }) => {
   const data = useStaticQuery(graphql`
@@ -134,6 +135,12 @@ const ProductsSection = ({ filterOption, viewType }) => {
     }
   `)
 
+  const { increaseProductCount, productCount } = useContext(CartContext)
+
+  function handleAddProductToCart(product) {
+    increaseProductCount(product)
+  }
+
   return (
     <section className="ProductsSection | row mb-3">
       {data[filterOption].edges.map(({ node }) => (
@@ -181,7 +188,12 @@ const ProductsSection = ({ filterOption, viewType }) => {
             <div className="Price">RM{node.price}</div>
 
             {/* button */}
-            <button className="Button | actionButton btn btn-outline-secondary btn-md">
+            <button
+              className="Button | actionButton btn btn-outline-secondary btn-md"
+              onClick={() => {
+                handleAddProductToCart(node)
+              }}
+            >
               Add to Cart
             </button>
           </div>
