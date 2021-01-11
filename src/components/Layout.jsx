@@ -1,5 +1,4 @@
 import React from "react"
-import { CartContextProvider } from "../context/CartContext/CartState"
 import "bootstrap/dist/css/bootstrap.css"
 import "../styles/final.scss"
 
@@ -7,7 +6,7 @@ import Header from "./ReusableComponents/Header"
 
 const Layout = ({ children, currentPage }) => {
   return (
-    <CartContextProvider>
+    <>
       {/* header */}
       <Header currentPage={currentPage} />
 
@@ -20,7 +19,7 @@ const Layout = ({ children, currentPage }) => {
           <span className="heading">Catto Joy</span> © All Rights Reserved
         </footer>
       )}
-    </CartContextProvider>
+    </>
   )
 }
 
