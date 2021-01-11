@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
+import { CartContextProvider } from "../context/CardContext/CartState"
 import "bootstrap/dist/css/bootstrap.css"
 import "../styles/final.scss"
 
@@ -26,7 +27,7 @@ const Layout = ({ children, currentPage }) => {
   ]
 
   return (
-    <>
+    <CartContextProvider>
       {/* header */}
       <header className="Header">
         <nav className="navbar navbar-expand-md navbar-light my-sm-3 my-md-4">
@@ -89,7 +90,7 @@ const Layout = ({ children, currentPage }) => {
                   }`}
                   to="/cart"
                 >
-                  Cart
+                  Cart (0)
                 </Link>
               </div>
             </div>
@@ -106,7 +107,7 @@ const Layout = ({ children, currentPage }) => {
           <span className="heading">Catto Joy</span> © All Rights Reserved
         </footer>
       )}
-    </>
+    </CartContextProvider>
   )
 }
 

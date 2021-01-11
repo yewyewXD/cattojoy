@@ -7,7 +7,9 @@ const CartPage = () => {
   return (
     <Layout currentPage="cart">
       <SEO title="My Cart" />
-      <main className="CartPage">hi</main>
+      <main className="CartPage">
+        <div className="container">testing</div>
+      </main>
     </Layout>
   )
 }
