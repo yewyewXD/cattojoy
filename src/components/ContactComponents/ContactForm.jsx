@@ -120,7 +120,7 @@ const ContactForm = () => {
       </div>
 
       <button
-        className="ActionButton | btn btn-secondary btn-md mt-4"
+        className="actionButton | btn btn-secondary btn-md mt-4"
         type="submit"
       >
         Submit

@@ -22,7 +22,7 @@ const CallToAction = () => {
           </div>
           <Link
             to="/contact"
-            className="ActionButton | btn btn-secondary btn-lg"
+            className="actionButton | btn btn-secondary btn-lg"
           >
             Submit idea now
           </Link>

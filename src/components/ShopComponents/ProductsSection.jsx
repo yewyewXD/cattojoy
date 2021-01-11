@@ -1,5 +1,7 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faSearch } from "@fortawesome/free-solid-svg-icons"
 
 const ProductsSection = ({ filterOption, viewType }) => {
   const data = useStaticQuery(graphql`
@@ -146,34 +148,40 @@ const ProductsSection = ({ filterOption, viewType }) => {
         >
           {/* image */}
           <div
-            className={`ProductImage ProductImage--${viewType} | position-relative border`}
+            className={`ProductImage | ${viewType} position-relative border`}
             style={{
               backgroundImage: `url(${node.previewImage.fluid.src})`,
             }}
           >
             <Link
-              className="h-100 w-100 position-absolute"
+              className="ProductOverlay | all-center h-100 w-100 position-absolute"
               to={`/products/${node.slug}`}
-            ></Link>
+            >
+              <FontAwesomeIcon
+                className="d-lg-inline-block d-none text-white"
+                size="2x"
+                icon={faSearch}
+              />
+            </Link>
           </div>
 
-          {/* description */}
+          {/* detail */}
           <div
-            className={`ProductDetail ${
-              viewType === "list" && "ProductDetail--list"
-            } | all-center-column w-100`}
+            className={`ProductDetail | ${viewType} d-flex flex-column w-100`}
           >
-            <div className="ProductDetail__Title">{node.title}</div>
+            {/* title */}
+            <div className="Title">{node.title}</div>
 
-            {viewType === "list" && (
-              <div className="">
-                {node.description.childMarkdownRemark.excerpt}
-              </div>
-            )}
+            {/* description */}
+            <div className="Description">
+              {node.description.childMarkdownRemark.excerpt}
+            </div>
 
-            <div className="my-3">RM{node.price}</div>
+            {/* price */}
+            <div className="Price">RM{node.price}</div>
 
-            <button className="btn btn-outline-secondary btn-md">
+            {/* button */}
+            <button className="Button | actionButton btn btn-outline-secondary btn-md">
               Add to Cart
             </button>
           </div>

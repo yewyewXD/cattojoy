@@ -11,10 +11,6 @@ body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
-
-  @media (max-width: $md) {
-    font-size: 18px;
-  }
 }
 
 // typography
@@ -22,39 +18,38 @@ body {
   font-family: "Amaranth", sans-serif;
   font-weight: 400;
 }
-
-.mediumSize {
-  font-size: 24px;
-  @media (max-width: $md) {
-    font-size: 20px;
-  }
-}
-
 h1 {
   font-size: 60px;
-  @media (max-width: $md) {
-    font-size: 45px;
-  }
 }
-
 h2 {
   font-size: 45px;
-  @media (max-width: $md) {
-    font-size: 35px;
-  }
 }
-
 p {
   font-size: 23px;
-  @media (max-width: $md) {
-    font-size: 20px;
-  }
+}
+.mediumSize {
+  font-size: 24px;
 }
 
 // button
 @media (max-width: $md) {
-  .ActionButton {
+  body {
+    font-size: 18px;
+  }
+  .actionButton {
     width: 100%;
+  }
+  .h1 {
+    font-size: 45px;
+  }
+  .h2 {
+    font-size: 35px;
+  }
+  .p {
+    font-size: 20px;
+  }
+  .mediumSize {
+    font-size: 20px;
   }
 }
 
