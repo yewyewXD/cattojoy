@@ -44,16 +44,20 @@ const CartPage = () => {
 
           {/* categories */}
           <div className="row bg-light py-2 mb-3 border-bottom">
-            <div className="col-sm-2 col-3">Image</div>
-            <div className="col-sm-8 col-9">Product</div>
-            <div className="col-2 d-sm-block d-none">Total</div>
+            <div className="col-lg-3 col-md-4 col-sm-5">Image</div>
+            <div className="col-lg-7 col-md-8 col-sm-7">Product</div>
+            <div className="col-2 d-lg-block d-none">Total</div>
           </div>
 
           {/* shopping cart */}
           {products.length > 0 &&
             products.map(product => (
-              <div className="row" style={{ height: "250px" }} key={product.id}>
-                <div className="col-sm-2 col-3">
+              <div className="row mb-5" key={product.id}>
+                {/* product image */}
+                <div
+                  className="col-lg-3 col-md-4 col-sm-5"
+                  style={{ height: "250px" }}
+                >
                   <div
                     className="w-100 h-100"
                     style={{
@@ -65,7 +69,8 @@ const CartPage = () => {
                   ></div>
                 </div>
 
-                <div className="col-sm-8 col-9">
+                {/* product details */}
+                <div className="col-lg-7 col-md-8 col-sm-7">
                   <div>{product.title}</div>
 
                   <div>{product.description.childMarkdownRemark.excerpt}</div>
@@ -90,7 +95,9 @@ const CartPage = () => {
                     </button>
                   </div>
                 </div>
-                <div className="col-2 d-sm-block d-none">
+
+                {/* price total price */}
+                <div className="col-2 d-lg-block d-none">
                   {handleRoundPrice(+product.count * +product.price)}
                 </div>
               </div>
