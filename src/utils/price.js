@@ -11,6 +11,6 @@ export function handleRoundPrice(price) {
     }
   } else {
     // if price does not have decimals
-    return price + "00"
+    return price + ".00"
   }
 }

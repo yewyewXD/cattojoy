@@ -6,11 +6,15 @@ const CheckoutSection = () => {
   const { products } = useContext(CartContext)
 
   function getTotalPrice() {
-    const totalPrice = products
-      .map(product => +product.count * +product.price)
-      .reduce((price, nextPrice) => price + nextPrice)
+    if (products.length > 0) {
+      const totalPrice = products
+        .map(product => +product.count * +product.price)
+        .reduce((price, nextPrice) => price + nextPrice)
 
-    return totalPrice
+      return totalPrice
+    } else {
+      return 0
+    }
   }
 
   return (
