@@ -16,38 +16,26 @@ body {
 // typography
 .heading {
   font-family: "Amaranth", sans-serif;
-  font-weight: 400;
 }
-h1 {
-  font-size: 60px;
-}
-h2 {
-  font-size: 45px;
-}
-p {
-  font-size: 23px;
-}
+
 .mediumSize {
   font-size: 24px;
 }
 
-// button
+.semiBold {
+  font-weight: 600;
+}
+
 @media (max-width: $md) {
   body {
     font-size: 18px;
   }
+
   .actionButton {
+    // button
     width: 100%;
   }
-  .h1 {
-    font-size: 45px;
-  }
-  .h2 {
-    font-size: 35px;
-  }
-  .p {
-    font-size: 20px;
-  }
+
   .mediumSize {
     font-size: 20px;
   }

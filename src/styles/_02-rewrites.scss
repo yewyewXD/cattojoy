@@ -35,6 +35,21 @@ textarea {
   }
 }
 
+select {
+  font-size: 19px !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border: solid 1px lightgrey !important;
+  cursor: pointer;
+  &:hover {
+    border: solid 1px $themeColor !important;
+  }
+
+  @media (max-width: $md) {
+    font-size: 17px !important;
+  }
+}
+
 // buttons
 .btn {
   outline: none !important;
@@ -72,4 +87,27 @@ textarea {
 .btn-md {
   padding: 8px 16px !important;
   font-size: 18px !important;
+}
+
+//typography
+h1 {
+  font-size: 60px !important;
+}
+h2 {
+  font-size: 45px !important;
+}
+p {
+  font-size: 23px !important;
+}
+
+@media (max-width: $md) {
+  h1 {
+    font-size: 45px !important;
+  }
+  h2 {
+    font-size: 35px !important;
+  }
+  p {
+    font-size: 20px !important;
+  }
 }
