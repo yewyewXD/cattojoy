@@ -56,7 +56,13 @@ const ShoppingCart = () => {
 
               <div>{product.description.childMarkdownRemark.excerpt}</div>
 
-              <div className="ProductPrice">RM{product.price}</div>
+              <div className="ProductPrice | d-lg-block d-none">
+                RM{product.price}
+              </div>
+
+              <div className="ProductPrice | d-lg-none d-block">
+                RM{handleRoundPrice(+product.count * +product.price)}
+              </div>
 
               <div className="d-flex align-items-center">
                 <div className="ProductCounter | all-center mr-3">

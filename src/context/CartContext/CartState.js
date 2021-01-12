@@ -15,10 +15,12 @@ export const CartContextProvider = ({ children }) => {
     return storedCart ? JSON.parse(storedCart) : initialState
   })
 
+  // save to localStorage
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(state))
   }, [state])
 
+  // actions
   function increaseProductCount(product) {
     dispatch({
       type: "INCREASE_PRODUCT_COUNT",
