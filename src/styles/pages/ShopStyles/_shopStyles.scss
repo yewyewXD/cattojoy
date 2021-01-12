@@ -6,7 +6,7 @@
     &__Text {
       color: rgba($color: #000000, $alpha: 0.3);
       text-align: center;
-      font-size: 18px;
+      font-size: 20px;
       &:hover {
         color: grey;
       }
@@ -17,6 +17,14 @@
       &:checked ~ span {
         color: rgba($color: #000000, $alpha: 0.8);
       }
+    }
+  }
+
+  .SortSelector {
+    width: 300px;
+
+    @media (max-width: $md) {
+      width: 250px;
     }
   }
 
