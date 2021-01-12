@@ -1,5 +1,15 @@
 // -- This file contains all Bootstrap class rewrites --
 
+//general
+.btn,
+select,
+input,
+textarea {
+  outline: none !important;
+  box-shadow: none !important;
+  transition: 0.2s;
+}
+
 // positioning
 .all-center,
 .all-center-column {
@@ -21,8 +31,6 @@
 
 input,
 textarea {
-  outline: none !important;
-  box-shadow: none !important;
   font-size: 20px !important;
   border: solid 1px lightgrey !important;
   &:focus {
@@ -37,8 +45,6 @@ textarea {
 
 select {
   font-size: 19px !important;
-  box-shadow: none !important;
-  outline: none !important;
   border: solid 1px lightgrey !important;
   cursor: pointer;
   &:hover {
@@ -51,11 +57,6 @@ select {
 }
 
 // buttons
-.btn {
-  outline: none !important;
-  box-shadow: none !important;
-  transition: 0.2s;
-}
 .btn-primary {
   background: $ctaColor !important;
   color: black !important;
