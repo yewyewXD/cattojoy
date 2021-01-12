@@ -11,13 +11,19 @@ export const CartContext = createContext(initialState)
 
 export const CartContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(CartReducer, initialState, () => {
-    const storedCart = localStorage.getItem("cart")
-    return storedCart ? JSON.parse(storedCart) : initialState
+    if (typeof window !== "undefined") {
+      const storedCart = localStorage.getItem("cart")
+      return storedCart ? JSON.parse(storedCart) : initialState
+    } else {
+      return initialState
+    }
   })
 
   // save to localStorage
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(state))
+    if (typeof window !== "undefined") {
+      localStorage.setItem("cart", JSON.stringify(state))
+    }
   }, [state])
 
   // actions
