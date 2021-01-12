@@ -60,6 +60,26 @@ const CartReducer = (state, { type, payload }) => {
         }
       }
 
+    case "REMOVE_PRODUCT":
+      if (state.products.some(product => product.id === payload.product.id)) {
+        // if product exists
+        const deletingProduct = state.products.filter(
+          product => product.id === payload.product.id
+        )[0]
+        const newProducts = state.products.filter(
+          product => product.id !== payload.product.id
+        )
+        const newProductCount = state.productCount - deletingProduct.count
+
+        return {
+          ...state,
+          products: newProducts,
+          productCount: newProductCount,
+        }
+      } else {
+        return state
+      }
+
     default:
       return state
   }

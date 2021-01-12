@@ -33,6 +33,13 @@ export const CartContextProvider = ({ children }) => {
     })
   }
 
+  function removeProduct(product) {
+    dispatch({
+      type: "REMOVE_PRODUCT",
+      payload: { product },
+    })
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -40,6 +47,7 @@ export const CartContextProvider = ({ children }) => {
         products: state.products,
         increaseProductCount,
         decreaseProductCount,
+        removeProduct,
       }}
     >
       {children}

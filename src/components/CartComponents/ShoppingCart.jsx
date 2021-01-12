@@ -1,12 +1,16 @@
+/* eslint-disable */
 import React, { useContext } from "react"
 import { CartContext } from "../../context/CartContext/CartState"
 
 const ShoppingCart = () => {
-  const { products, increaseProductCount, decreaseProductCount } = useContext(
-    CartContext
-  )
+  const {
+    products,
+    increaseProductCount,
+    decreaseProductCount,
+    removeProduct,
+  } = useContext(CartContext)
 
-  console.log(products)
+  console.log("cart products:", products)
 
   function handleRoundPrice(price) {
     if (price % 1 !== 0) {
@@ -48,28 +52,42 @@ const ShoppingCart = () => {
 
             {/* product details */}
             <div className="col-lg-7 col-md-8 col-sm-7">
-              <div>{product.title}</div>
+              <div className="ProductTitle">{product.title}</div>
 
               <div>{product.description.childMarkdownRemark.excerpt}</div>
 
-              <div>RM{product.price}</div>
+              <div className="ProductPrice">RM{product.price}</div>
 
-              <div className="d-flex bg-light">
-                <button
+              <div className="d-flex align-items-center">
+                <div className="ProductCounter | all-center mr-3">
+                  <button
+                    className="ProductCounter__Button | btn all-center p-0"
+                    onClick={() => {
+                      decreaseProductCount(product)
+                    }}
+                  >
+                    -
+                  </button>
+                  <span className="mx-3">{product.count}</span>
+                  <button
+                    className="ProductCounter__Button | btn all-center p-0"
+                    onClick={() => {
+                      increaseProductCount(product)
+                    }}
+                  >
+                    +
+                  </button>
+                </div>
+
+                <div
+                  className="RemoveButton | text-danger"
+                  role="button"
                   onClick={() => {
-                    decreaseProductCount(product)
+                    removeProduct(product)
                   }}
                 >
-                  <span>-</span>
-                </button>
-                <span className="mx-3">{product.count}</span>
-                <button
-                  onClick={() => {
-                    increaseProductCount(product)
-                  }}
-                >
-                  <span>+</span>
-                </button>
+                  REMOVE
+                </div>
               </div>
             </div>
 

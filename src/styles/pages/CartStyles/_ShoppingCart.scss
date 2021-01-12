@@ -1,0 +1,23 @@
+.ProductTitle {
+  color: grey;
+}
+
+.ProductPrice {
+  margin: 12px 0;
+}
+
+.ProductCounter {
+  width: fit-content;
+  border: solid 1px lightgray;
+
+  &__Button {
+    width: 40px;
+    height: 40px;
+    font-size: 25px;
+  }
+}
+
+.RemoveButton {
+  font-size: 19px;
+  border-bottom: solid 1px #d9534f;
+}
