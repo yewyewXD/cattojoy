@@ -155,7 +155,7 @@ const ProductsSection = ({ filterOption, viewType }) => {
         >
           {/* image */}
           <div
-            className={`ProductImage | ${viewType} position-relative border`}
+            className={`ProductImage | ${viewType} bgCover position-relative border`}
             style={{
               backgroundImage: `url(${node.previewImage.fluid.src})`,
             }}

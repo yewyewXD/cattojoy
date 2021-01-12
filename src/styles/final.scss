@@ -17,11 +17,9 @@ body {
 .heading {
   font-family: "Amaranth", sans-serif;
 }
-
 .mediumSize {
   font-size: 24px;
 }
-
 .semiBold {
   font-weight: 600;
 }
@@ -30,15 +28,20 @@ body {
   body {
     font-size: 18px;
   }
-
   .actionButton {
     // button
     width: 100%;
   }
-
   .mediumSize {
     font-size: 20px;
   }
+}
+
+// background
+.bgCover {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 @import "../components/reusableStyles";

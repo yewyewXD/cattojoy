@@ -46,7 +46,7 @@ const BlogSection = () => {
               >
                 <div className="card">
                   <div
-                    className="CardImage"
+                    className="CardImage | bgCover"
                     style={{
                       backgroundImage: `url(${blog.node.image.fluid.src})`,
                     }}

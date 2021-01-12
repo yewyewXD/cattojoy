@@ -1,9 +1,17 @@
+.ProductImageContainer {
+  height: 250px;
+}
+
 .ProductTitle {
   color: grey;
 }
 
 .ProductPrice {
   margin: 12px 0;
+
+  @media (max-width: $sm) {
+    margin-top: 8px;
+  }
 }
 
 .ProductCounter {

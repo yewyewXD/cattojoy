@@ -35,17 +35,11 @@ const ShoppingCart = () => {
         products.map(product => (
           <div className="row mb-5" key={product.id}>
             {/* product image */}
-            <div
-              className="col-lg-3 col-md-4 col-sm-5"
-              style={{ height: "250px" }}
-            >
+            <div className="ProductImageContainer | col-lg-3 col-md-4 col-sm-5">
               <div
-                className="w-100 h-100"
+                className="ProductImage | w-100 h-100 bgCover"
                 style={{
                   backgroundImage: `url(${product.previewImage.fluid.src})`,
-                  backgroundPosition: "center",
-                  backgroundSize: "cover",
-                  backgroundRepeat: "no-repeat",
                 }}
               ></div>
             </div>
