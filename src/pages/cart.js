@@ -4,6 +4,7 @@ import Layout from "../components/Layout"
 import SEO from "../components/seo"
 import PageBanner from "../components/ReusableComponents/PageBanner"
 import ShoppingCart from "../components/CartComponents/ShoppingCart"
+import CheckoutSection from "../components/CartComponents/CheckoutSection"
 
 const CartPage = () => {
   return (
@@ -28,6 +29,9 @@ const CartPage = () => {
 
           {/* shopping cart */}
           <ShoppingCart />
+
+          {/* checkout */}
+          <CheckoutSection />
         </div>
       </main>
     </Layout>
