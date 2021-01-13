@@ -19,7 +19,7 @@ const CheckoutSection = () => {
 
   return (
     <section className="CheckoutSection | mt-3 bg-light p-3 all-center-column align-items-end">
-      <div>
+      <div className="text-right">
         <div>
           <b>Subtotal: </b>
           <span>RM{getTotalPrice()}</span>
@@ -29,6 +29,10 @@ const CheckoutSection = () => {
           <b>Total Payment: </b>
           <span>RM{handleRoundPrice(getTotalPrice())}</span>
         </div>
+
+        <div className="text-muted mt-1">No extra fee will be charged.</div>
+
+        <button className="btn btn-secondary btn-md mt-3">Checkout</button>
       </div>
     </section>
   )
