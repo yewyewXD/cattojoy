@@ -5,6 +5,7 @@ import SEO from "../components/seo"
 import PageBanner from "../components/ReusableComponents/PageBanner"
 import ShoppingCart from "../components/CartComponents/ShoppingCart"
 import CheckoutSection from "../components/CartComponents/CheckoutSection"
+import Modal from "../components/ReusableComponents/Modal"
 
 const CartPage = () => {
   return (
@@ -33,6 +34,8 @@ const CartPage = () => {
           {/* checkout */}
           <CheckoutSection />
         </div>
+
+        <Modal isShowing={true} title="Checkout Form" />
       </main>
     </Layout>
   )

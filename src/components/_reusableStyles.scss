@@ -34,3 +34,12 @@
     font-size: 17px;
   }
 }
+
+// -- Path: src\components\ReusableComponents\Modal.jsx --
+.Modal {
+  display: none;
+
+  &--show {
+    display: block;
+  }
+}
