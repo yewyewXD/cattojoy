@@ -37,6 +37,8 @@ const CheckoutSection = () => {
 
         <button
           className="btn btn-secondary btn-md mt-3"
+          title={products.length === 0 ? "No product had been added" : ""}
+          disabled={products.length === 0}
           onClick={() => {
             setModalIsOpen(true)
           }}
