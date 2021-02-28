@@ -62,7 +62,7 @@ const Header = ({ currentPage }) => {
           {/* navbar menu */}
           <div
             className={`mt-md-0 mt-sm-3 mt-2 collapse navbar-collapse ${
-              isShowingNavbar && "show"
+              isShowingNavbar ? "show" : ""
             }`}
             id="navbarID"
           >
@@ -71,7 +71,7 @@ const Header = ({ currentPage }) => {
                 <Link
                   key={`navLink-${index}`}
                   className={`nav-link text-capitalize mx-3 ${
-                    currentPage === navLink.name && "active"
+                    currentPage === navLink.name ? "active" : ""
                   }`}
                   to={navLink.path}
                 >
@@ -81,7 +81,7 @@ const Header = ({ currentPage }) => {
 
               <Link
                 className={`nav-link mx-3 ${
-                  currentPage === "cart" && "active"
+                  currentPage === "cart" ? "active" : ""
                 }`}
                 to="/cart"
               >

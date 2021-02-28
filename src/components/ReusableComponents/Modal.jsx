@@ -10,7 +10,7 @@ const Modal = ({
 }) => {
   return (
     <div
-      className={`Modal ${isShowing && "Modal--show"} | modal`}
+      className={`Modal ${isShowing ? "Modal--show" : ""} | modal`}
       tabIndex="-1"
       role="dialog"
     >
