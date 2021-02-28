@@ -38,6 +38,7 @@
 // -- Path: src\components\ReusableComponents\Modal.jsx --
 .Modal {
   display: none;
+  background: rgba($color: #000000, $alpha: 0.5);
 
   &--show {
     display: block;

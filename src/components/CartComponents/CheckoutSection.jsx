@@ -1,6 +1,7 @@
 import React, { useContext } from "react"
 import { CartContext } from "../../context/CartContext/CartState"
 import { handleRoundPrice } from "../../utils/price"
+import CheckoutModal from "./CheckoutModal"
 
 const CheckoutSection = () => {
   const { products } = useContext(CartContext)
@@ -34,6 +35,8 @@ const CheckoutSection = () => {
 
         <button className="btn btn-secondary btn-md mt-3">Checkout</button>
       </div>
+
+      <CheckoutModal />
     </section>
   )
 }
