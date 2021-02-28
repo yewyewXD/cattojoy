@@ -57,6 +57,13 @@ select {
 }
 
 // buttons
+.btn {
+  &:disabled {
+    cursor: not-allowed !important;
+    opacity: 0.8;
+  }
+}
+
 .btn-primary {
   background: $ctaColor !important;
   color: black !important;
