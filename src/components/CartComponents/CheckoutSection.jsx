@@ -1,10 +1,12 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import { CartContext } from "../../context/CartContext/CartState"
 import { handleRoundPrice } from "../../utils/price"
 import CheckoutModal from "./CheckoutModal"
 
 const CheckoutSection = () => {
   const { products } = useContext(CartContext)
+
+  const [modalIsOpen, setModalIsOpen] = useState(false)
 
   function getTotalPrice() {
     if (products.length > 0) {
@@ -33,10 +35,22 @@ const CheckoutSection = () => {
 
         <div className="text-muted mt-1">No extra fee will be charged.</div>
 
-        <button className="btn btn-secondary btn-md mt-3">Checkout</button>
+        <button
+          className="btn btn-secondary btn-md mt-3"
+          onClick={() => {
+            setModalIsOpen(true)
+          }}
+        >
+          Checkout
+        </button>
       </div>
 
-      <CheckoutModal />
+      <CheckoutModal
+        isShowing={modalIsOpen}
+        onCloseModal={() => {
+          setModalIsOpen(false)
+        }}
+      />
     </section>
   )
 }

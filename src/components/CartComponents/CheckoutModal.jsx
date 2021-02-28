@@ -1,11 +1,15 @@
 import React from "react"
 import Modal from "../ReusableComponents/Modal"
 
-const CheckoutModal = () => {
+const CheckoutModal = ({ isShowing, onCloseModal }) => {
   return (
-    <div className="CheckoutModal">
-      <Modal title="Checkout Form" isShowing={true} />
-    </div>
+    <Modal
+      title="Checkout Form"
+      isShowing={isShowing}
+      onCloseModal={onCloseModal}
+    >
+      testing
+    </Modal>
   )
 }
 
