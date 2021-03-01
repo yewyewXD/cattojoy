@@ -7,6 +7,7 @@ const Modal = ({
   onCloseModal,
   actionText,
   onClickAction,
+  disabled,
 }) => {
   return (
     <div
@@ -27,6 +28,7 @@ const Modal = ({
             <button
               type="button"
               className="btn btn-secondary"
+              disabled={disabled}
               onClick={onClickAction}
             >
               {actionText}
