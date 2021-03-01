@@ -4,11 +4,14 @@ import Modal from "../ReusableComponents/Modal"
 const CheckoutModal = ({ isShowing, onCloseModal }) => {
   return (
     <Modal
-      title="Checkout Form"
+      title="Confirm order and pay"
       isShowing={isShowing}
       onCloseModal={onCloseModal}
     >
-      testing
+      <div>
+        <div>asd</div>
+        <div>qwe</div>
+      </div>
     </Modal>
   )
 }

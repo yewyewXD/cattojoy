@@ -1,14 +1,6 @@
 import React from "react"
 
-const Modal = ({
-  isShowing,
-  title,
-  children,
-  onCloseModal,
-  actionText,
-  onClickAction,
-  disabled,
-}) => {
+const Modal = ({ isShowing, title, children, onCloseModal }) => {
   return (
     <div
       className={`Modal ${isShowing ? "Modal--show" : ""} | modal`}
@@ -24,16 +16,6 @@ const Modal = ({
             </button>
           </div>
           <div className="modal-body">{children}</div>
-          <div className="modal-footer">
-            <button
-              type="button"
-              className="btn btn-secondary"
-              disabled={disabled}
-              onClick={onClickAction}
-            >
-              {actionText}
-            </button>
-          </div>
         </div>
       </div>
     </div>

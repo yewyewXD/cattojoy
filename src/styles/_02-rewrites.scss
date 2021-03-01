@@ -119,3 +119,12 @@ p {
     font-size: 20px !important;
   }
 }
+
+// modals
+.modal-header,
+.modal-footer {
+  border: none !important;
+}
+.modal-body {
+  padding-top: 0 !important;
+}
