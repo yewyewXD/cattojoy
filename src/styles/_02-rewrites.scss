@@ -128,3 +128,10 @@ p {
 .modal-body {
   padding-top: 0 !important;
 }
+.modal-dialog {
+  @media (min-width: $sm) {
+    max-width: initial !important;
+    width: fit-content !important;
+    min-width: 500px !important;
+  }
+}
