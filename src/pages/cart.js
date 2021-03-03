@@ -21,10 +21,12 @@ const CartPage = () => {
           <div className="mediumSize heading mb-4">Shopping Cart</div>
 
           {/* categories */}
-          <div className="row bgLight py-2 mb-3 border-bottom d-sm-flex d-none">
-            <div className="col-lg-3 col-md-4 col-sm-5">Image</div>
-            <div className="col-lg-7 col-md-8 col-sm-7">Product</div>
-            <div className="col-2 d-lg-block d-none">Total</div>
+          <div className="px-3">
+            <div className="row bgLight py-2 mb-3 border-bottom d-sm-flex d-none">
+              <div className="col-lg-3 col-md-4 col-sm-5">Image</div>
+              <div className="col-lg-7 col-md-8 col-sm-7">Product</div>
+              <div className="col-2 d-lg-block d-none">Total</div>
+            </div>
           </div>
 
           {/* shopping cart */}

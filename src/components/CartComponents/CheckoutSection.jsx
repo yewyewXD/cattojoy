@@ -33,8 +33,6 @@ const CheckoutSection = () => {
           <span>RM{handleRoundPrice(getTotalPrice())}</span>
         </div>
 
-        <div className="text-muted mt-1">No extra fee will be charged.</div>
-
         <button
           className="btn btn-secondary btn-md mt-3"
           title={products.length === 0 ? "No product had been added" : ""}
