@@ -1,6 +1,8 @@
-.PaymentDetails {
+.CardDetails {
+  padding: 32px 18px;
+  margin-bottom: 40px;
   &__Title {
-    margin-bottom: 40px;
+    margin-bottom: 36px;
   }
 }
 
@@ -54,5 +56,24 @@ input {
     position: absolute;
     transform: scaleX(0);
     transition: 0.2s;
+  }
+}
+
+.PaymentDetails {
+  background: $themeColor;
+  font-weight: 600;
+
+  .TotalPrice {
+    padding: 36px;
+    border-bottom: 4px dotted white;
+    &__Title {
+      color: lightgrey;
+    }
+    &__Content {
+      font-weight: 700;
+    }
+  }
+  .PaymentInfo {
+    padding: 36px;
   }
 }
