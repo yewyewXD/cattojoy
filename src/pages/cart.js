@@ -46,7 +46,10 @@ const CartPage = () => {
 
           {products.length === 0 && (
             <div className="all-center-column py-3">
-              <img src={data.file.image.fixed.src} alt="Cart is empty" />
+              <img
+                src={data.file.image.fixed.src}
+                alt="Shopping Basket Cat by Denis Sazhin from the Noun Project"
+              />
               <div>Cart is empty.</div>
             </div>
           )}
