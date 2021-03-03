@@ -9,18 +9,31 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
       onCloseModal={onCloseModal}
     >
       {/* payment container */}
-      <div style={{ padding: "1rem", width: "600px", background: "lightgrey" }}>
-        {/* methods container */}
-        <h5 className="mt-3">PAYMENT METHODS</h5>
-        <div className="all-center justify-content-between mt-2">
-          <span>Method</span>
-          <span>Method</span>
-          <span>Method</span>
+      <div className="CheckoutModal" style={{ width: "600px" }}>
+        {/* detail container */}
+        <div className="PaymentDetails | bg-white rounded shadow p-3">
+          <h5 className="PaymentDetails__Title">PAYMENT DETAILS</h5>
+
+          <div className="InputContainer">
+            <input id="cardholderName" type="text" required />
+            <div className="InputLine"></div>
+            <label htmlFor="cardholderName">Cardholder name</label>
+          </div>
+
+          <div className="InputContainer">
+            <input id="cardNumber" type="text" required />
+            <div className="InputLine"></div>
+            <label htmlFor="cardNumber">Card number</label>
+          </div>
+
+          <div className="InputContainer">
+            <input id="cvv" type="text" required />
+            <div className="InputLine"></div>
+            <label htmlFor="cvv">CVV</label>
+          </div>
         </div>
 
-        {/* detail container */}
-        <h5 className="mt-5">PAYMENT DETAILS</h5>
-        <div>total {total}</div>
+        {/* <div>total {total}</div> */}
       </div>
 
       {/* receipt container */}
