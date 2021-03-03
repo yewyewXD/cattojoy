@@ -1,6 +1,9 @@
 import React, { useContext, useState } from "react"
 import { CartContext } from "../../context/CartContext/CartState"
-import { handleRoundPrice } from "../../utils/price"
+import {
+  handleRoundPrice,
+  handleFixPriceToTwoDecimals,
+} from "../../utils/price"
 import CheckoutModal from "./CheckoutModal"
 
 const CheckoutSection = () => {
@@ -25,7 +28,7 @@ const CheckoutSection = () => {
       <div className="text-right">
         <div>
           <b>Subtotal: </b>
-          <span>RM{getTotalPrice()}</span>
+          <span>RM{handleFixPriceToTwoDecimals(getTotalPrice())}</span>
         </div>
 
         <div>

@@ -14,3 +14,19 @@ export function handleRoundPrice(price) {
     return price + ".00"
   }
 }
+
+export function handleFixPriceToTwoDecimals(price) {
+  const decimalCount = handleCountDecimal(price)
+  if (decimalCount === 0) {
+    return price + ".00"
+  } else if (decimalCount === 1) {
+    return price + "0"
+  } else {
+    return price
+  }
+}
+
+export function handleCountDecimal(number) {
+  if (Math.floor(number) === number) return 0
+  return number.toString().split(".")[1].length || 0
+}
