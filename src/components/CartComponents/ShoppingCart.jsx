@@ -16,8 +16,11 @@ const ShoppingCart = () => {
   return (
     <div className="ShoppingCart">
       {products.length > 0 &&
-        products.map(product => (
-          <div className="row mb-5" key={product.id}>
+        products.map((product, index) => (
+          <div
+            className={`row ${products.length - 1 === index ? "" : "mb-3"}`}
+            key={product.id}
+          >
             {/* product image */}
             <div className="ProductImageContainer | col-lg-3 col-md-4 col-sm-5">
               <div
