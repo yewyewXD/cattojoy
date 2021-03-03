@@ -50,6 +50,7 @@ const CheckoutSection = () => {
 
       <CheckoutModal
         isShowing={modalIsOpen}
+        total={handleRoundPrice(getTotalPrice())}
         onCloseModal={() => {
           setModalIsOpen(false)
         }}
