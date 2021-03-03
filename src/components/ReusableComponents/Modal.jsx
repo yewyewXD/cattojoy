@@ -8,7 +8,7 @@ const Modal = ({ isShowing, title, children, onCloseModal }) => {
       role="dialog"
     >
       <div className="modal-dialog" role="document">
-        <div className="modal-content">
+        <div className="modal-content bg-light">
           <div className="modal-header">
             <h5 className="modal-title">{title}</h5>
             <button type="button" className="close" onClick={onCloseModal}>
