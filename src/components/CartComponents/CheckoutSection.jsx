@@ -21,7 +21,7 @@ const CheckoutSection = () => {
   }
 
   return (
-    <section className="CheckoutSection | mt-3 bg-light p-3 all-center-column align-items-end">
+    <section className="CheckoutSection | bgLight mt-3 p-3 all-center-column align-items-end">
       <div className="text-right">
         <div>
           <b>Subtotal: </b>

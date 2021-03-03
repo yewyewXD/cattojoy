@@ -20,6 +20,9 @@ body {
 .mediumSize {
   font-size: 24px;
 }
+.bgLight {
+  background: $lightThemeColor;
+}
 
 @media (max-width: $md) {
   body {
