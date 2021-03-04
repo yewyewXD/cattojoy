@@ -2,6 +2,10 @@ import React from "react"
 import Modal from "../ReusableComponents/Modal"
 
 const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
+  // const [cardHolderName,setCardHolderName]=useState('')
+  // const [cardNumber,setCardNumber]=useState(0)
+  // const [cvv,setCvv]=useState(0)
+
   return (
     <Modal
       // title="Confirm order and pay"
