@@ -41,19 +41,19 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
           </div>
 
           <div className="PaymentInfo">
-            <div>
-              <div>Company</div>
-              <div>Catto Joy</div>
+            <div className="PaymentInfoColumn">
+              <div className="PaymentInfoColumn__Title">Company</div>
+              <div className="PaymentInfoColumn__Content">Catto Joy</div>
             </div>
 
-            <div>
-              <div>Order number</div>
-              <div>xxx</div>
+            <div className="PaymentInfoColumn">
+              <div className="PaymentInfoColumn__Title">Order number</div>
+              <div className="PaymentInfoColumn__Content">xxx</div>
             </div>
 
-            <div>
-              <div>Service</div>
-              <div>Cat Toys</div>
+            <div className="PaymentInfoColumn">
+              <div className="PaymentInfoColumn__Title">Service</div>
+              <div className="PaymentInfoColumn__Content">Cat Toys</div>
             </div>
           </div>
         </div>
