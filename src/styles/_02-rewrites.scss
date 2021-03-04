@@ -155,11 +155,9 @@ p {
   &::-webkit-scrollbar {
     width: 5px;
   }
-
   &::-webkit-scrollbar-track {
     background: $lightColor;
   }
-
   &::-webkit-scrollbar-thumb {
     background: $darkThemeColor;
     &:hover {
