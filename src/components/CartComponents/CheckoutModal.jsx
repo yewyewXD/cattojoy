@@ -9,7 +9,7 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
       onCloseModal={onCloseModal}
     >
       {/* modal body */}
-      <div className="CheckoutModal">
+      <div className="CheckoutModal | py-4 px-1">
         {/* card details */}
         <div className="CardDetails | bg-white rounded shadow-sm">
           <h5 className="CardDetails__Title | heading">PAYMENT DETAILS</h5>
@@ -57,9 +57,12 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
             </div>
           </div>
         </div>
-      </div>
 
-      {/* receipt container */}
+        {/* pay button */}
+        <div className="text-right">
+          <button className="btn btn-secondary btn-md">Pay {total} MYR</button>
+        </div>
+      </div>
     </Modal>
   )
 }
