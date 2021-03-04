@@ -9,7 +9,7 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
       onCloseModal={onCloseModal}
     >
       {/* modal body */}
-      <div className="CheckoutModal" style={{ width: "600px" }}>
+      <div className="CheckoutModal">
         {/* card details */}
         <div className="CardDetails | bg-white rounded shadow-sm">
           <h5 className="CardDetails__Title | heading">PAYMENT DETAILS</h5>
