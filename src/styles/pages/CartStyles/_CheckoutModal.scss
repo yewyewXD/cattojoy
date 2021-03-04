@@ -79,10 +79,17 @@ input {
 
     &__SmallNumber {
       line-height: 58px;
+      opacity: 0.8;
 
       @media (max-width: $md) {
         line-height: 42px;
       }
+    }
+
+    &__Currency {
+      opacity: 0.8;
+      letter-spacing: 1px;
+      font-size: 90%;
     }
   }
 
