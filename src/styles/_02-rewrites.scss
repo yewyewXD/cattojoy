@@ -152,4 +152,18 @@ p {
 .modal-body {
   padding-top: 0 !important;
   overflow-y: auto !important;
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $lightColor;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $darkThemeColor;
+    &:hover {
+      background: $themeColor;
+    }
+  }
 }
