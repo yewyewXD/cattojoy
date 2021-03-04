@@ -37,7 +37,18 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
         <div className="PaymentDetails | text-white rounded shadow-sm">
           <div className="TotalPrice">
             <div className="TotalPrice__Title"> You have to pay</div>
-            <h1 className="TotalPrice__Content | heading mb-0">{total}</h1>
+            <div className="d-flex align-items-end">
+              <h1 className="TotalPrice__BigNumber | heading mb-0">
+                {total.indexOf(".") < 0
+                  ? total
+                  : total.substr(0, total.indexOf("."))}
+              </h1>
+              {total.indexOf(".") > -1 && (
+                <h3 className="TotalPrice__SmallNumber | heading m-0">
+                  {total.substr(total.indexOf("."), total.length - 1)}
+                </h3>
+              )}
+            </div>
           </div>
 
           <div className="PaymentInfo">

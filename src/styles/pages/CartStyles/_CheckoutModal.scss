@@ -71,8 +71,18 @@ input {
     &__Title {
       opacity: 0.8;
     }
-    &__Content {
+    &__BigNumber,
+    &__SmallNumber {
       font-weight: 700;
+      letter-spacing: 3px;
+    }
+
+    &__SmallNumber {
+      line-height: 58px;
+
+      @media (max-width: $md) {
+        line-height: 42px;
+      }
     }
   }
 
