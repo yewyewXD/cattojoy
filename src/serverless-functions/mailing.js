@@ -19,7 +19,7 @@ exports.handler = function (event, context, callback) {
   // Parse data sent from frontend and validate
   const { email, name, type } = JSON.parse(event.body)
   if (!email || !name || !type) {
-    return callback(null, {
+    callback(null, {
       statusCode: 400,
       body: "No email, name, or email type is detected",
     })
@@ -40,7 +40,7 @@ exports.handler = function (event, context, callback) {
   transporter.sendMail(mailOptions, (error, info) => {
     // handle errors
     if (error) {
-      return callback(null, {
+      callback(null, {
         statusCode: 500,
         body: JSON.stringify(error),
       })
