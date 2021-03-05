@@ -1,10 +1,22 @@
 import React from "react"
 import Modal from "../ReusableComponents/Modal"
+import axios from "axios"
 
 const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
   // const [cardHolderName,setCardHolderName]=useState('')
   // const [cardNumber,setCardNumber]=useState(0)
   // const [cvv,setCvv]=useState(0)
+
+  async function handleCreatePayment() {
+    try {
+      const res = await axios.post("/.netlify/functions/payment", {
+        amount: 10000,
+      })
+      console.log(res.data)
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   return (
     <Modal
@@ -76,7 +88,12 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
 
         {/* pay button */}
         <div className="text-right">
-          <button className="btn btn-secondary btn-md">Pay {total} MYR</button>
+          <button
+            className="btn btn-secondary btn-md"
+            onClick={handleCreatePayment}
+          >
+            Pay {total} MYR
+          </button>
         </div>
       </div>
     </Modal>
