@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import Modal from "../ReusableComponents/Modal"
 import axios from "axios"
+import { CardElement } from "@stripe/react-stripe-js"
 
 const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
   const [isCreatingPaymentIntent, setIsCreatingPaymentIntent] = useState(false)
@@ -47,9 +48,19 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
           </div>
 
           <div className="InputContainer mb-0">
-            <input id="cvv" type="text" required />
+            {/* <input id="cvv" type="text" required />
             <div className="InputLine"></div>
-            <label htmlFor="cvv">CVV</label>
+            <label htmlFor="cvv">CVV</label> */}
+
+            <CardElement
+              options={{
+                style: {
+                  base: {
+                    fontSize: "19px",
+                  },
+                },
+              }}
+            />
           </div>
         </div>
 
