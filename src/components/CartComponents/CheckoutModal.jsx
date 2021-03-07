@@ -2,48 +2,53 @@ import React, { useState } from "react"
 import Modal from "../ReusableComponents/Modal"
 import axios from "axios"
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
+import ShippingDetails from "./ShippingDetails"
 
 const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
   const stripe = useStripe()
   const elements = useElements()
-
   const [isCreatingPaymentIntent, setIsCreatingPaymentIntent] = useState(false)
-  // const [cardHolderName,setCardHolderName]=useState('')
-  // const [cardNumber,setCardNumber]=useState(0)
-  // const [cvv,setCvv]=useState(0)
+
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [addressOne, setAddressOne] = useState("")
+  const [addressTwo, setAddressTwo] = useState("")
+  const [city, setCity] = useState("")
+  const [state, setState] = useState("")
+  const [postal, setPostal] = useState("")
 
   async function handleCreatePayment() {
     setIsCreatingPaymentIntent(true)
-    try {
-      const res = await axios.post("/.netlify/functions/payment", {
-        amount: +total * 100,
-      })
-      console.log(res.data)
-      setIsCreatingPaymentIntent(false)
+    // try {
+    //   const res = await axios.post("/.netlify/functions/payment", {
+    //     amount: +total * 100,
+    //   })
+    //   console.log(res.data)
+    //   setIsCreatingPaymentIntent(false)
 
-      const cardElement = elements.getElement(CardElement)
-      const paymentMethodReq = stripe.createPaymentMethod({
-        type: "card",
-        card: cardElement,
-        billing_details: {
-          name: "",
-          email: "",
-          address: {
-            line1: "",
-            line2: "",
-            postal_code: "",
-            city: "",
-            state: "",
-          },
-          phone: "",
-        },
-      })
+    //   const cardElement = elements.getElement(CardElement)
+    //   const paymentMethodReq = stripe.createPaymentMethod({
+    //     type: "card",
+    //     card: cardElement,
+    //     billing_details: {
+    //       name: "",
+    //       email: "",
+    //       address: {
+    //         line1: "",
+    //         line2: "",
+    //         postal_code: "",
+    //         city: "",
+    //         state: "",
+    //       },
+    //       phone: "",
+    //     },
+    //   })
 
-      console.log(paymentMethodReq)
-    } catch (err) {
-      setIsCreatingPaymentIntent(false)
-      console.log(err)
-    }
+    //   console.log(paymentMethodReq)
+    // } catch (err) {
+    //   setIsCreatingPaymentIntent(false)
+    //   console.log(err)
+    // }
   }
 
   return (
@@ -53,55 +58,21 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
       onCloseModal={onCloseModal}
     >
       {/* modal body */}
-      <div className="CheckoutModal | py-4 px-1">
-        {/* card details */}
-        <div className="CardDetails | bg-white rounded shadow-sm">
-          <h5 className="CardDetails__Title | heading">SHIPPING DETAILS</h5>
+      <form
+        className="CheckoutModal | py-4 px-1"
+        onSubmit={handleCreatePayment}
+      >
+        {/* shipping details */}
 
-          <div className="InputContainer">
-            <input id="cardholderName" type="text" required />
-            <div className="InputLine"></div>
-            <label htmlFor="cardholderName">Full name</label>
-          </div>
-
-          <div className="InputContainer">
-            <input id="cardNumber" type="email" required />
-            <div className="InputLine"></div>
-            <label htmlFor="cardNumber">Email</label>
-          </div>
-
-          <div className="InputContainer">
-            <input id="cardNumber" type="text" required />
-            <div className="InputLine"></div>
-            <label htmlFor="cardNumber">Address Line 1</label>
-          </div>
-
-          <div className="InputContainer">
-            <input id="cardNumber" type="text" required />
-            <div className="InputLine"></div>
-            <label htmlFor="cardNumber">Address Line 2</label>
-          </div>
-
-          <div className="d-flex justify-content-md-between flex-md-row flex-column">
-            <div className="InputContainerTight">
-              <input id="cardNumber" type="text" required />
-              <div className="InputLine"></div>
-              <label htmlFor="cardNumber">City</label>
-            </div>
-
-            <div className="InputContainerTight">
-              <input id="cardNumber" type="text" required />
-              <div className="InputLine"></div>
-              <label htmlFor="cardNumber">State</label>
-            </div>
-
-            <div className="InputContainerTight">
-              <input id="cardNumber" type="text" required />
-              <div className="InputLine"></div>
-              <label htmlFor="cardNumber">Zip code</label>
-            </div>
-          </div>
-        </div>
+        <ShippingDetails
+          setName={setName}
+          setEmail={setEmail}
+          setAddressOne={setAddressOne}
+          setAddressTwo={setAddressTwo}
+          setCity={setCity}
+          setState={setState}
+          setPostal={setPostal}
+        />
 
         {/* payment detail */}
         <div className="PaymentDetails | text-white rounded shadow-sm">
@@ -168,6 +139,7 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
         {/* pay button */}
         <div className="text-right">
           <button
+            type="submit"
             disabled={isCreatingPaymentIntent}
             className="btn btn-secondary btn-md"
             onClick={handleCreatePayment}
@@ -175,7 +147,7 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
             Pay {total} MYR
           </button>
         </div>
-      </div>
+      </form>
     </Modal>
   )
 }
