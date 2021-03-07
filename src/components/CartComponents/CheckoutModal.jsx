@@ -57,8 +57,17 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
                 style: {
                   base: {
                     fontSize: "19px",
+                    color: "black",
+                    "::placeholder": {
+                      color: "#808080",
+                    },
+                  },
+                  invalid: {
+                    color: "#dc3545",
+                    iconColor: "#dc3545",
                   },
                 },
+                hidePostalCode: true,
               }}
             />
           </div>
