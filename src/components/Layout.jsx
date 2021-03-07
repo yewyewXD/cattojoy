@@ -15,7 +15,19 @@ const Layout = ({ children, currentPage }) => {
       <Header currentPage={currentPage} />
 
       {/* main */}
-      <Elements stripe={stripePromise}>{children}</Elements>
+      <Elements
+        options={{
+          fonts: [
+            {
+              cssSrc:
+                "https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap",
+            },
+          ],
+        }}
+        stripe={stripePromise}
+      >
+        {children}
+      </Elements>
 
       {/* footer */}
       {currentPage !== "404" && (
