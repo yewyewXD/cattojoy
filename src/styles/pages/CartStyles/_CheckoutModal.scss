@@ -6,11 +6,18 @@
   }
 }
 
-.InputContainer {
+.InputContainer,
+.InputContainerTight {
   height: 40px;
   position: relative;
   width: 100%;
   margin-bottom: 40px;
+}
+
+.InputContainerTight {
+  @media (min-width: $md) {
+    width: 32%;
+  }
 }
 
 label {

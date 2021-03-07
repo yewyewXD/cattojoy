@@ -1,9 +1,12 @@
 import React, { useState } from "react"
 import Modal from "../ReusableComponents/Modal"
 import axios from "axios"
-import { CardElement } from "@stripe/react-stripe-js"
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
 
 const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
+  const stripe = useStripe()
+  const elements = useElements()
+
   const [isCreatingPaymentIntent, setIsCreatingPaymentIntent] = useState(false)
   // const [cardHolderName,setCardHolderName]=useState('')
   // const [cardNumber,setCardNumber]=useState(0)
@@ -13,10 +16,30 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
     setIsCreatingPaymentIntent(true)
     try {
       const res = await axios.post("/.netlify/functions/payment", {
-        amount: 10000,
+        amount: +total * 100,
       })
       console.log(res.data)
       setIsCreatingPaymentIntent(false)
+
+      const cardElement = elements.getElement(CardElement)
+      const paymentMethodReq = stripe.createPaymentMethod({
+        type: "card",
+        card: cardElement,
+        billing_details: {
+          name: "",
+          email: "",
+          address: {
+            line1: "",
+            line2: "",
+            postal_code: "",
+            city: "",
+            state: "",
+          },
+          phone: "",
+        },
+      })
+
+      console.log(paymentMethodReq)
     } catch (err) {
       setIsCreatingPaymentIntent(false)
       console.log(err)
@@ -33,43 +56,50 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
       <div className="CheckoutModal | py-4 px-1">
         {/* card details */}
         <div className="CardDetails | bg-white rounded shadow-sm">
-          <h5 className="CardDetails__Title | heading">PAYMENT DETAILS</h5>
+          <h5 className="CardDetails__Title | heading">SHIPPING DETAILS</h5>
 
           <div className="InputContainer">
             <input id="cardholderName" type="text" required />
             <div className="InputLine"></div>
-            <label htmlFor="cardholderName">Cardholder name</label>
+            <label htmlFor="cardholderName">Full name</label>
+          </div>
+
+          <div className="InputContainer">
+            <input id="cardNumber" type="email" required />
+            <div className="InputLine"></div>
+            <label htmlFor="cardNumber">Email</label>
           </div>
 
           <div className="InputContainer">
             <input id="cardNumber" type="text" required />
             <div className="InputLine"></div>
-            <label htmlFor="cardNumber">Card number</label>
+            <label htmlFor="cardNumber">Address Line 1</label>
           </div>
 
-          <div className="InputContainer mb-0">
-            {/* <input id="cvv" type="text" required />
+          <div className="InputContainer">
+            <input id="cardNumber" type="text" required />
             <div className="InputLine"></div>
-            <label htmlFor="cvv">CVV</label> */}
+            <label htmlFor="cardNumber">Address Line 2</label>
+          </div>
 
-            <CardElement
-              options={{
-                style: {
-                  base: {
-                    fontSize: "19px",
-                    color: "black",
-                    "::placeholder": {
-                      color: "#808080",
-                    },
-                  },
-                  invalid: {
-                    color: "#dc3545",
-                    iconColor: "#dc3545",
-                  },
-                },
-                hidePostalCode: true,
-              }}
-            />
+          <div className="d-flex justify-content-md-between flex-md-row flex-column">
+            <div className="InputContainerTight">
+              <input id="cardNumber" type="text" required />
+              <div className="InputLine"></div>
+              <label htmlFor="cardNumber">City</label>
+            </div>
+
+            <div className="InputContainerTight">
+              <input id="cardNumber" type="text" required />
+              <div className="InputLine"></div>
+              <label htmlFor="cardNumber">State</label>
+            </div>
+
+            <div className="InputContainerTight">
+              <input id="cardNumber" type="text" required />
+              <div className="InputLine"></div>
+              <label htmlFor="cardNumber">Zip code</label>
+            </div>
           </div>
         </div>
 
@@ -106,6 +136,31 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
             <div className="PaymentInfoColumn">
               <div className="PaymentInfoColumn__Title">Service</div>
               <div className="PaymentInfoColumn__Content">Cat Toys</div>
+            </div>
+
+            <div className="InputContainer mb-0">
+              {/* <input id="cvv" type="text" required />
+            <div className="InputLine"></div>
+            <label htmlFor="cvv">CVV</label> */}
+
+              <CardElement
+                options={{
+                  style: {
+                    base: {
+                      fontSize: "19px",
+                      color: "white",
+                      "::placeholder": {
+                        color: "#f1f1f1",
+                      },
+                    },
+                    invalid: {
+                      color: "#dc3545",
+                      iconColor: "#dc3545",
+                    },
+                  },
+                  hidePostalCode: true,
+                }}
+              />
             </div>
           </div>
         </div>
