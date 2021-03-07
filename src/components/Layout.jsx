@@ -1,8 +1,12 @@
 import React from "react"
 import "bootstrap/dist/css/bootstrap.css"
 import "../styles/final.scss"
+import { loadStripe } from "@stripe/stripe-js"
+import { Elements } from "@stripe/react-stripe-js"
 
 import Header from "./ReusableComponents/Header"
+
+const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE)
 
 const Layout = ({ children, currentPage }) => {
   return (
@@ -11,7 +15,7 @@ const Layout = ({ children, currentPage }) => {
       <Header currentPage={currentPage} />
 
       {/* main */}
-      {children}
+      <Elements stripe={stripePromise}>{children}</Elements>
 
       {/* footer */}
       {currentPage !== "404" && (
