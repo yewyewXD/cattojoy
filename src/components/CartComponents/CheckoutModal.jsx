@@ -1,19 +1,23 @@
-import React from "react"
+import React, { useState } from "react"
 import Modal from "../ReusableComponents/Modal"
 import axios from "axios"
 
 const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
+  const [isCreatingPaymentIntent, setIsCreatingPaymentIntent] = useState(false)
   // const [cardHolderName,setCardHolderName]=useState('')
   // const [cardNumber,setCardNumber]=useState(0)
   // const [cvv,setCvv]=useState(0)
 
   async function handleCreatePayment() {
+    setIsCreatingPaymentIntent(true)
     try {
       const res = await axios.post("/.netlify/functions/payment", {
         amount: 10000,
       })
       console.log(res.data)
+      setIsCreatingPaymentIntent(false)
     } catch (err) {
+      setIsCreatingPaymentIntent(false)
       console.log(err)
     }
   }
@@ -89,6 +93,7 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
         {/* pay button */}
         <div className="text-right">
           <button
+            disabled={isCreatingPaymentIntent}
             className="btn btn-secondary btn-md"
             onClick={handleCreatePayment}
           >
