@@ -2,11 +2,7 @@ import React, { useRef, useState } from "react"
 import { handleEmailChange, handleTextChange } from "../../utils/fieldChange"
 import useDidMountEffect from "../../utils/useDidMountEffect"
 
-const ShippingDetails = ({
-  setShippingDetails,
-  isValidating,
-  children: cardElement,
-}) => {
+const ShippingDetails = ({ setShippingDetails, isValidating }) => {
   const detailUpperRef = useRef()
   const detailLowerRef = useRef()
 
@@ -180,8 +176,6 @@ const ShippingDetails = ({
           <label htmlFor="">Zip code</label>
         </div>
       </div>
-
-      {cardElement}
     </div>
   )
 }
