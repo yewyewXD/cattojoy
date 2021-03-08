@@ -108,6 +108,7 @@ const ContactForm = () => {
       </div>
 
       <button
+        disabled={isSendingMail}
         className="actionButton btn btn-secondary btn-md mt-4"
         type="submit"
       >
