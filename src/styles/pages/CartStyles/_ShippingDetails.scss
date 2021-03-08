@@ -43,6 +43,7 @@ label {
 
   &--error {
     border-bottom: 2px solid $dangerColor !important;
+    color: $dangerColor !important;
 
     & ~ .InputLine::before {
       background: $dangerColor !important;
