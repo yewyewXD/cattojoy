@@ -48,6 +48,13 @@ export const CartContextProvider = ({ children }) => {
     })
   }
 
+  function clearAllProducts() {
+    dispatch({
+      type: "CLEAR_ALL_PRODUCTS",
+      payload: null,
+    })
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -56,6 +63,7 @@ export const CartContextProvider = ({ children }) => {
         increaseProductCount,
         decreaseProductCount,
         removeProduct,
+        clearAllProducts,
       }}
     >
       {children}

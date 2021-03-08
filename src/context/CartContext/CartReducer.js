@@ -80,6 +80,12 @@ const CartReducer = (state, { type, payload }) => {
         return state
       }
 
+    case "CLEAR_ALL_PRODUCTS":
+      return {
+        ...state,
+        products: [],
+      }
+
     default:
       return state
   }
