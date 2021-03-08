@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react"
+import React, { useState, useContext, useRef } from "react"
 import Modal from "../ReusableComponents/Modal"
 import axios from "axios"
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
@@ -9,6 +9,7 @@ import { CartContext } from "../../context/CartContext/CartState"
 const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
   const stripe = useStripe()
   const elements = useElements()
+  const cardElementSectionRef = useRef()
   const { clearAllProducts } = useContext(CartContext)
   const [isCreatingPaymentIntent, setIsCreatingPaymentIntent] = useState(false)
 
@@ -34,7 +35,9 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
       })
 
       if (paymentMethodReq.error) {
-        console.log(paymentMethodReq.error.message)
+        const error = paymentMethodReq.error.message
+        setCardError(error)
+        cardElementSectionRef.current.scrollIntoView()
         return
       }
 
@@ -66,11 +69,11 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
   }
 
   useDidMountEffect(() => {
-    // if (!shippingDetails) {
-    //   return
-    // } else {
-    handleCreatePayment()
-    // }
+    if (!shippingDetails) {
+      return
+    } else {
+      handleCreatePayment()
+    }
   }, [isValidating])
 
   return (
@@ -83,7 +86,8 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
       <div className="CheckoutModal | py-4 px-1">
         <div className="CardDetails | bg-white rounded shadow-sm">
           <div className="CardDetails__Title | heading">Payment Methods</div>
-          <div className="CardElementContainer mb-0">
+          <div ref={cardElementSectionRef}></div>
+          <div className="CardElementContainer | border rounded mb-0">
             <CardElement
               options={{
                 style: {
@@ -103,6 +107,11 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
               }}
             />
           </div>
+          {cardError && (
+            <div className="CardElementContainer__Error">
+              <small className="text-danger">{cardError}</small>
+            </div>
+          )}
         </div>
 
         {/* shipping details */}
