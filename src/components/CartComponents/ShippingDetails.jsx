@@ -47,7 +47,7 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
           className={`Input ${
             isValidating > 0 && !name.isValid ? "Input--error" : ""
           }`}
-          id=""
+          id="cartName"
           type="text"
           value={name.content}
           onChange={e => {
@@ -56,7 +56,7 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
           required
         />
         <div className={`InputLine`}></div>
-        <label htmlFor="">Full name</label>
+        <label htmlFor="cartName">Full name</label>
       </div>
 
       <div className="InputContainer">
@@ -64,7 +64,7 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
           className={`Input  ${
             isValidating > 0 && !email.isValid ? "Input--error" : ""
           }`}
-          id=""
+          id="cartEmail"
           type="text"
           value={email.content}
           onChange={e => {
@@ -73,13 +73,13 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
           required
         />
         <div className={`InputLine`}></div>
-        <label htmlFor="">Email</label>
+        <label htmlFor="cartEmail">Email</label>
       </div>
 
       <div className="InputContainer">
         <input
           className={`Input`}
-          id=""
+          id="cartPhone"
           type="text"
           value={phone.content}
           onChange={e => {
@@ -88,7 +88,7 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
           required
         />
         <div className={`InputLine`}></div>
-        <label htmlFor="">Phone Number (optional)</label>
+        <label htmlFor="cartPhone">Phone Number (optional)</label>
       </div>
 
       <div ref={detailLowerRef}></div>
@@ -97,7 +97,7 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
           className={`Input ${
             isValidating > 0 && !addressOne.isValid ? "Input--error" : ""
           }`}
-          id=""
+          id="cartAddressOne"
           type="text"
           value={addressOne.content}
           onChange={e => {
@@ -106,13 +106,13 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
           required
         />
         <div className={`InputLine`}></div>
-        <label htmlFor="">Address Line 1</label>
+        <label htmlFor="cartAddressOne">Address Line 1</label>
       </div>
 
       <div className="InputContainer">
         <input
           className={`Input`}
-          id=""
+          id="cartAddressTwo"
           type="text"
           value={addressTwo.content}
           onChange={e => {
@@ -121,7 +121,7 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
           required
         />
         <div className={`InputLine`}></div>
-        <label htmlFor="">Address Line 2 (optional)</label>
+        <label htmlFor="cartAddressTwo">Address Line 2 (optional)</label>
       </div>
 
       <div className="d-flex justify-content-md-between flex-md-row flex-column">
@@ -130,7 +130,7 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
             className={`Input ${
               isValidating > 0 && !city.isValid ? "Input--error" : ""
             }`}
-            id=""
+            id="cartCity"
             type="text"
             value={city.content}
             onChange={e => {
@@ -139,7 +139,7 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
             required
           />
           <div className={`InputLine`}></div>
-          <label htmlFor="">City</label>
+          <label htmlFor="cartCity">City</label>
         </div>
 
         <div className="InputContainerTight">
@@ -147,7 +147,7 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
             className={`Input ${
               isValidating > 0 && !state.isValid ? "Input--error" : ""
             }`}
-            id=""
+            id="cartState"
             type="text"
             value={state.content}
             onChange={e => {
@@ -156,7 +156,7 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
             required
           />
           <div className={`InputLine`}></div>
-          <label htmlFor="">State</label>
+          <label htmlFor="cartState">State</label>
         </div>
 
         <div className="InputContainerTight">
@@ -164,7 +164,7 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
             className={`Input ${
               isValidating > 0 && !postal.isValid ? "Input--error" : ""
             }`}
-            id=""
+            id="cartPostal"
             type="number"
             value={postal.content}
             onChange={e => {
@@ -173,7 +173,7 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
             required
           />
           <div className={`InputLine`}></div>
-          <label htmlFor="">Zip code</label>
+          <label htmlFor="cartPostal">Zip code</label>
         </div>
       </div>
     </div>
