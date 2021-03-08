@@ -84,6 +84,7 @@ const CartReducer = (state, { type, payload }) => {
       return {
         ...state,
         products: [],
+        productCount: 0,
       }
 
     default:
