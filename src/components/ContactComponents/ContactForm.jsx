@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import axios from "axios"
+import { handleEmailChange, handleTextChange } from "../../utils/fieldChange"
 
 const ContactForm = () => {
   const [name, setName] = useState({ content: "" })
@@ -7,24 +8,6 @@ const ContactForm = () => {
   const [message, setMessage] = useState({ content: "" })
 
   const [isValidating, setIsValidating] = useState(false)
-
-  function handleTextChange(setField, target) {
-    setField({
-      content: target.value,
-      isValid: target.value.trim().length > 0,
-    })
-  }
-
-  function handleEmailChange(setField, target) {
-    const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-
-    setField({
-      content: target.value,
-      isValid:
-        target.value.trim().length > 0 &&
-        regex.test(String(target.value).toLowerCase()),
-    })
-  }
 
   async function handleSendMail(e) {
     e.preventDefault()
@@ -70,7 +53,7 @@ const ContactForm = () => {
           className="form-control"
           value={name.content}
           onChange={e => {
-            handleTextChange(setName, e.target)
+            handleTextChange(setName, e)
           }}
         />
 
@@ -90,7 +73,7 @@ const ContactForm = () => {
           className="form-control"
           value={email.content}
           onChange={e => {
-            handleEmailChange(setEmail, e.target)
+            handleEmailChange(setEmail, e)
           }}
         />
 
@@ -110,7 +93,7 @@ const ContactForm = () => {
           className="form-control"
           value={message.content}
           onChange={e => {
-            handleTextChange(setMessage, e.target)
+            handleTextChange(setMessage, e)
           }}
         />
 
