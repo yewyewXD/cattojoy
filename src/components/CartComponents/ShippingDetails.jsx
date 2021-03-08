@@ -19,12 +19,7 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
   useDidMountEffect(() => {
     if (!name.isValid || !email.isValid || !addressOne.isValid) {
       detailUpperRef.current.scrollIntoView()
-    } else if (
-      !addressTwo.isValid ||
-      !city.isValid ||
-      !state.isValid ||
-      !postal.isValid
-    ) {
+    } else if (!city.isValid || !state.isValid || !postal.isValid) {
       detailLowerRef.current.scrollIntoView()
     } else {
       setShippingDetails({

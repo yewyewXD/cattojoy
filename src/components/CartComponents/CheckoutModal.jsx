@@ -14,7 +14,7 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
 
   async function handleCreatePayment() {
     setIsCreatingPaymentIntent(true)
-    console.log("success!")
+    console.log(shippingDetails)
     // try {
     //   const res = await axios.post("/.netlify/functions/payment", {
     //     amount: +total * 100,
