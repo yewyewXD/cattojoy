@@ -39,7 +39,7 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
         shippingDetails.phone = phone.content
       }
 
-      setShippingDetails()
+      setShippingDetails(shippingDetails)
     }
   }, [isValidating])
 
