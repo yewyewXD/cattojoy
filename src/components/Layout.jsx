@@ -10,7 +10,7 @@ const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE)
 
 const Layout = ({ children, currentPage }) => {
   return (
-    <>
+    <div className="d-flex flex-column" style={{ minHeight: "100vh" }}>
       {/* header */}
       <Header currentPage={currentPage} />
 
@@ -35,7 +35,7 @@ const Layout = ({ children, currentPage }) => {
           <span className="heading">Catto Joy</span> © All Rights Reserved
         </footer>
       )}
-    </>
+    </div>
   )
 }
 
