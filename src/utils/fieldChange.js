@@ -4,7 +4,7 @@ export function handleTextChange(setField, element) {
   const value = element.target.value
   setField({
     content: value,
-    isValid: value ? value.toString().trim().length > 0 : false,
+    isValid: value ? String(value).trim().length > 0 : false,
   })
 }
 
