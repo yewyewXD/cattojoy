@@ -3,10 +3,11 @@
   height: 40px;
   position: relative;
   width: 100%;
-  margin-bottom: 40px;
+  margin-bottom: 45px;
 }
 
 .InputContainerTight {
+  margin-bottom: 0;
   @media (min-width: $md) {
     width: 32%;
   }
@@ -23,6 +24,7 @@ label {
 }
 
 .Input {
+  line-height: 20px;
   font-size: 19px !important;
   height: 100%;
   width: 100%;
@@ -32,7 +34,7 @@ label {
   &:focus,
   &:valid {
     & ~ label {
-      transform: translateY(-22px);
+      transform: translateY(-24px);
       font-size: 18px;
     }
 
@@ -43,7 +45,14 @@ label {
 
   &--error {
     border-bottom: 2px solid $dangerColor !important;
-    color: $dangerColor !important;
+    &:valid,
+    & ~ label {
+      color: $dangerColor;
+    }
+
+    &:valid ~ label {
+      color: grey;
+    }
 
     & ~ .InputLine::before {
       background: $dangerColor !important;
