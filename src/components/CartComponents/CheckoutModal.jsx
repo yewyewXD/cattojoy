@@ -3,22 +3,18 @@ import Modal from "../ReusableComponents/Modal"
 import axios from "axios"
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
 import ShippingDetails from "./ShippingDetails"
+import useDidMountEffect from "../../utils/useDidMountEffect"
 
 const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
   const stripe = useStripe()
   const elements = useElements()
   const [isCreatingPaymentIntent, setIsCreatingPaymentIntent] = useState(false)
-
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [addressOne, setAddressOne] = useState("")
-  const [addressTwo, setAddressTwo] = useState("")
-  const [city, setCity] = useState("")
-  const [state, setState] = useState("")
-  const [postal, setPostal] = useState("")
+  const [isValidating, setIsValidating] = useState(0)
+  const [shippingDetails, setShippingDetails] = useState(null)
 
   async function handleCreatePayment() {
     setIsCreatingPaymentIntent(true)
+    console.log("success!")
     // try {
     //   const res = await axios.post("/.netlify/functions/payment", {
     //     amount: +total * 100,
@@ -30,18 +26,7 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
     //   const paymentMethodReq = stripe.createPaymentMethod({
     //     type: "card",
     //     card: cardElement,
-    //     billing_details: {
-    //       name: "",
-    //       email: "",
-    //       address: {
-    //         line1: "",
-    //         line2: "",
-    //         postal_code: "",
-    //         city: "",
-    //         state: "",
-    //       },
-    //       phone: "",
-    //     },
+    //     billing_details: shippingDetails,
     //   })
 
     //   console.log(paymentMethodReq)
@@ -51,6 +36,23 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
     // }
   }
 
+  function activateValidation(e) {
+    e.preventDefault()
+    if (isValidating) {
+      setIsValidating(prevValidCount => prevValidCount + 1)
+    } else {
+      setIsValidating(1)
+    }
+  }
+
+  useDidMountEffect(() => {
+    if (!shippingDetails) {
+      return
+    } else {
+      handleCreatePayment()
+    }
+  }, [isValidating])
+
   return (
     <Modal
       // title="Confirm order and pay"
@@ -58,20 +60,12 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
       onCloseModal={onCloseModal}
     >
       {/* modal body */}
-      <form
-        className="CheckoutModal | py-4 px-1"
-        onSubmit={handleCreatePayment}
-      >
+      <div className="CheckoutModal | py-4 px-1">
         {/* shipping details */}
 
         <ShippingDetails
-          setName={setName}
-          setEmail={setEmail}
-          setAddressOne={setAddressOne}
-          setAddressTwo={setAddressTwo}
-          setCity={setCity}
-          setState={setState}
-          setPostal={setPostal}
+          setShippingDetails={setShippingDetails}
+          isValidating={isValidating}
         />
 
         {/* payment detail */}
@@ -139,15 +133,15 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
         {/* pay button */}
         <div className="text-right">
           <button
-            type="submit"
+            type="button"
             disabled={isCreatingPaymentIntent}
             className="btn btn-secondary btn-md"
-            onClick={handleCreatePayment}
+            onClick={activateValidation}
           >
             Pay {total} MYR
           </button>
         </div>
-      </form>
+      </div>
     </Modal>
   )
 }

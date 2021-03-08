@@ -8,21 +8,16 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
 
   const [name, setName] = useState({ content: "" })
   const [email, setEmail] = useState({ content: "" })
-  const [phone, setPhone] = useState({ content: 0 })
+  const [phone, setPhone] = useState({ content: "" })
   const [addressOne, setAddressOne] = useState({ content: "" })
 
   const [addressTwo, setAddressTwo] = useState({ content: "" })
   const [city, setCity] = useState({ content: "" })
   const [state, setState] = useState({ content: "" })
-  const [postal, setPostal] = useState({ content: 0 })
+  const [postal, setPostal] = useState({ content: "" })
 
   useDidMountEffect(() => {
-    if (
-      !name.isValid ||
-      !email.isValid ||
-      !phone.isValid ||
-      !addressOne.isValid
-    ) {
+    if (!name.isValid || !email.isValid || !addressOne.isValid) {
       detailUpperRef.current.scrollIntoView()
     } else if (
       !addressTwo.isValid ||
@@ -31,6 +26,19 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
       !postal.isValid
     ) {
       detailLowerRef.current.scrollIntoView()
+    } else {
+      setShippingDetails({
+        name: name.content,
+        email: email.content,
+        address: {
+          line1: addressTwo.content,
+          line2: addressOne.content,
+          postal_code: postal.content,
+          city: city.content,
+          state: state.content,
+        },
+        phone: phone.isValid ? phone.content : "",
+      })
     }
   }, [isValidating])
 
@@ -51,7 +59,7 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
         />
         <div className="InputLine"></div>
         <label htmlFor="">Full name</label>
-        {isValidating && !name.isValid && (
+        {isValidating > 0 && !name.isValid && (
           <div className="InputContainer__Error">
             <small>error</small>
           </div>
@@ -70,7 +78,7 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
         />
         <div className="InputLine"></div>
         <label htmlFor="">Email</label>
-        {isValidating && !email.isValid && (
+        {isValidating > 0 && !email.isValid && (
           <div className="InputContainer__Error">
             <small>error</small>
           </div>
@@ -88,12 +96,7 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
           required
         />
         <div className="InputLine"></div>
-        <label htmlFor="">Phone Number</label>
-        {isValidating && !phone.isValid && (
-          <div className="InputContainer__Error">
-            <small>error</small>
-          </div>
-        )}
+        <label htmlFor="">Phone Number (optional)</label>
       </div>
 
       <div ref={detailLowerRef}></div>
@@ -109,7 +112,7 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
         />
         <div className="InputLine"></div>
         <label htmlFor="">Address Line 1</label>
-        {isValidating && !addressOne.isValid && (
+        {isValidating > 0 && !addressOne.isValid && (
           <div className="InputContainer__Error">
             <small>error</small>
           </div>
@@ -128,7 +131,7 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
         />
         <div className="InputLine"></div>
         <label htmlFor="">Address Line 2</label>
-        {isValidating && !addressTwo.isValid && (
+        {isValidating > 0 && !addressTwo.isValid && (
           <div className="InputContainer__Error">
             <small>error</small>
           </div>
@@ -148,7 +151,7 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
           />
           <div className="InputLine"></div>
           <label htmlFor="">City</label>
-          {isValidating && !city.isValid && (
+          {isValidating > 0 && !city.isValid && (
             <div className="InputContainer__Error">
               <small>error</small>
             </div>
@@ -167,7 +170,7 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
           />
           <div className="InputLine"></div>
           <label htmlFor="">State</label>
-          {isValidating && !state.isValid && (
+          {isValidating > 0 && !state.isValid && (
             <div className="InputContainer__Error">
               <small>error</small>
             </div>
@@ -186,7 +189,7 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
           />
           <div className="InputLine"></div>
           <label htmlFor="">Zip code</label>
-          {isValidating && !postal.isValid && (
+          {isValidating > 0 && !postal.isValid && (
             <div className="InputContainer__Error">
               <small>error</small>
             </div>
