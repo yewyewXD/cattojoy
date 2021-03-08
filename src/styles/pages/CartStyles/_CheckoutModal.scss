@@ -12,11 +12,6 @@
   position: relative;
   width: 100%;
   margin-bottom: 40px;
-
-  &__Error {
-    line-height: 20px;
-    color: $dangerColor;
-  }
 }
 
 .InputContainerTight {
@@ -68,6 +63,12 @@ input {
     position: absolute;
     transform: scaleX(0);
     transition: 0.2s;
+  }
+
+  &--error {
+    &::before {
+      background: $dangerColor;
+    }
   }
 }
 

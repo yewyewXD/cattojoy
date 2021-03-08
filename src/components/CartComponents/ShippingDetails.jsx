@@ -57,13 +57,12 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
           }}
           required
         />
-        <div className="InputLine"></div>
+        <div
+          className={`InputLine ${
+            isValidating > 0 && !name.isValid ? "InputLine--error" : ""
+          }`}
+        ></div>
         <label htmlFor="">Full name</label>
-        {isValidating > 0 && !name.isValid && (
-          <div className="InputContainer__Error">
-            <small>error</small>
-          </div>
-        )}
       </div>
 
       <div className="InputContainer">
@@ -76,13 +75,12 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
           }}
           required
         />
-        <div className="InputLine"></div>
+        <div
+          className={`InputLine ${
+            isValidating > 0 && !email.isValid ? "InputLine--error" : ""
+          }`}
+        ></div>
         <label htmlFor="">Email</label>
-        {isValidating > 0 && !email.isValid && (
-          <div className="InputContainer__Error">
-            <small>error</small>
-          </div>
-        )}
       </div>
 
       <div className="InputContainer">
@@ -95,7 +93,7 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
           }}
           required
         />
-        <div className="InputLine"></div>
+        <div className={`InputLine`}></div>
         <label htmlFor="">Phone Number (optional)</label>
       </div>
 
@@ -110,13 +108,12 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
           }}
           required
         />
-        <div className="InputLine"></div>
+        <div
+          className={`InputLine ${
+            isValidating > 0 && !addressOne.isValid ? "InputLine--error" : ""
+          }`}
+        ></div>
         <label htmlFor="">Address Line 1</label>
-        {isValidating > 0 && !addressOne.isValid && (
-          <div className="InputContainer__Error">
-            <small>error</small>
-          </div>
-        )}
       </div>
 
       <div className="InputContainer">
@@ -129,13 +126,8 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
           }}
           required
         />
-        <div className="InputLine"></div>
+        <div className={`InputLine`}></div>
         <label htmlFor="">Address Line 2</label>
-        {isValidating > 0 && !addressTwo.isValid && (
-          <div className="InputContainer__Error">
-            <small>error</small>
-          </div>
-        )}
       </div>
 
       <div className="d-flex justify-content-md-between flex-md-row flex-column">
@@ -149,13 +141,12 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
             }}
             required
           />
-          <div className="InputLine"></div>
+          <div
+            className={`InputLine ${
+              isValidating > 0 && !city.isValid ? "InputLine--error" : ""
+            }`}
+          ></div>
           <label htmlFor="">City</label>
-          {isValidating > 0 && !city.isValid && (
-            <div className="InputContainer__Error">
-              <small>error</small>
-            </div>
-          )}
         </div>
 
         <div className="InputContainerTight">
@@ -168,13 +159,12 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
             }}
             required
           />
-          <div className="InputLine"></div>
+          <div
+            className={`InputLine ${
+              isValidating > 0 && !state.isValid ? "InputLine--error" : ""
+            }`}
+          ></div>
           <label htmlFor="">State</label>
-          {isValidating > 0 && !state.isValid && (
-            <div className="InputContainer__Error">
-              <small>error</small>
-            </div>
-          )}
         </div>
 
         <div className="InputContainerTight">
@@ -187,13 +177,12 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
             }}
             required
           />
-          <div className="InputLine"></div>
+          <div
+            className={`InputLine ${
+              isValidating > 0 && !postal.isValid ? "InputLine--error" : ""
+            }`}
+          ></div>
           <label htmlFor="">Zip code</label>
-          {isValidating > 0 && !postal.isValid && (
-            <div className="InputContainer__Error">
-              <small>error</small>
-            </div>
-          )}
         </div>
       </div>
     </div>
