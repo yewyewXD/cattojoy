@@ -21,6 +21,7 @@
 }
 
 label {
+  font-size: 20px;
   color: grey;
   position: absolute;
   bottom: 0;
@@ -30,6 +31,7 @@ label {
 }
 
 .Input {
+  font-size: 19px !important;
   height: 100%;
   width: 100%;
   border: none !important;
@@ -38,7 +40,7 @@ label {
   &:focus,
   &:valid {
     & ~ label {
-      transform: translateY(-20px);
+      transform: translateY(-22px);
       font-size: 18px;
     }
 

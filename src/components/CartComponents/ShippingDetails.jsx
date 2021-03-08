@@ -70,7 +70,7 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
             isValidating > 0 && !email.isValid ? "Input--error" : ""
           }`}
           id=""
-          type="email"
+          type="text"
           value={email.content}
           onChange={e => {
             handleEmailChange(setEmail, e)
