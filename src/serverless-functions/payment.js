@@ -6,12 +6,12 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET)
 
 exports.handler = async function (event, context, callback) {
   // Parse data sent from frontend and validate
-  const { amount } = JSON.parse(event.body)
+  const { amount, receiptEmail } = JSON.parse(event.body)
   if (!amount) {
-    callback(null, {
+    return {
       statusCode: 400,
       body: "No total amount",
-    })
+    }
   } else {
     console.log({ amount })
   }
@@ -21,17 +21,18 @@ exports.handler = async function (event, context, callback) {
       amount,
       currency: "myr",
       payment_method_types: ["card"],
+      receipt_email: receiptEmail ? receiptEmail : null,
     })
 
-    callback(null, {
+    return {
       statusCode: 200,
       body: JSON.stringify({ client_secret: paymentIntent.client_secret }),
-    })
+    }
   } catch (err) {
     console.log("error:", err)
-    callback(null, {
+    return {
       statusCode: 500,
       body: "Internal server error",
-    })
+    }
   }
 }

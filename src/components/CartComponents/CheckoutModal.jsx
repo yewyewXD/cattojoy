@@ -24,6 +24,7 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
     try {
       const clientSecretReq = await axios.post("/.netlify/functions/payment", {
         amount: +total * 100,
+        receiptEmail: shippingDetails.email,
       })
       const clientSecret = clientSecretReq.data.client_secret
 
