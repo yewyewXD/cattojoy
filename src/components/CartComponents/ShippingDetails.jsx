@@ -22,18 +22,24 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
     } else if (!city.isValid || !state.isValid || !postal.isValid) {
       detailLowerRef.current.scrollIntoView()
     } else {
-      setShippingDetails({
+      const shippingDetails = {
         name: name.content,
         email: email.content,
         address: {
-          line1: addressTwo.content,
-          line2: addressOne.content,
+          line1: addressOne.content,
           postal_code: postal.content,
           city: city.content,
           state: state.content,
         },
-        phone: phone.isValid ? phone.content : "",
-      })
+      }
+      if (addressTwo.isValid) {
+        shippingDetails.address.line2 = addressTwo.content
+      }
+      if (phone.isValid) {
+        shippingDetails.phone = phone.content
+      }
+
+      setShippingDetails()
     }
   }, [isValidating])
 

@@ -15,25 +15,25 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
   async function handleCreatePayment() {
     setIsCreatingPaymentIntent(true)
     console.log(shippingDetails)
-    // try {
-    //   const res = await axios.post("/.netlify/functions/payment", {
-    //     amount: +total * 100,
-    //   })
-    //   console.log(res.data)
-    //   setIsCreatingPaymentIntent(false)
+    try {
+      const res = await axios.post("/.netlify/functions/payment", {
+        amount: +total * 100,
+      })
+      console.log(res.data)
+      setIsCreatingPaymentIntent(false)
 
-    //   const cardElement = elements.getElement(CardElement)
-    //   const paymentMethodReq = stripe.createPaymentMethod({
-    //     type: "card",
-    //     card: cardElement,
-    //     billing_details: shippingDetails,
-    //   })
+      const cardElement = elements.getElement(CardElement)
+      const paymentMethodReq = await stripe.createPaymentMethod({
+        type: "card",
+        card: cardElement,
+        billing_details: shippingDetails,
+      })
 
-    //   console.log(paymentMethodReq)
-    // } catch (err) {
-    //   setIsCreatingPaymentIntent(false)
-    //   console.log(err)
-    // }
+      console.log(paymentMethodReq)
+    } catch (err) {
+      setIsCreatingPaymentIntent(false)
+      console.log(err)
+    }
   }
 
   function activateValidation(e) {
