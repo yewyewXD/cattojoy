@@ -29,7 +29,7 @@ label {
   transition: 0.2s;
 }
 
-input {
+.Input {
   height: 100%;
   width: 100%;
   border: none !important;
@@ -44,6 +44,14 @@ input {
 
     & ~ .InputLine::before {
       transform: scaleX(1);
+    }
+  }
+
+  &--error {
+    border-bottom: 2px solid $dangerColor !important;
+
+    & ~ .InputLine::before {
+      background: $dangerColor !important;
     }
   }
 }
@@ -63,12 +71,6 @@ input {
     position: absolute;
     transform: scaleX(0);
     transition: 0.2s;
-  }
-
-  &--error {
-    &::before {
-      background: $dangerColor;
-    }
   }
 }
 
