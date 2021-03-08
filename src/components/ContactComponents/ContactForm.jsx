@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import axios from "axios"
 import { handleEmailChange, handleTextChange } from "../../utils/fieldChange"
+import Spinner from "react-loader-spinner"
 
 const ContactForm = () => {
   const [name, setName] = useState({ content: "" })
@@ -8,9 +9,11 @@ const ContactForm = () => {
   const [message, setMessage] = useState({ content: "" })
 
   const [isValidating, setIsValidating] = useState(false)
+  const [isSendingMail, setIsSendingMail] = useState(false)
 
   async function handleSendMail(e) {
     e.preventDefault()
+    setIsSendingMail(true)
     if (!isValidating) setIsValidating(true)
 
     if (name.isValid && email.isValid && message.isValid) {
@@ -20,10 +23,12 @@ const ContactForm = () => {
           name: name.content,
           type: "contact",
         })
+        setIsSendingMail(false)
 
         document.getElementById("contactForm").submit()
       } catch (err) {
         console.log(err)
+        setIsSendingMail(false)
       }
     }
   }
@@ -106,7 +111,11 @@ const ContactForm = () => {
         className="actionButton btn btn-secondary btn-md mt-4"
         type="submit"
       >
-        Submit
+        {isSendingMail ? (
+          <Spinner type="ThreeDots" color="#ffffff" height={10} width={70} />
+        ) : (
+          <>Submit</>
+        )}
       </button>
     </form>
   )
