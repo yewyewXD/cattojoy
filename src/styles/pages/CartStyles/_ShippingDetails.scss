@@ -4,11 +4,16 @@
   position: relative;
   width: 100%;
   margin-bottom: 45px;
+
+  @media (max-width: $md) {
+    margin-bottom: 40px;
+  }
 }
 
 .InputContainerTight {
-  margin-bottom: 0;
+  margin-bottom: 40px;
   @media (min-width: $md) {
+    margin-bottom: 0;
     width: 32%;
   }
 }
@@ -21,10 +26,13 @@ label {
   left: 0;
   pointer-events: none;
   transition: 0.2s;
+
+  @media (max-width: $md) {
+    font-size: 18px;
+  }
 }
 
 .Input {
-  line-height: 20px;
   font-size: 19px !important;
   height: 100%;
   width: 100%;
@@ -57,6 +65,10 @@ label {
     & ~ .InputLine::before {
       background: $dangerColor !important;
     }
+  }
+
+  @media (max-width: $md) {
+    font-size: 17px !important;
   }
 }
 

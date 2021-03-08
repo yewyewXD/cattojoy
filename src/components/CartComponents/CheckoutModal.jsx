@@ -164,7 +164,7 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
           <button
             type="button"
             disabled={isCreatingPayment}
-            className="btn btn-secondary btn-md"
+            className="actionButton btn btn-secondary btn-md"
             onClick={activateValidation}
           >
             Pay {total} MYR
