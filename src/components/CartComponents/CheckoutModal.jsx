@@ -5,6 +5,7 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
 import ShippingDetails from "./ShippingDetails"
 import useDidMountEffect from "../../utils/useDidMountEffect"
 import { CartContext } from "../../context/CartContext/CartState"
+import Spinner from "react-loader-spinner"
 
 const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
   const stripe = useStripe()
@@ -167,7 +168,16 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
             className="actionButton btn btn-secondary btn-md"
             onClick={activateValidation}
           >
-            Pay {total} MYR
+            {isCreatingPayment ? (
+              <Spinner
+                type="ThreeDots"
+                color="#ffffff"
+                height={10}
+                width={110}
+              />
+            ) : (
+              <>Pay {total} MYR</>
+            )}
           </button>
         </div>
       </div>
