@@ -11,7 +11,7 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
   const elements = useElements()
   const cardElementSectionRef = useRef()
   const { clearAllProducts } = useContext(CartContext)
-  const [isCreatingPaymentIntent, setIsCreatingPaymentIntent] = useState(false)
+  const [isCreatingPayment, setIsCreatingPayment] = useState(false)
 
   const [isValidating, setIsValidating] = useState(0)
   const [shippingDetails, setShippingDetails] = useState(null)
@@ -19,7 +19,8 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
   const [cardError, setCardError] = useState(null)
 
   async function handleCreatePayment() {
-    // setIsCreatingPaymentIntent(true)
+    setIsCreatingPayment(true)
+
     try {
       const clientSecretReq = await axios.post("/.netlify/functions/payment", {
         amount: +total * 100,
@@ -38,6 +39,7 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
         const error = paymentMethodReq.error.message
         setCardError(error)
         cardElementSectionRef.current.scrollIntoView()
+        setIsCreatingPayment(false)
         return
       }
 
@@ -45,16 +47,20 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
         clientSecret,
         {
           payment_method: paymentMethodReq.paymentMethod.id,
+          receipt_email: shippingDetails.email,
         }
       )
 
-      // // after payment is successfully
-      console.log(confirmedCardPayment)
-      setIsCreatingPaymentIntent(false)
+      if (confirmedCardPayment.error) {
+        alert(confirmedCardPayment.error.message)
+      }
+
+      // After payment is successfully
+      setIsCreatingPayment(false)
       clearAllProducts()
       onCloseModal()
     } catch (err) {
-      setIsCreatingPaymentIntent(false)
+      setIsCreatingPayment(false)
       console.log(err)
     }
   }
@@ -156,7 +162,7 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
         <div className="text-right">
           <button
             type="button"
-            disabled={isCreatingPaymentIntent}
+            disabled={isCreatingPayment}
             className="btn btn-secondary btn-md"
             onClick={activateValidation}
           >
