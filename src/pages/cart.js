@@ -12,7 +12,7 @@ const CartPage = () => {
   const { products } = useContext(CartContext)
   const data = useStaticQuery(graphql`
     query {
-      file(relativePath: { eq: "CartImages/catInBasket.png" }) {
+      file(relativePath: { eq: "CartImages/catInBasket1.png" }) {
         image: childImageSharp {
           fixed(quality: 70, width: 200) {
             src
