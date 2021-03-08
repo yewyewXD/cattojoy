@@ -16,7 +16,7 @@ const Header = ({ currentPage }) => {
   `)
   const navLinks = [
     { name: "home", path: "/" },
-    { name: "blogs", path: "/" },
+    // { name: "blogs", path: "/" },
     { name: "shop", path: "/shop" },
     { name: "contact", path: "/contact" },
   ]

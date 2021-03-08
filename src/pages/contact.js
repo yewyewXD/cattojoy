@@ -42,16 +42,14 @@ const ContactPage = () => {
       name: "Catto Joy Instagram",
       link: "https://www.instagram.com/catto_joy/",
     },
-    {
-      name: "Catto Joy LinkedIn",
-      link: "https://www.linkedin.com/company/cattojoy",
-    },
-
+    // {
+    //   name: "Catto Joy LinkedIn",
+    //   link: "https://www.linkedin.com/company/cattojoy",
+    // },
     {
       name: "Catto Joy Twitter",
       link: "https://twitter.com/cattojoy",
     },
-
     {
       name: "Catto Joy TikTok",
       link: "https://www.tiktok.com/@cattojoy",
