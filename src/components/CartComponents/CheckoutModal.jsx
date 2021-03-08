@@ -16,11 +16,10 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
     setIsCreatingPaymentIntent(true)
     console.log(shippingDetails)
     try {
-      const res = await axios.post("/.netlify/functions/payment", {
+      const clientSecretReq = await axios.post("/.netlify/functions/payment", {
         amount: +total * 100,
       })
-      console.log(res.data)
-      setIsCreatingPaymentIntent(false)
+      const clientSecret = clientSecretReq.data.client_secret
 
       const cardElement = elements.getElement(CardElement)
       const paymentMethodReq = await stripe.createPaymentMethod({
@@ -29,7 +28,16 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
         billing_details: shippingDetails,
       })
 
-      console.log(paymentMethodReq)
+      const confirmedCardPayment = await stripe.confirmCardPayment(
+        clientSecret,
+        {
+          payment_method: paymentMethodReq.paymentMethod.id,
+        }
+      )
+
+      setIsCreatingPaymentIntent(false)
+
+      console.log(confirmedCardPayment)
     } catch (err) {
       setIsCreatingPaymentIntent(false)
       console.log(err)
