@@ -1,20 +1,24 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import Modal from "../ReusableComponents/Modal"
 import axios from "axios"
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
 import ShippingDetails from "./ShippingDetails"
 import useDidMountEffect from "../../utils/useDidMountEffect"
+import { CartContext } from "../../context/CartContext/CartState"
 
 const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
   const stripe = useStripe()
   const elements = useElements()
+  const { clearAllProducts } = useContext(CartContext)
   const [isCreatingPaymentIntent, setIsCreatingPaymentIntent] = useState(false)
+
   const [isValidating, setIsValidating] = useState(0)
   const [shippingDetails, setShippingDetails] = useState(null)
 
+  const [cardError, setCardError] = useState(null)
+
   async function handleCreatePayment() {
-    setIsCreatingPaymentIntent(true)
-    console.log(shippingDetails)
+    // setIsCreatingPaymentIntent(true)
     try {
       const clientSecretReq = await axios.post("/.netlify/functions/payment", {
         amount: +total * 100,
@@ -22,11 +26,17 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
       const clientSecret = clientSecretReq.data.client_secret
 
       const cardElement = elements.getElement(CardElement)
+
       const paymentMethodReq = await stripe.createPaymentMethod({
         type: "card",
         card: cardElement,
         billing_details: shippingDetails,
       })
+
+      if (paymentMethodReq.error) {
+        console.log(paymentMethodReq.error.message)
+        return
+      }
 
       const confirmedCardPayment = await stripe.confirmCardPayment(
         clientSecret,
@@ -35,9 +45,11 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
         }
       )
 
-      setIsCreatingPaymentIntent(false)
-
+      // // after payment is successfully
       console.log(confirmedCardPayment)
+      setIsCreatingPaymentIntent(false)
+      clearAllProducts()
+      onCloseModal()
     } catch (err) {
       setIsCreatingPaymentIntent(false)
       console.log(err)
@@ -54,11 +66,11 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
   }
 
   useDidMountEffect(() => {
-    if (!shippingDetails) {
-      return
-    } else {
-      handleCreatePayment()
-    }
+    // if (!shippingDetails) {
+    //   return
+    // } else {
+    handleCreatePayment()
+    // }
   }, [isValidating])
 
   return (
@@ -69,8 +81,31 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
     >
       {/* modal body */}
       <div className="CheckoutModal | py-4 px-1">
-        {/* shipping details */}
+        <div className="CardDetails | bg-white rounded shadow-sm">
+          <div className="CardDetails__Title | heading">Payment Methods</div>
+          <div className="CardElementContainer mb-0">
+            <CardElement
+              options={{
+                style: {
+                  base: {
+                    fontSize: "19px",
+                    color: "#000000",
+                    "::placeholder": {
+                      color: "#808080",
+                    },
+                  },
+                  invalid: {
+                    color: "#dc3545",
+                    iconColor: "#dc3545",
+                  },
+                },
+                hidePostalCode: true,
+              }}
+            />
+          </div>
+        </div>
 
+        {/* shipping details */}
         <ShippingDetails
           setShippingDetails={setShippingDetails}
           isValidating={isValidating}
@@ -79,7 +114,7 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
         {/* payment detail */}
         <div className="PaymentDetails | text-white rounded shadow-sm">
           <div className="TotalPrice">
-            <div className="TotalPrice__Title"> You have to pay</div>
+            <div className="TotalPrice__Title">You have to pay</div>
             <div className="d-flex align-items-end">
               <h1 className="TotalPrice__BigNumber | heading mb-0">
                 {total.indexOf(".") < 0
@@ -102,38 +137,8 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
             </div>
 
             <div className="PaymentInfoColumn">
-              <div className="PaymentInfoColumn__Title">Order number</div>
-              <div className="PaymentInfoColumn__Content">xxx</div>
-            </div>
-
-            <div className="PaymentInfoColumn">
               <div className="PaymentInfoColumn__Title">Service</div>
               <div className="PaymentInfoColumn__Content">Cat Toys</div>
-            </div>
-
-            <div className="InputContainer mb-0">
-              {/* <input id="cvv" type="text" required />
-            <div className="InputLine"></div>
-            <label htmlFor="cvv">CVV</label> */}
-
-              <CardElement
-                options={{
-                  style: {
-                    base: {
-                      fontSize: "19px",
-                      color: "white",
-                      "::placeholder": {
-                        color: "#f1f1f1",
-                      },
-                    },
-                    invalid: {
-                      color: "#dc3545",
-                      iconColor: "#dc3545",
-                    },
-                  },
-                  hidePostalCode: true,
-                }}
-              />
             </div>
           </div>
         </div>
