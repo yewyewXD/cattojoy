@@ -1,5 +1,6 @@
+/* eslint-disable */
 import React, { useContext } from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPlus } from "@fortawesome/free-solid-svg-icons"
 import { CartContext } from "../../context/CartContext/CartState"
