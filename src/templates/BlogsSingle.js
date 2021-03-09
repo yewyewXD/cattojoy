@@ -51,18 +51,20 @@ const BlogsSinglePage = props => {
           </div>
         </div>
 
-        <div className="container my-5">
-          <Img
-            fluid={props.data.contentfulBlogs.image.fluid}
-            alt={props.data.contentfulBlogs.title}
-          />
+        <div className="ArticleContainer">
+          <div className="container py-5">
+            <Img
+              fluid={props.data.contentfulBlogs.image.fluid}
+              alt={props.data.contentfulBlogs.title}
+            />
 
-          <article className="mt-5">
-            {documentToReactComponents(
-              props.data.contentfulBlogs.article.json,
-              options
-            )}
-          </article>
+            <article className="mt-5">
+              {documentToReactComponents(
+                props.data.contentfulBlogs.article.json,
+                options
+              )}
+            </article>
+          </div>
         </div>
 
         {/* <div className="py-5 mb-5 mx-auto" style={{ width: "80%" }}>
