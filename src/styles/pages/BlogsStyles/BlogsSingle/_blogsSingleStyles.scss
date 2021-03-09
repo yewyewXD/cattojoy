@@ -7,6 +7,14 @@
     &__Image {
       height: 550px;
       width: 100%;
+
+      @media (max-width: $md) {
+        height: 350px;
+      }
+
+      @media (max-width: $sm) {
+        height: 70vw;
+      }
     }
     h2 {
       margin-bottom: 1.2rem;
