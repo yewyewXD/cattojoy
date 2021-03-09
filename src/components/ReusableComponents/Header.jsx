@@ -82,7 +82,7 @@ const Header = ({ currentPage }) => {
               ))}
 
               <Link
-                className={`HeaderCart | btn btn-secondary btn-md all-center nav-link mx-3 ${
+                className={`HeaderCart | btn btn-secondary btn-md all-center nav-link mx-3 my-md-0 my-3 ${
                   currentPage === "cart" ? "active" : ""
                 }`}
                 to="/cart"
