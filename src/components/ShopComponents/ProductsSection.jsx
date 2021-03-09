@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faSearch } from "@fortawesome/free-solid-svg-icons"
+import { faPlus } from "@fortawesome/free-solid-svg-icons"
 import { CartContext } from "../../context/CartContext/CartState"
 
 const ProductsSection = ({ filterOption, viewType }) => {
@@ -150,7 +150,6 @@ const ProductsSection = ({ filterOption, viewType }) => {
               ? "col-xl-3 col-lg-4 col-sm-6"
               : "col-md-12 col-sm-6 d-flex flex-md-row flex-column"
           } text-decoration-none text-dark`}
-          to={`/products/${node.slug}`}
           key={node.id}
         >
           {/* image */}
@@ -160,16 +159,20 @@ const ProductsSection = ({ filterOption, viewType }) => {
               backgroundImage: `url(${node.previewImage.fluid.src})`,
             }}
           >
-            <Link
+            <span
               className="ProductOverlay | all-center h-100 w-100 position-absolute"
-              to={`/products/${node.slug}`}
+              // to={`/products/${node.slug}`}
+              onClick={() => {
+                handleAddProductToCart(node)
+              }}
+              role="button"
             >
               <FontAwesomeIcon
                 className="d-lg-inline-block d-none text-white"
                 size="2x"
-                icon={faSearch}
+                icon={faPlus}
               />
-            </Link>
+            </span>
           </div>
 
           {/* detail */}
