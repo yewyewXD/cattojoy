@@ -6,7 +6,7 @@ const stripe = require("stripe")(process.env.GATSBY_STRIPE_SECRET_TEST)
 
 exports.handler = async function (event, context, callback) {
   // Parse data sent from frontend and validate
-  const { amount, receiptEmail } = JSON.parse(event.body)
+  const { amount } = JSON.parse(event.body)
   if (!amount) {
     return {
       statusCode: 400,
@@ -21,7 +21,6 @@ exports.handler = async function (event, context, callback) {
       amount,
       currency: "myr",
       payment_method_types: ["card"],
-      receipt_email: receiptEmail ? receiptEmail : null,
     })
 
     return {
