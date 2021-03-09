@@ -58,10 +58,6 @@ label {
       color: $dangerColor;
     }
 
-    &:valid ~ label {
-      color: grey;
-    }
-
     & ~ .InputLine::before {
       background: $dangerColor !important;
     }
