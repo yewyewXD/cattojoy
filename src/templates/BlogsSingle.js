@@ -3,8 +3,8 @@ import { graphql } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 import Layout from "../components/Layout.jsx"
-import Img from "gatsby-image"
 import SEO from "../components/seo"
+import BackgroundImage from "gatsby-background-image"
 
 export const data = graphql`
   query($slug: String!) {
@@ -12,7 +12,7 @@ export const data = graphql`
       title
       date(formatString: "DD MMMM YYYY")
       image {
-        fluid(maxWidth: 750) {
+        fluid(maxWidth: 1600) {
           ...GatsbyContentfulFluid
         }
       }
@@ -53,7 +53,8 @@ const BlogsSinglePage = props => {
 
         <div className="ArticleContainer">
           <div className="container py-5">
-            <Img
+            <BackgroundImage
+              className="ArticleContainer__Image"
               fluid={props.data.contentfulBlogs.image.fluid}
               alt={props.data.contentfulBlogs.title}
             />
