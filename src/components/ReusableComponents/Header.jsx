@@ -1,4 +1,6 @@
 import React, { useState, useContext } from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import { CartContext } from "../../context/CartContext/CartState"
 
@@ -80,12 +82,13 @@ const Header = ({ currentPage }) => {
               ))}
 
               <Link
-                className={`nav-link mx-3 ${
+                className={`HeaderCart | btn btn-secondary btn-md all-center nav-link mx-3 ${
                   currentPage === "cart" ? "active" : ""
                 }`}
                 to="/cart"
               >
-                Cart ({productCount})
+                <FontAwesomeIcon icon={faShoppingCart} className="mr-2" />(
+                {productCount})
               </Link>
             </div>
           </div>
