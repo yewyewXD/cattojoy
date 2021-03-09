@@ -2,7 +2,7 @@ require("dotenv").config({
   path: `.env.development`,
 })
 
-const stripe = require("stripe")(process.env.STRIPE_SECRET)
+const stripe = require("stripe")(process.env.GATSBY_STRIPE_SECRET)
 
 exports.handler = async function (event, context, callback) {
   // Parse data sent from frontend and validate

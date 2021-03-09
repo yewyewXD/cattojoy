@@ -6,7 +6,7 @@ import { Elements } from "@stripe/react-stripe-js"
 
 import Header from "./ReusableComponents/Header"
 
-const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE)
+const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE)
 
 const Layout = ({ children, currentPage }) => {
   return (
