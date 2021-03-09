@@ -95,7 +95,7 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
           {/* test card tips */}
           <div className="CardDetails__TestCardMsg | rounded">
             <small>
-              Use 4242 4242 4242 4242 with random card expiry data and CVC to
+              Use 4242 4242 4242 4242 with random card expiry date and CVC to
               test the payment
             </small>
           </div>
