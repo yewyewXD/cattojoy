@@ -44,7 +44,7 @@ const BlogsSinglePage = props => {
         {/* heading */}
         <div className="Heading | py-5">
           <div className="container">
-            <h1 className="heading">{props.data.contentfulBlogs.title}</h1>
+            <h2 className="heading">{props.data.contentfulBlogs.title}</h2>
             <span className="meta">
               Posted on {props.data.contentfulBlogs.date}
             </span>

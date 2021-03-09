@@ -33,7 +33,7 @@ const CartPage = () => {
 
         <div className="container my-5 py-4">
           {/* title */}
-          <div className="mediumSize heading mb-4">Shopping Cart</div>
+          <h3 className="heading mb-4">Shopping Cart</h3>
 
           {/* categories */}
           <div className="px-3">
