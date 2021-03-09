@@ -7,9 +7,9 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 const SuccessPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      file(relativePath: { eq: "404.png" }) {
+      file(relativePath: { eq: "SuccessImages/catWithMail.png" }) {
         image: childImageSharp {
-          fixed(quality: 60, width: 500) {
+          fixed(quality: 50, width: 300) {
             src
           }
         }
@@ -25,9 +25,9 @@ const SuccessPage = () => {
           Thank you for reaching us out!
         </h2>
         <img
-          className="SuccessPage__Image | mb-sm-5 mb-4"
+          className="SuccessPage__Image | mb-sm-3 mb-2"
           src={data.file.image.fixed.src}
-          alt="404 Page Not Found"
+          alt="Cat mail by Denis Sazhin from the Noun Project"
         />
 
         <Link className="btn btn-secondary btn-lg mt-4" to="/">

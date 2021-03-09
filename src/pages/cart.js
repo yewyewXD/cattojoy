@@ -14,7 +14,7 @@ const CartPage = () => {
     query {
       file(relativePath: { eq: "CartImages/catInBasket1.png" }) {
         image: childImageSharp {
-          fixed(quality: 70, width: 200) {
+          fixed(quality: 50, width: 200) {
             src
           }
         }
