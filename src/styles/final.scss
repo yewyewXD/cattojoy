@@ -5,7 +5,7 @@
 
 // default
 body {
-  font-family: "Titillium Web", sans-serif;
+  font-family: $textFont;
   font-weight: 400;
   font-size: 21px;
   overflow-x: hidden;
@@ -15,7 +15,7 @@ body {
 
 // typography
 .heading {
-  font-family: "Amaranth", sans-serif;
+  font-family: $headingFont;
 }
 .mediumSize {
   font-size: 24px;
