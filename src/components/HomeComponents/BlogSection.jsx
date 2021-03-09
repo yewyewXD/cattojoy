@@ -41,7 +41,7 @@ const BlogSection = () => {
           {data.blogs.edges.map(blog => {
             return (
               <div
-                className="col-lg-4 all-center align-items-start mb-lg-0 mb-5"
+                className="CardColumn | col-lg-4 all-center align-items-start mb-lg-0 mb-5"
                 key={blog.node.id}
               >
                 <div className="card">
@@ -53,16 +53,18 @@ const BlogSection = () => {
                   ></div>
 
                   <div className="CardBody | card-body p-4">
-                    <div className="mb-3 heading mediumSize">
-                      {blog.node.title}
-                    </div>
-                    <div className="mb-3">
-                      {blog.node.article.markdown.excerpt.length > 150
-                        ? blog.node.article.markdown.excerpt
-                            .split(" ")
-                            .slice(0, 30)
-                            .join(" ") + "..."
-                        : blog.node.article.markdown.excerpt}
+                    <div className="CardBody__Article">
+                      <div className="mb-3 heading mediumSize">
+                        {blog.node.title}
+                      </div>
+                      <div className="mb-3">
+                        {blog.node.article.markdown.excerpt.length > 150
+                          ? blog.node.article.markdown.excerpt
+                              .split(" ")
+                              .slice(0, 30)
+                              .join(" ") + "..."
+                          : blog.node.article.markdown.excerpt}
+                      </div>
                     </div>
                     <Link
                       to={`/blogs/${blog.node.slug}`}

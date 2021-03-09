@@ -17,9 +17,25 @@
   }
 
   .BlogSection {
+    .CardColumn {
+      min-height: 100%;
+    }
+
+    .card {
+      height: 100%;
+    }
+
     .CardImage {
       height: 200px;
       width: 100%;
+    }
+
+    .CardBody {
+      display: flex;
+      flex-direction: column;
+      &__Article {
+        flex-grow: 1;
+      }
     }
 
     @media (max-width: $md) {
