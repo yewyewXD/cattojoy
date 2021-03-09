@@ -13,10 +13,10 @@ const ContactForm = () => {
 
   async function handleSendMail(e) {
     e.preventDefault()
-    setIsSendingMail(true)
     if (!isValidating) setIsValidating(true)
 
     if (name.isValid && email.isValid && message.isValid) {
+      setIsSendingMail(true)
       try {
         await axios.post("/.netlify/functions/mailing", {
           email: email.content,
