@@ -92,6 +92,13 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
       <div className="CheckoutModal | py-4 px-1">
         <div className="CardDetails | bg-white rounded shadow-sm">
           <div className="CardDetails__Title | heading">Payment Methods</div>
+          {/* test card tips */}
+          <div className="CardDetails__TestCardMsg | rounded">
+            <small>
+              Use 4242 4242 4242 4242 with random card expiry data and CVC to
+              test the payment
+            </small>
+          </div>
           <div ref={cardElementSectionRef}></div>
           <div className="CardElementContainer | border rounded mb-0">
             <CardElement
