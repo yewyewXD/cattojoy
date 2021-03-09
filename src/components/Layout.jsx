@@ -30,7 +30,7 @@ const Layout = ({ children, currentPage }) => {
       </Elements>
 
       {/* footer */}
-      {currentPage !== "404" && (
+      {currentPage !== "404" && currentPage !== "success" && (
         <footer className="Footer | py-3 text-center">
           <span className="heading">Catto Joy</span> © All Rights Reserved
         </footer>
