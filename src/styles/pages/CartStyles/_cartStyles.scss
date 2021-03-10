@@ -17,6 +17,9 @@
   }
 
   .SuccessModal {
+    background: $themeColor;
+    padding: 12px 0;
+    color: white;
     @import "./SuccessModal";
   }
 }
