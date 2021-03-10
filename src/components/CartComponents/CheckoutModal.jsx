@@ -97,7 +97,7 @@ const CheckoutModal = ({
       {/* modal body */}
       <div className="CheckoutModal | py-4 px-1">
         <div className="CardDetails | bg-white rounded shadow-sm">
-          <div className="CardDetails__Title | heading">Payment Methods</div>
+          <div className="CardDetails__Title | heading mb-md-3 mb-2">Payment Details</div>
           {/* test card tips */}
           <div className="CardDetails__TestCardMsg | rounded">
             <small>

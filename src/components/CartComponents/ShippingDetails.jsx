@@ -40,7 +40,7 @@ const ShippingDetails = ({ setShippingDetails, isValidating }) => {
   return (
     <div className="ShippingDetails | bg-white rounded shadow-sm">
       <div ref={detailUpperRef}></div>
-      <h5 className="ShippingDetails__Title | heading">SHIPPING DETAILS</h5>
+      <h5 className="ShippingDetails__Title | heading">Shipping Details</h5>
 
       <div className="InputContainer">
         <input
