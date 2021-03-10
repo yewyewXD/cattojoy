@@ -148,12 +148,11 @@ const CheckoutModal = ({
                   ? total
                   : total.substr(0, total.indexOf("."))}
               </h1>
-              {total.indexOf(".") > -1 && (
-                <h3 className="TotalPrice__SmallNumber | heading m-0">
-                  {total.substr(total.indexOf("."), total.length - 1)}
-                  <span className="TotalPrice__Currency"> MYR</span>
-                </h3>
-              )}
+              <h3 className="TotalPrice__SmallNumber | heading m-0">
+                {total.indexOf(".") > -1 &&
+                  total.substr(total.indexOf("."), total.length - 1)}
+                <span className="TotalPrice__Currency"> MYR</span>
+              </h3>
             </div>
           </div>
 
