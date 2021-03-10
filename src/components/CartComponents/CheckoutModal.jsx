@@ -52,6 +52,7 @@ const CheckoutModal = ({
         clientSecret,
         {
           payment_method: paymentMethodReq.paymentMethod.id,
+          receipt_email: shippingDetails.email,
         }
       )
 
