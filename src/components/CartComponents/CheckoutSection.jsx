@@ -11,7 +11,7 @@ const CheckoutSection = () => {
   const { products, clearAllProducts } = useContext(CartContext)
 
   const [modalIsOpen, setModalIsOpen] = useState(false)
-  const [successModalIsOpen, setSuccessModalIsOpen] = useState(false)
+  const [successModalIsOpen, setSuccessModalIsOpen] = useState(true)
   const [checkoutInfo, setCheckoutInfo] = useState(null)
 
   function getTotalPrice() {
@@ -67,13 +67,15 @@ const CheckoutSection = () => {
         onCheckoutSuccess={onCheckoutSuccess}
       />
 
-      <SuccessModal
-        isOpen={successModalIsOpen && checkoutInfo}
-        checkoutInfo={checkoutInfo}
-        onCloseModal={() => {
-          setSuccessModalIsOpen(false)
-        }}
-      />
+      {checkoutInfo && (
+        <SuccessModal
+          isOpen={successModalIsOpen}
+          checkoutInfo={checkoutInfo}
+          onCloseModal={() => {
+            setSuccessModalIsOpen(false)
+          }}
+        />
+      )}
     </section>
   )
 }
