@@ -5,6 +5,7 @@ import {
   handleFixPriceToTwoDecimals,
 } from "../../utils/price"
 import CheckoutModal from "./CheckoutModal"
+import SuccessModal from "./SuccessModal"
 
 const CheckoutSection = () => {
   const { products } = useContext(CartContext)
@@ -55,6 +56,8 @@ const CheckoutSection = () => {
           setModalIsOpen(false)
         }}
       />
+
+      <SuccessModal />
     </section>
   )
 }
