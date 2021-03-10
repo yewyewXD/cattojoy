@@ -1,15 +1,13 @@
 import React from "react"
 import Modal from "../ReusableComponents/Modal"
 
-const SuccessModal = ({ isOpen }) => {
+const SuccessModal = ({ isOpen, onCloseModal }) => {
   return (
     <div>
       <Modal
         // title="Confirm order and pay"
         isShowing={isOpen}
-        onCloseModal={() => {
-          console.log("ok")
-        }}
+        onCloseModal={onCloseModal}
       >
         <div className="SuccessModal">testing</div>
       </Modal>
