@@ -1,0 +1,11 @@
+.PaymentInfo {
+  padding: 0 36px;
+}
+
+.PaymentInfoColumn {
+  &__Title {
+    opacity: 0.8;
+    font-size: 19px;
+  }
+  margin: 36px 0;
+}
