@@ -24,7 +24,7 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
 
     try {
       const clientSecretReq = await axios.post("/.netlify/functions/payment", {
-        amount: +total * 100,
+        amount: +(+total * 100).toFixed(2),
       })
       const clientSecret = clientSecretReq.data.client_secret
 
@@ -56,6 +56,7 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
       }
 
       // After payment is successfully
+      console.log(confirmedCardPayment.paymentIntent)
       setIsCreatingPayment(false)
       clearAllProducts()
       onCloseModal()
