@@ -24,10 +24,11 @@ const CheckoutModal = ({
 
   async function handleCreatePayment() {
     setIsCreatingPayment(true)
+    const finalTotal = +(+total * 100).toFixed(2)
 
     try {
       const clientSecretReq = await axios.post("/.netlify/functions/payment", {
-        amount: +(+total * 100).toFixed(2),
+        amount: finalTotal,
       })
       const clientSecret = clientSecretReq.data.client_secret
 
@@ -56,11 +57,13 @@ const CheckoutModal = ({
 
       if (confirmedCardPayment.error) {
         alert(confirmedCardPayment.error.message)
+        setIsCreatingPayment(false)
+        return
       }
 
       // After payment is successfully
       setIsCreatingPayment(false)
-      onCheckoutSuccess(confirmedCardPayment.paymentIntent)
+      onCheckoutSuccess(paymentMethodReq.paymentMethod, finalTotal)
     } catch (err) {
       setIsCreatingPayment(false)
       console.log(err)
