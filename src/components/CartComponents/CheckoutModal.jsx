@@ -1,17 +1,20 @@
-import React, { useState, useContext, useRef } from "react"
+import React, { useState, useRef } from "react"
 import Modal from "../ReusableComponents/Modal"
 import axios from "axios"
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
 import ShippingDetails from "./ShippingDetails"
 import useDidMountEffect from "../../utils/useDidMountEffect"
-import { CartContext } from "../../context/CartContext/CartState"
 import Spinner from "react-loader-spinner"
 
-const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
+const CheckoutModal = ({
+  isShowing,
+  onCloseModal,
+  total,
+  onCheckoutSuccess,
+}) => {
   const stripe = useStripe()
   const elements = useElements()
   const cardElementSectionRef = useRef()
-  const { clearAllProducts } = useContext(CartContext)
   const [isCreatingPayment, setIsCreatingPayment] = useState(false)
 
   const [isValidating, setIsValidating] = useState(0)
@@ -56,10 +59,8 @@ const CheckoutModal = ({ isShowing, onCloseModal, total }) => {
       }
 
       // After payment is successfully
-      console.log(confirmedCardPayment.paymentIntent)
       setIsCreatingPayment(false)
-      clearAllProducts()
-      onCloseModal()
+      onCheckoutSuccess(confirmedCardPayment.paymentIntent)
     } catch (err) {
       setIsCreatingPayment(false)
       console.log(err)

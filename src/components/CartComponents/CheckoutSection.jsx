@@ -8,9 +8,10 @@ import CheckoutModal from "./CheckoutModal"
 import SuccessModal from "./SuccessModal"
 
 const CheckoutSection = () => {
-  const { products } = useContext(CartContext)
+  const { products, clearAllProducts } = useContext(CartContext)
 
   const [modalIsOpen, setModalIsOpen] = useState(false)
+  const [successModalIsOpen, setSuccessModalIsOpen] = useState(false)
 
   function getTotalPrice() {
     if (products.length > 0) {
@@ -22,6 +23,13 @@ const CheckoutSection = () => {
     } else {
       return 0
     }
+  }
+
+  function onCheckoutSuccess(paymentIntent) {
+    console.log("we got it", paymentIntent)
+    clearAllProducts()
+    setModalIsOpen(false)
+    setSuccessModalIsOpen(true)
   }
 
   return (
@@ -55,9 +63,10 @@ const CheckoutSection = () => {
         onCloseModal={() => {
           setModalIsOpen(false)
         }}
+        onCheckoutSuccess={onCheckoutSuccess}
       />
 
-      <SuccessModal />
+      <SuccessModal isOpen={successModalIsOpen} />
     </section>
   )
 }
