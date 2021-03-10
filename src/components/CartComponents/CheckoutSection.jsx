@@ -12,6 +12,7 @@ const CheckoutSection = () => {
 
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [successModalIsOpen, setSuccessModalIsOpen] = useState(false)
+  const [checkoutInfo, setCheckoutInfo] = useState(null)
 
   function getTotalPrice() {
     if (products.length > 0) {
@@ -25,11 +26,11 @@ const CheckoutSection = () => {
     }
   }
 
-  function onCheckoutSuccess(paymentIntent) {
-    console.log("we got it", paymentIntent)
+  function onCheckoutSuccess(paymentMethod, finalTotal) {
     clearAllProducts()
     setModalIsOpen(false)
     setSuccessModalIsOpen(true)
+    setCheckoutInfo({ ...paymentMethod, total: finalTotal })
   }
 
   return (
@@ -66,7 +67,13 @@ const CheckoutSection = () => {
         onCheckoutSuccess={onCheckoutSuccess}
       />
 
-      <SuccessModal isOpen={successModalIsOpen} />
+      <SuccessModal
+        isOpen={successModalIsOpen && checkoutInfo}
+        checkoutInfo={checkoutInfo}
+        onCloseModal={() => {
+          setSuccessModalIsOpen(false)
+        }}
+      />
     </section>
   )
 }
